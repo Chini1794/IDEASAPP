@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="IDEASAPP.Views.PortalPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        
+        
+        <StackLayout Padding="10,10,10,10">
+            <Label Text="Sugerencias"
+               HorizontalOptions="Center" 
+                     FontSize="30"
+                   FontAttributes="Bold"
+                   />
+            <Label Text="Dinos lo que piensas"
+                    FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                               FontSize="12"
+                   
+                  />
+            <Button VerticalOptions="Center" Text="Iniciar Sesión" Command="{Binding StartCommand} "  Margin="0, 420, 0, 5"/>
+            <Label Text="Registrarse"
+                    TextDecorations="Underline"
+                   HorizontalOptions="Center" 
+                    FontSize="12">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding RegistroCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

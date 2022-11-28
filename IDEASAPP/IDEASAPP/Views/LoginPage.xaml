@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="IDEASAPP.Views.LoginPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+
+
+        <StackLayout Padding="10,0,10,0" >
+            <Label Text="Inicio de Sesión"
+               HorizontalOptions="Center" 
+                     FontSize="30"
+                   FontAttributes="Bold"
+                    Margin="0, 0, 0, 100"
+                   />
+            <Label Text="Correo" FontSize="Medium" />
+            <Entry Text="{Binding Correo, Mode=TwoWay}" FontSize="Medium" />
+            <Label Text="Contraseña" FontSize="Medium"   />
+            <Entry Text="{Binding Contraseña, Mode=TwoWay}" FontSize="Medium" IsPassword="true"  />
+            <Label Text="Olvidé mi contraseña" HorizontalOptions="End" FontSize="12" Margin="0, 0, 0, 50" TextDecorations="Underline"/>
+            <Button VerticalOptions="Center" Text="Ingresar" Command="{Binding LoginCommand}" Margin="0, 0, 0, 80"/>
+            <Button VerticalOptions="Center" Text="Invitado" Command="{Binding LoginCommand}" Margin="0, 0, 0, 80"/>
+            <Label Text="Registrarse"
+                    TextDecorations="Underline"
+                   HorizontalOptions="Center" 
+                    FontSize="12">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding RegistroCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
