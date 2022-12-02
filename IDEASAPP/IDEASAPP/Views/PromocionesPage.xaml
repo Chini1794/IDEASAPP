@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IDEASAPP.Views.PromocionesPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+
+                <Label FontSize="20" Text="Promociones Disponibles" FontAttributes="Bold"  HorizontalTextAlignment="Center" Margin="0,25,0,0"/>
+                <Entry Placeholder="Buscar" HorizontalOptions="Center" WidthRequest="350" Margin="0,0,0,30"/>
+
+
+
+
+                <StackLayout Orientation="Vertical">
+
+                    <Frame CornerRadius="30"
+                                   WidthRequest="100" HeightRequest="100">
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="https://stringfixer.com/files/127986454.jpg" Aspect="AspectFill" VerticalOptions="Center" HeightRequest="100" WidthRequest="100" Margin="0,0,30,0"/>
+                            <StackLayout Orientation="Vertical">
+                                <Label FontSize="18" Text="Tienda Aliss" FontAttributes="Bold" HorizontalOptions="Start"/>
+                                <Label FontSize="12" Text="20% Mercaderia Seleccionada"  HorizontalOptions="Start"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                    </Frame>
+                    <Frame CornerRadius="30"
+                                   WidthRequest="100" HeightRequest="100">
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="https://upload.wikimedia.org/wikipedia/en/thumb/b/b3/Taco_Bell_2016.svg/640px-Taco_Bell_2016.svg.png" Aspect="AspectFit" VerticalOptions="Center" HeightRequest="100" WidthRequest="100" Margin="0,0,30,0"/>
+                            <StackLayout Orientation="Vertical">
+                                <Label FontSize="18" Text="Taco Bell" FontAttributes="Bold" HorizontalOptions="Start"/>
+                                <Label FontSize="12" Text="2x1 Combo #6"  HorizontalOptions="Start"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                    </Frame>
+                    
+                    <Frame CornerRadius="30"
+                                   WidthRequest="100" HeightRequest="100">
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="https://seeklogo.com/images/S/smart-fit-logo-1A613F03DC-seeklogo.com.png" Aspect="AspectFit" VerticalOptions="Center" HeightRequest="100" WidthRequest="100" Margin="0,0,30,0"/>
+                            <StackLayout Orientation="Vertical">
+                                <Label FontSize="18" Text="Smart Fit" FontAttributes="Bold" HorizontalOptions="Start"/>
+                                <Label FontSize="12" Text="25% Subscripcion Anual"  HorizontalOptions="Start"/>
+                            </StackLayout>
+                        </StackLayout>
+                        
+
+                    </Frame>
+                    <Frame CornerRadius="30"
+                                   WidthRequest="100" HeightRequest="100">
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="https://ampm.cr/wp-content/uploads/2020/08/logo-AMPM.png" Aspect="AspectFit" VerticalOptions="Center" HeightRequest="100" WidthRequest="100" Margin="0,0,30,0"/>
+                            <StackLayout Orientation="Vertical">
+                                <Label FontSize="18" Text="AMPM" FontAttributes="Bold" HorizontalOptions="Start"/>
+                                <Label FontSize="12" Text="40% Compras mayores a 10.000crc"  HorizontalOptions="Start"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                    </Frame>
+
+                    <Frame CornerRadius="30"
+                                   WidthRequest="100" HeightRequest="100">
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="https://extremos.cr/wp-content/uploads/2018/05/logo-extremos.png" Aspect="AspectFit" VerticalOptions="Center" HeightRequest="100" WidthRequest="100" Margin="0,0,30,0"/>
+                            <StackLayout Orientation="Vertical">
+                                <Label FontSize="18" Text="Extremos" FontAttributes="Bold" HorizontalOptions="Start"/>
+                                <Label FontSize="12" Text="10% Tennis Adidas"  HorizontalOptions="Start"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

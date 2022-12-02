@@ -21,8 +21,8 @@
             <Label Text="Contraseña" FontSize="Medium"   />
             <Entry Text="{Binding Contraseña, Mode=TwoWay}" FontSize="Medium" IsPassword="true"  />
             <Label Text="Olvidé mi contraseña" HorizontalOptions="End" FontSize="12" Margin="0, 0, 0, 50" TextDecorations="Underline"/>
-            <Button VerticalOptions="Center" Text="Ingresar" Command="{Binding LoginCommand}" Margin="0, 0, 0, 80"/>
-            <Button VerticalOptions="Center" Text="Invitado" Command="{Binding LoginCommand}" Margin="0, 0, 0, 80"/>
+            <Button VerticalOptions="Center" Text="Ingresar" Command="{Binding LoginCommand}" Margin="0, 0, 0, 80" CornerRadius="60" HorizontalOptions="Center"/>
+            <Button VerticalOptions="Center" Text="Invitado" Command="{Binding LoginCommand}" Margin="0, 0, 0, 80" CornerRadius="60" HorizontalOptions="Center"/>
             <Label Text="Registrarse"
                     TextDecorations="Underline"
                    HorizontalOptions="Center" 

@@ -43,10 +43,10 @@
     </TabBar>
     <TabBar Route="Home">
         <ShellContent Title="Inicio" Icon="icon_inicio.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
-        <ShellContent Title="Buscar" Icon="icon_buscar.png" ContentTemplate="{DataTemplate local:ItemsPage}" />
-        <ShellContent Title="Evaluado" Icon="icon_evaluaciones.png" ContentTemplate="{DataTemplate local:ItemsPage}" />
-        <ShellContent Title="Promociones" Icon="icon_promociones.png" ContentTemplate="{DataTemplate local:ItemsPage}" />
-        <ShellContent Title="Cuenta" Icon="icon_cuenta.png" ContentTemplate="{DataTemplate local:ItemsPage}" />
+        <ShellContent Title="Buscar" Icon="icon_buscar.png" ContentTemplate="{DataTemplate local:BusquedaPage}" />
+        <ShellContent Title="Evaluado" Icon="icon_evaluaciones.png" ContentTemplate="{DataTemplate local:EvaluadoPage}" />
+        <ShellContent Title="Promociones" Icon="icon_promociones.png" ContentTemplate="{DataTemplate local:PromocionesPage}" />
+        <ShellContent Title="Cuenta" Icon="icon_cuenta.png" ContentTemplate="{DataTemplate local:CuentaPage}" />
     </TabBar>
 
     <!--

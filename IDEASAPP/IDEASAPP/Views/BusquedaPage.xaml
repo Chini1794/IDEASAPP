@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IDEASAPP.Views.BusquedaPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout>
+
+                <Label FontSize="20" Text="Lugares más populares" FontAttributes="Bold"  HorizontalTextAlignment="Center" Margin="0,25,0,0"/>
+                <Entry Placeholder="Buscar" HorizontalOptions="Center" WidthRequest="350" Margin="0,0,0,30"/>
+
+            
+                <Label FontSize="12" Text="12-22 March"  HorizontalOptions="Start" Margin="0,0,0,-5"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label FontSize="14" Text="Historial de Busqueda" FontAttributes="Bold" VerticalOptions="Start"/>
+                 <Label FontSize="12" Text="Eliminar"  VerticalOptions="End" TextColor="Red"/>
+                </StackLayout>
+            
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center"   VerticalOptions="Center">
+
+                    <Frame  CornerRadius="30"
+                                   WidthRequest="150" HeightRequest="150">
+                        <StackLayout>
+                            <Image Source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT89qaVXgwadQSTNYfFnHAhTdmrvfdczJZiabdfQ9XMHSpYJqIL8WHtejCbPBqxB4grSbU" Aspect="AspectFit" HeightRequest="70" WidthRequest="70"/>
+                            <Label FontSize="14" Text="Musmanni el Parque" FontAttributes="Bold" HorizontalOptions="Start"/>
+                            <Label FontSize="12" Text="Puntos: 450"  HorizontalOptions="Start"/>
+                        </StackLayout>
+
+                    </Frame>
+                    <Frame CornerRadius="30"
+                                   WidthRequest="150" HeightRequest="150">
+                        <StackLayout>
+                            <Image Source="https://stringfixer.com/files/127986454.jpg" Aspect="AspectFit" HeightRequest="70" WidthRequest="70"/>
+                            <Label FontSize="14" Text="Restaurante la Adelita" FontAttributes="Bold" HorizontalOptions="Start"/>
+                            <Label FontSize="12" Text="Puntos: 500"  HorizontalOptions="Start"/>
+                        </StackLayout>
+
+                    </Frame>
+
+
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center"   VerticalOptions="Center">
+
+                    <Frame  CornerRadius="30"
+                                   WidthRequest="150" HeightRequest="150">
+                        <StackLayout>
+                            <Image Source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT89qaVXgwadQSTNYfFnHAhTdmrvfdczJZiabdfQ9XMHSpYJqIL8WHtejCbPBqxB4grSbU" Aspect="AspectFit" HeightRequest="70" WidthRequest="70"/>
+                            <Label FontSize="14" Text="Parque la Sabana" FontAttributes="Bold" HorizontalOptions="Start"/>
+                            <Label FontSize="12" Text="Puntos: 450"  HorizontalOptions="Start"/>
+                        </StackLayout>
+
+                    </Frame>
+                    <Frame CornerRadius="30"
+                                   WidthRequest="150" HeightRequest="150">
+                        <StackLayout>
+                            <Image Source="https://stringfixer.com/files/127986454.jpg" Aspect="AspectFit" HeightRequest="70" WidthRequest="70"/>
+                            <Label FontSize="14" Text="Hotel Talamanca" FontAttributes="Bold" HorizontalOptions="Start"/>
+                            <Label FontSize="12" Text="Puntos: 500"  HorizontalOptions="Start"/>
+                        </StackLayout>
+
+                    </Frame>
+
+
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

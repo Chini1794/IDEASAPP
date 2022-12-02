@@ -21,7 +21,7 @@
                                FontSize="12"
                    
                   />
-            <Button VerticalOptions="Center" Text="Iniciar Sesión" Command="{Binding StartCommand} "  Margin="0, 420, 0, 5"/>
+            <Button VerticalOptions="Center" Text="Iniciar Sesión" Command="{Binding StartCommand} "  Margin="0, 420, 0, 5" CornerRadius="60" HorizontalOptions="Center"/>
             <Label Text="Registrarse"
                     TextDecorations="Underline"
                    HorizontalOptions="Center" 

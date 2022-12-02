@@ -3,50 +3,228 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IDEASAPP.Views.AboutPage"
              xmlns:vm="clr-namespace:IDEASAPP.ViewModels"
-             Title="{Binding Title}">
-    
+            Shell.NavBarIsVisible="False">
+
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Accent">#96d1ff</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid>
+    <ScrollView>
+    <Grid RowSpacing="0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
-                    <Image Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="64" />
-                </ContentView>
-            </StackLayout>
-        </StackLayout>
-        <ScrollView Grid.Row="1">
-            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
-                <Label Text="Start developing now" FontSize="Title"/>
-                <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="0,0,0,0"/>
-                <Label FontSize="16" Padding="0,24,0,0">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <FormattedString.Spans>
-                                <Span Text="Learn more at "/>
-                                <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                            </FormattedString.Spans>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <Button Margin="0,10,0,0" Text="Learn more"
-                        Command="{Binding OpenWebCommand}"
-                        BackgroundColor="{StaticResource Primary}"
-                        TextColor="White" />
-            </StackLayout>
-        </ScrollView>
-    </Grid>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
+        <Image Grid.Row="0" Grid.Column="0"
+               Opacity="0.7"
+           Source="https://images.visitarcostarica.com/turismo-en-san-jose.jpg"
+           HorizontalOptions="FillAndExpand"
+           VerticalOptions="StartAndExpand" 
+           Aspect="AspectFill"   
+               HeightRequest="415"
+               />
+
+            <Frame HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="30" Grid.Row="0" Grid.Column="0" WidthRequest="300" Margin="0,315,0,0">
+
+            <StackLayout >
+
+                <Entry Placeholder="Buscar" HorizontalOptions="Fill"/>
+
+                <Label FontSize="16" Text="Seleccionar Fecha" HorizontalOptions="Center"/>
+                <Label FontSize="16" Text="12 Mayo - 22 Mayo" FontAttributes="Bold" HorizontalOptions="Center"/>
+
+
+                <Button Text="Buscar Lugar" CornerRadius="60" />
+            </StackLayout>
+
+        </Frame>
+            <Label FontSize="16" Text="Busquedas Recientes" FontAttributes="Bold" Grid.Row="1" Margin="10,50,0,0" VerticalOptions="Start"/>
+
+
+            <ScrollView Orientation="Horizontal" Margin="0,90,0,10" Grid.Row="1"  HeightRequest="160">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center"   VerticalOptions="Center">
+
+                    <Frame  CornerRadius="30"
+                                       WidthRequest="100" HeightRequest="100">
+                            <StackLayout>
+                                <Image Source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT89qaVXgwadQSTNYfFnHAhTdmrvfdczJZiabdfQ9XMHSpYJqIL8WHtejCbPBqxB4grSbU" Aspect="AspectFit" HeightRequest="70" WidthRequest="70"/>
+                                <Label FontSize="14" Text="Tienda ADN" FontAttributes="Bold" HorizontalOptions="Start"/>
+                                <Label FontSize="12" Text="Puntos: 450"  HorizontalOptions="Start"/>
+                            </StackLayout>
+
+                        </Frame>
+                    <Frame CornerRadius="30"
+                                       WidthRequest="100" HeightRequest="100">
+                            <StackLayout>
+                                <Image Source="https://stringfixer.com/files/127986454.jpg" Aspect="AspectFit" HeightRequest="70" WidthRequest="70"/>
+                                <Label FontSize="14" Text="Aliss" FontAttributes="Bold" HorizontalOptions="Start"/>
+                                <Label FontSize="12" Text="Puntos: 500"  HorizontalOptions="Start"/>
+                            </StackLayout>
+
+                        </Frame>
+                    <Frame CornerRadius="30"
+                                       WidthRequest="100" HeightRequest="100">
+                            <StackLayout>
+                                <Image Source="https://www.grupobritt.com/assets/img/logo-cafebritt-fullres-min.png" Aspect="AspectFit" VerticalOptions="Center" HeightRequest="70" WidthRequest="70"/>
+                                <Label FontSize="14" Text="Britt" FontAttributes="Bold" HorizontalOptions="Start"/>
+                                <Label FontSize="12" Text="Puntos: 600"  HorizontalOptions="Start"/>
+                            </StackLayout>
+
+                        </Frame>
+
+                </StackLayout>
+
+        </ScrollView>
+
+
+        <Label FontSize="16" Text="Lugares más populares" FontAttributes="Bold" HorizontalOptions="Start" Margin="10,50,0,0" Grid.Row="2"/>
+
+        <StackLayout Orientation="Vertical" Grid.Row="2" Margin="0,90,0,10">
+
+            <Frame CornerRadius="30"
+                                   WidthRequest="100" HeightRequest="100">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="https://facturaelectronica.mipueblocr.com/resources/Companies/123/Logo/musmanni_palmares.png" Aspect="AspectFill" VerticalOptions="Center" HeightRequest="100" WidthRequest="100" Margin="0,0,30,0"/>
+                        <StackLayout Orientation="Vertical">
+                            <Label FontSize="18" Text="Mussmani Heredia" FontAttributes="Bold" HorizontalOptions="Start"/>
+                            <Label FontSize="14" Text="Heredia, Diagonal al parque central"  HorizontalOptions="Start"/>
+                            <Label FontSize="14" Text="Distancia: 600m"  HorizontalOptions="Start"/>
+                            <Label FontSize="14" Text="Calificación: 4.5"  HorizontalOptions="Start"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                </Frame>
+            <Frame CornerRadius="30"
+                                   WidthRequest="100" HeightRequest="100">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="https://tumallsanpedro.com/wp-content/uploads/2016/01/Local_icon.jpg" Aspect="AspectFill" VerticalOptions="Center" HeightRequest="100" WidthRequest="100" Margin="0,0,30,0"/>
+                        <StackLayout Orientation="Vertical">
+                            <Label FontSize="18" Text="Tienda iCon" FontAttributes="Bold" HorizontalOptions="Start"/>
+                            <Label FontSize="14" Text="Alajuela, Plaza Antares"  HorizontalOptions="Start"/>
+                            <Label FontSize="14" Text="Distancia: 7km"  HorizontalOptions="Start"/>
+                            <Label FontSize="14" Text="Calificación: 4.5"  HorizontalOptions="Start"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                </Frame>
+            <Frame CornerRadius="30"
+                                   WidthRequest="100" HeightRequest="100">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="https://www.coopeande1.com/sites/default/files/2021-01/gollo_logo.png" Aspect="AspectFill" VerticalOptions="Center" HeightRequest="100" WidthRequest="100" Margin="0,0,30,0"/>
+                        <StackLayout Orientation="Vertical">
+                            <Label FontSize="18" Text="Tienda Gollo" FontAttributes="Bold" HorizontalOptions="Start"/>
+                            <Label FontSize="14" Text="Puntos: 600"  HorizontalOptions="Start"/>
+                            <Label FontSize="14" Text="Distancia: 600m"  HorizontalOptions="Start"/>
+                            <Label FontSize="14" Text="Calificación: 4.5"  HorizontalOptions="Start"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                </Frame>
+
+        </StackLayout>
+    </Grid>
+    </ScrollView>
+    <!--<StackLayout Orientation="Vertical"  HorizontalOptions="Center"  >
+        <ScrollView >
+
+            <StackLayout HorizontalOptions="CenterAndExpand" >
+
+                <Image Source="https://images.visitarcostarica.com/turismo-en-san-jose.jpg"  Aspect="AspectFill" Opacity="0.7"
+                    WidthRequest="400"
+                           HeightRequest="400"   />
+
+
+                <Label FontSize="16" Text="Busquedas Recientes" FontAttributes="Bold" HorizontalOptions="Start" Margin="10,0,0,0"/>
+                <ScrollView Orientation="Horizontal" HeightRequest="120">
+                    <StackLayout Orientation="Horizontal">
+
+                        <Frame CornerRadius="30"
+                                   WidthRequest="100" HeightRequest="100"></Frame>
+                        <Frame CornerRadius="30"
+                                   WidthRequest="100" HeightRequest="100"></Frame>
+                        <Frame CornerRadius="30"
+                                   WidthRequest="100" HeightRequest="100"></Frame>
+
+                    </StackLayout>
+
+                </ScrollView>
+
+                <Label FontSize="16" Text="Lugares más populares" FontAttributes="Bold" HorizontalOptions="Start" Margin="10,0,0,0"/>
+
+                <StackLayout Orientation="Vertical">
+
+                    <Frame CornerRadius="30"
+                                   WidthRequest="100" HeightRequest="100"></Frame>
+                    <Frame CornerRadius="30"
+                                   WidthRequest="100" HeightRequest="100"></Frame>
+                    <Frame CornerRadius="30"
+                                   WidthRequest="100" HeightRequest="100"></Frame>
+
+                </StackLayout>
+
+
+
+
+
+            </StackLayout>
+
+        </ScrollView>
+
+    </StackLayout>-->
 </ContentPage>
+
+<!--<StackLayout Orientation="Vertical"  HorizontalOptions="Center"  >
+        <ScrollView >
+
+            <StackLayout HorizontalOptions="CenterAndExpand" >
+
+                <Image Source="https://images.visitarcostarica.com/turismo-en-san-jose.jpg"  Aspect="AspectFill" Opacity="0.7"
+                    WidthRequest="400"
+                           HeightRequest="400"   />
+
+
+                <Label FontSize="16" Text="Busquedas Recientes" FontAttributes="Bold" HorizontalOptions="Start" Margin="10,0,0,0"/>
+                <ScrollView Orientation="Horizontal" HeightRequest="120">
+                    <StackLayout Orientation="Horizontal">
+
+                        <Frame CornerRadius="30"
+                                   WidthRequest="100" HeightRequest="100"></Frame>
+                        <Frame CornerRadius="30"
+                                   WidthRequest="100" HeightRequest="100"></Frame>
+                        <Frame CornerRadius="30"
+                                   WidthRequest="100" HeightRequest="100"></Frame>
+
+                    </StackLayout>
+
+                </ScrollView>
+
+                <Label FontSize="16" Text="Lugares más populares" FontAttributes="Bold" HorizontalOptions="Start" Margin="10,0,0,0"/>
+
+                <StackLayout Orientation="Vertical">
+
+                    <Frame CornerRadius="30"
+                                   WidthRequest="100" HeightRequest="100"></Frame>
+                    <Frame CornerRadius="30"
+                                   WidthRequest="100" HeightRequest="100"></Frame>
+                    <Frame CornerRadius="30"
+                                   WidthRequest="100" HeightRequest="100"></Frame>
+
+                </StackLayout>
+
+
+
+
+
+            </StackLayout>
+
+        </ScrollView>
+
+    </StackLayout>-->
+
