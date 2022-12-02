@@ -22,7 +22,7 @@
                     <Frame  CornerRadius="30"
                                    WidthRequest="150" HeightRequest="150">
                         <StackLayout>
-                            <Image Source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT89qaVXgwadQSTNYfFnHAhTdmrvfdczJZiabdfQ9XMHSpYJqIL8WHtejCbPBqxB4grSbU" Aspect="AspectFit" HeightRequest="70" WidthRequest="70"/>
+                            <Image Source="https://facturaelectronica.mipueblocr.com/resources/Companies/123/Logo/musmanni_palmares.png" Aspect="AspectFit" HeightRequest="100" WidthRequest="100"/>
                             <Label FontSize="14" Text="Musmanni el Parque" FontAttributes="Bold" HorizontalOptions="Start"/>
                             <Label FontSize="12" Text="Puntos: 450"  HorizontalOptions="Start"/>
                         </StackLayout>
@@ -31,7 +31,7 @@
                     <Frame CornerRadius="30"
                                    WidthRequest="150" HeightRequest="150">
                         <StackLayout>
-                            <Image Source="https://stringfixer.com/files/127986454.jpg" Aspect="AspectFit" HeightRequest="70" WidthRequest="70"/>
+                            <Image Source="https://gocrein.com/wp-content/uploads/2020/03/WhatsApp-Image-2020-03-10-at-20.00.15-2.jpeg" Aspect="AspectFit" HeightRequest="100" WidthRequest="100"/>
                             <Label FontSize="14" Text="Restaurante la Adelita" FontAttributes="Bold" HorizontalOptions="Start"/>
                             <Label FontSize="12" Text="Puntos: 500"  HorizontalOptions="Start"/>
                         </StackLayout>
@@ -45,7 +45,7 @@
                     <Frame  CornerRadius="30"
                                    WidthRequest="150" HeightRequest="150">
                         <StackLayout>
-                            <Image Source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT89qaVXgwadQSTNYfFnHAhTdmrvfdczJZiabdfQ9XMHSpYJqIL8WHtejCbPBqxB4grSbU" Aspect="AspectFit" HeightRequest="70" WidthRequest="70"/>
+                            <Image Source="https://upload.wikimedia.org/wikipedia/commons/d/d3/La_Sabana-Costa_Rica.jpg" Aspect="AspectFit" HeightRequest="100" WidthRequest="100"/>
                             <Label FontSize="14" Text="Parque la Sabana" FontAttributes="Bold" HorizontalOptions="Start"/>
                             <Label FontSize="12" Text="Puntos: 450"  HorizontalOptions="Start"/>
                         </StackLayout>
@@ -54,7 +54,7 @@
                     <Frame CornerRadius="30"
                                    WidthRequest="150" HeightRequest="150">
                         <StackLayout>
-                            <Image Source="https://stringfixer.com/files/127986454.jpg" Aspect="AspectFit" HeightRequest="70" WidthRequest="70"/>
+                            <Image Source="https://lh5.googleusercontent.com/p/AF1QipMFG0uFcWP3WlzMPlzA8OPQt0Df_Ov18c2BGrM-=w152-h152-n-k-no" Aspect="AspectFit" HeightRequest="100" WidthRequest="100"/>
                             <Label FontSize="14" Text="Hotel Talamanca" FontAttributes="Bold" HorizontalOptions="Start"/>
                             <Label FontSize="12" Text="Puntos: 500"  HorizontalOptions="Start"/>
                         </StackLayout>
