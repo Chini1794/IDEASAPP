@@ -22,7 +22,7 @@
                 <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
                 <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
-                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="Orange"/>
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
             <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
@@ -43,10 +43,9 @@
     </TabBar>
     <TabBar Route="Home">
         <ShellContent Title="Inicio" Icon="icon_inicio.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
-        <ShellContent Title="Buscar" Icon="icon_buscar.png" ContentTemplate="{DataTemplate local:BusquedaPage}" />
-        <ShellContent Title="Evaluado" Icon="icon_evaluaciones.png" ContentTemplate="{DataTemplate local:EvaluadoPage}" />
+        <ShellContent Title="Evaluaciones" Icon="icon_evaluaciones.png" ContentTemplate="{DataTemplate local:EvaluadoPage}" />
         <ShellContent Title="Promociones" Icon="icon_promociones.png" ContentTemplate="{DataTemplate local:PromocionesPage}" />
-        <ShellContent Title="Cuenta" Icon="icon_cuenta.png" ContentTemplate="{DataTemplate local:CuentaPage}" />
+        <ShellContent Title="Mi Cuenta" Icon="icon_cuenta.png" ContentTemplate="{DataTemplate local:CuentaPage}" />
     </TabBar>
 
     <!--

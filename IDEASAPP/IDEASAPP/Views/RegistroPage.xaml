@@ -9,12 +9,21 @@
     <ContentPage.Content>
 
 
-        <StackLayout Padding="10,0,10,0" >
+        <StackLayout >
+            <Frame BackgroundColor="White" CornerRadius="60" HasShadow="True"
+               Margin="10" HorizontalOptions="Start">
+                <Image Source="icon_back.png" HeightRequest="25" WidthRequest="25" />
+
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding BackCommand}"  />
+                </Frame.GestureRecognizers>
+
+            </Frame>
             <Label Text="Registro"
-               HorizontalOptions="Center" 
+               HorizontalOptions="Center"   
                      FontSize="30"
                    FontAttributes="Bold"
-                    Margin="0, 0, 0, 100"
+                    Margin="0, 70, 0, 40"
                    />
             <Label Text="Username" FontSize="Medium" />
             <Entry Text="{Binding Username, Mode=TwoWay}" FontSize="Medium" />
@@ -23,20 +32,13 @@
             <Label Text="Contraseña" FontSize="Medium"  />
             <Entry Text="{Binding Contraseña, Mode=TwoWay}" FontSize="Medium" IsPassword="true"  />
 
-            <StackLayout Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal" Margin="0, 0, 0, 40">
                 <CheckBox IsChecked="true" Color="blue"/>
             <Label Text="Acepto términos y condiciones" FontSize="Medium"/>
             </StackLayout>
 
-            <Button VerticalOptions="Center" Text="Registrarse" Command="{Binding PortalCommand}" Margin="0, 0, 0, 80" CornerRadius="60" HorizontalOptions="Center"/>
-            <Label Text="¿Ya tiene cuenta? Iniciar Sesión"
-                    TextDecorations="Underline"
-                   HorizontalOptions="Center" 
-                    FontSize="12">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding LoginCommand}" />
-                </Label.GestureRecognizers>
-            </Label>
+            <Button VerticalOptions="Center" Text="Registrarse" Command="{Binding PortalCommand}"  CornerRadius="60" HorizontalOptions="Center"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

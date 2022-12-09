@@ -10,10 +10,11 @@ namespace IDEASAPP.ViewModels
     {
         public Command LoginCommand { get; }
         public Command RegistroCommand { get; }
-
+        public Command BackCommand { get; }
         public LoginViewModel()
         {
             LoginCommand = new Command(OnLoginClicked);
+            BackCommand = new Command(OnBackClicked);
             RegistroCommand = new Command(OnForgotPassword);
         }
 
@@ -21,6 +22,11 @@ namespace IDEASAPP.ViewModels
         {
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
             await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+        }   
+        private async void OnBackClicked(object obj)
+        {
+            // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
+            await Shell.Current.GoToAsync($"//{nameof(PortalPage)}");
         }
         private async void OnForgotPassword()
         {

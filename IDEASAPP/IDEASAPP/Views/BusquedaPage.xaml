@@ -2,12 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IDEASAPP.Views.BusquedaPage"
-             Shell.NavBarIsVisible="False">
+             >
     <ContentPage.Content>
         <ScrollView>
         <StackLayout>
 
-                <Label FontSize="20" Text="Lugares más populares" FontAttributes="Bold"  HorizontalTextAlignment="Center" Margin="0,25,0,0"/>
+                <Label FontSize="20" Text="Resultados de Búsqueda" FontAttributes="Bold"  HorizontalTextAlignment="Center" Margin="0,25,0,0"/>
                 <Entry Placeholder="Buscar" HorizontalOptions="Center" WidthRequest="350" Margin="0,0,0,30"/>
 
             
@@ -24,7 +24,7 @@
                         <StackLayout>
                             <Image Source="https://facturaelectronica.mipueblocr.com/resources/Companies/123/Logo/musmanni_palmares.png" Aspect="AspectFit" HeightRequest="100" WidthRequest="100"/>
                             <Label FontSize="14" Text="Musmanni el Parque" FontAttributes="Bold" HorizontalOptions="Start"/>
-                            <Label FontSize="12" Text="Puntos: 450"  HorizontalOptions="Start"/>
+
                         </StackLayout>
 
                     </Frame>
@@ -33,7 +33,7 @@
                         <StackLayout>
                             <Image Source="https://gocrein.com/wp-content/uploads/2020/03/WhatsApp-Image-2020-03-10-at-20.00.15-2.jpeg" Aspect="AspectFit" HeightRequest="100" WidthRequest="100"/>
                             <Label FontSize="14" Text="Restaurante la Adelita" FontAttributes="Bold" HorizontalOptions="Start"/>
-                            <Label FontSize="12" Text="Puntos: 500"  HorizontalOptions="Start"/>
+
                         </StackLayout>
 
                     </Frame>
@@ -47,7 +47,7 @@
                         <StackLayout>
                             <Image Source="https://upload.wikimedia.org/wikipedia/commons/d/d3/La_Sabana-Costa_Rica.jpg" Aspect="AspectFit" HeightRequest="100" WidthRequest="100"/>
                             <Label FontSize="14" Text="Parque la Sabana" FontAttributes="Bold" HorizontalOptions="Start"/>
-                            <Label FontSize="12" Text="Puntos: 450"  HorizontalOptions="Start"/>
+
                         </StackLayout>
 
                     </Frame>
@@ -56,7 +56,7 @@
                         <StackLayout>
                             <Image Source="https://lh5.googleusercontent.com/p/AF1QipMFG0uFcWP3WlzMPlzA8OPQt0Df_Ov18c2BGrM-=w152-h152-n-k-no" Aspect="AspectFit" HeightRequest="100" WidthRequest="100"/>
                             <Label FontSize="14" Text="Hotel Talamanca" FontAttributes="Bold" HorizontalOptions="Start"/>
-                            <Label FontSize="12" Text="Puntos: 500"  HorizontalOptions="Start"/>
+         
                         </StackLayout>
 
                     </Frame>

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IDEASAPP.Views.EmpresaPage">
+
+        <ScrollView>
+
+        <StackLayout>
+
+            <Label FontSize="26" Text="Musmanni Heredia" FontAttributes="Bold" Margin="10,10,0,10"/>
+
+            <Label FontSize="16" Text="Heredia, Costa Rica                              Distancia: 2km"  Margin="10,0,0,20" VerticalOptions="Start"/>
+
+
+            <Frame CornerRadius="30"
+                                           Margin="5">
+                <StackLayout>
+
+                    <Label FontSize="12" Text="Descripción" HorizontalOptions="Start"/>
+                    <Label FontSize="14" Text="¡Todo lo que está buscando en un solo lugar!"  FontAttributes="Bold" HorizontalOptions="Start"/>
+                </StackLayout>
+
+            </Frame>
+
+            <Frame CornerRadius="30"
+                                        Margin="20"   >
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal">
+             
+                    <Label FontSize="40" Text="9,5" FontAttributes="Bold" />
+                    <Label FontSize="14" Text="Calificación General" FontAttributes="Bold" Margin="10,20,0,0" />
+                    </StackLayout>
+                    <StackLayout Margin="20,0,0,0">
+                        <Label FontSize="12" Text="Comodidad     |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"  HorizontalOptions="Start"/>
+                        <Label FontSize="12" Text="Servicio            ||||||||||||||||||||||||||||||||||||||||||||||||||"  HorizontalOptions="Start"/>
+                        <Label FontSize="12" Text="Posición           |||||||||||||||||||||||||||||||||||||||||||||||||"  HorizontalOptions="Start"/>
+                        <Label FontSize="12" Text="Limpieza          |||||||||||||||||||||||||||||||||||||||||||||||||"  HorizontalOptions="Start"/>
+                    </StackLayout>
+                </StackLayout>
+
+            </Frame>
+            <Label FontSize="16" Text="Fotos"  Margin="10,0,0,0" VerticalOptions="Start"/>
+
+            <ScrollView Orientation="Horizontal"  HeightRequest="160">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center"   VerticalOptions="Center">
+
+                <Frame  CornerRadius="30"
+                                       WidthRequest="100" HeightRequest="100" Margin="5">
+
+
+                    <StackLayout>
+                            <Image Source="https://media-cdn.tripadvisor.com/media/photo-s/04/cb/de/dc/musmanni-pastry.jpg" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+
+                    </StackLayout>
+
+                </Frame>
+                    <Frame  CornerRadius="30"
+                                       WidthRequest="100" HeightRequest="100" Margin="5">
+
+
+
+                        <StackLayout>
+                            <Image Source="https://expo-franquicia.com/wp-content/uploads/2020/07/01-31.jpg" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+
+                        </StackLayout>
+
+                    </Frame>
+                    <Frame  CornerRadius="30"
+                                       WidthRequest="100" HeightRequest="100" Margin="5">
+
+
+                        <StackLayout>
+                            <Image Source="https://lh3.googleusercontent.com/p/AF1QipOV3V2gfvtSpOFAx20CHka6ESBYjOPLKVefPAJd=w768-h768-n-o-v1" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+
+                        </StackLayout>
+
+                    </Frame>
+                </StackLayout>
+
+        </ScrollView>
+
+            <Button VerticalOptions="Center" Text="Evaluar" Command="{Binding LoginCommand}"  CornerRadius="60" HorizontalOptions="Center"/>
+        </StackLayout>
+            
+            
+            
+    </ScrollView>
+</ContentPage>

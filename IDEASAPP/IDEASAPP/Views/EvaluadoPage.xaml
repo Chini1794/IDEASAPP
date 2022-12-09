@@ -3,10 +3,65 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IDEASAPP.Views.EvaluadoPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Evaluado.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+
+                <Label FontSize="20" Text="Mis Ideas" FontAttributes="Bold"  HorizontalTextAlignment="Center" Margin="0,25,0,10"/>
+                <Entry Placeholder="Buscar" HorizontalOptions="Center" WidthRequest="350" Margin="0,0,0,10"/>
+                <StackLayout Orientation="Vertical">
+
+                    <Frame CornerRadius="30"
+                             Margin="5"      >
+                        <StackLayout Orientation="Vertical">
+                            <Image Source="https://cdn.mos.cms.futurecdn.net/5StAbRHLA4ZdyzQZVivm2c.jpg" Aspect="AspectFill"  HorizontalOptions="FillAndExpand" HeightRequest="150"/>
+                        
+                                <Label FontSize="18" Text="Walmart" FontAttributes="Bold" HorizontalOptions="Start"/>
+                                <Label FontSize="12" Text="San Francisco, Heredia       Distancia: 2km"  VerticalOptions="Center"/>
+                                <Label FontSize="12" Text="Calificación dada: 4,5/5"  VerticalOptions="Center"/>
+   
+                        </StackLayout>
+
+                    </Frame>
+                    <Frame CornerRadius="30"
+                              Margin="5"     >
+                        <StackLayout Orientation="Vertical">
+                            <Image Source="https://upload.wikimedia.org/wikipedia/commons/3/3f/PriceSmart_Logo.png" Aspect="AspectFill"  HorizontalOptions="FillAndExpand" HeightRequest="150"/>
+
+                            <Label FontSize="18" Text="Pricesmart" FontAttributes="Bold" HorizontalOptions="Start"/>
+                            <Label FontSize="12" Text="San Pablo, Heredia       Distancia: 7km"  VerticalOptions="Center"/>
+                            <Label FontSize="12" Text="Calificación dada: 4,9/5"  VerticalOptions="Center"/>
+
+                        </StackLayout>
+
+                    </Frame>
+
+                    <Frame CornerRadius="30"
+                               Margin="5"    >
+                        <StackLayout Orientation="Vertical">
+                            <Image Source="https://seeklogo.com/images/E/epa-logo-92A85C7055-seeklogo.com.png" Aspect="AspectFill"  HorizontalOptions="FillAndExpand" HeightRequest="150"/>
+
+                            <Label FontSize="18" Text="Epa" FontAttributes="Bold" HorizontalOptions="Start"/>
+                            <Label FontSize="12" Text="Belén, Heredia       Distancia: 1km"  VerticalOptions="Center"/>
+                            <Label FontSize="12" Text="Calificación dada: 4/5"  VerticalOptions="Center"/>
+
+                        </StackLayout>
+
+                    </Frame>
+
+                    <Frame CornerRadius="30"
+                                Margin="5"   >
+                        <StackLayout Orientation="Vertical">
+                            <Image Source="https://theflashtoday.com/wp-content/uploads/2017/06/Burger-King-logo-feature.png" Aspect="AspectFill"  HorizontalOptions="FillAndExpand" HeightRequest="150"/>
+
+                            <Label FontSize="18" Text="Burger King" FontAttributes="Bold" HorizontalOptions="Start"/>
+                            <Label FontSize="12" Text="Heredia, Heredia       Distancia: 5km"  VerticalOptions="Center"/>
+                            <Label FontSize="12" Text="Calificación dada: 3,5/5"  VerticalOptions="Center"/>
+
+                        </StackLayout>
+
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

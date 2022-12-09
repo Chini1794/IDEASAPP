@@ -10,9 +10,10 @@ namespace IDEASAPP.ViewModels
     {
         public Command RegistroCommand { get; }
         public Command PortalCommand { get; }
-
+        public Command BackCommand { get; }
         public RegistroViewModel()
         {
+            BackCommand = new Command(OnBackClicked);
             RegistroCommand = new Command(OnRegistroClicked);
             PortalCommand = new Command(OnPortalClicked);
         }
@@ -21,7 +22,12 @@ namespace IDEASAPP.ViewModels
         {
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
             await Shell.Current.GoToAsync($"//{nameof(RegistroPage)}");
-        }       
+        }
+        private async void OnBackClicked(object obj)
+        {
+            // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
+            await Shell.Current.GoToAsync($"//{nameof(PortalPage)}");
+        }
         private async void OnPortalClicked(object obj)
         {
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one

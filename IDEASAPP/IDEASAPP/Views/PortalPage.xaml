@@ -14,18 +14,25 @@
                HorizontalOptions="Center" 
                      FontSize="30"
                    FontAttributes="Bold"
-                   />
+                   />   
             <Label Text="Dinos lo que piensas"
                     FontAttributes="Bold"
                    HorizontalOptions="Center"
                                FontSize="12"
                    
                   />
-            <Button VerticalOptions="Center" Text="Iniciar Sesión" Command="{Binding StartCommand} "  Margin="0, 420, 0, 5" CornerRadius="60" HorizontalOptions="Center"/>
+            <Image Source="portal.png" Margin="0,60,0,0" />
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="0,40,0,20">            
+                
+            <Button  Text="Iniciar Sesión" Command="{Binding StartCommand} " CornerRadius="60" WidthRequest="130"/>
+
+                <Button  Text="Invitado" Command="{Binding LoginCommand}" WidthRequest="130" CornerRadius="60"/>
+            </StackLayout>
+
             <Label Text="Registrarse"
                     TextDecorations="Underline"
                    HorizontalOptions="Center" 
-                    FontSize="12">
+                    FontSize="15">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding RegistroCommand}" />
                 </Label.GestureRecognizers>

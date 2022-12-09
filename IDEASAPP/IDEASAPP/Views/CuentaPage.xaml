@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="IDEASAPP.Views.CuentaPage">
+             x:Class="IDEASAPP.Views.CuentaPage"
+              xmlns:vm="clr-namespace:IDEASAPP.ViewModels" x:DataType="vm:CuentaViewModel">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Cuenta!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+
+
+        <StackLayout Orientation="Horizontal" >
+            <Button VerticalOptions="Center" HorizontalOptions="Center" Text="Cerrar Sesión" Command="{Binding PortalCommand}" CornerRadius="60" Margin="150" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
