@@ -17,7 +17,8 @@ namespace IDEASAPP.ViewModels
 
         private async void OnCerrarTapped(object obj)
         {
-            await Shell.Current.GoToAsync("PortalPage");
+            await Shell.Current.GoToAsync($"//{nameof(PortalPage)}");
+
         }
     }
 }
