@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace IDEASAPP.ViewModels
 {
-    class CuentaViewModel : BaseViewModel
+    public class CuentaViewModel : BaseViewModel
     {
         public Command PortalCommand { get; }
 

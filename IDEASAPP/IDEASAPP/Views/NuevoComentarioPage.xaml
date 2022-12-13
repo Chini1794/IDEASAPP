@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IDEASAPP.Views.NuevoComentarioPage"
+             Shell.PresentationMode="ModalAnimated"
+             Title="New Item"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true">
+    <ContentPage.Content>
+        <StackLayout Spacing="3" Padding="15">
+
+            <Label FontSize="26" Text="Crear Comentario" FontAttributes="Bold" Margin="10,10,0,20"/>
+
+
+
+            <Picker x:Name="picker"
+        Title="Seleccionar Categoría"
+        >
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Servicio</x:String>
+                        <x:String>Productos</x:String>
+                        <x:String>Atención al Cliente</x:String>
+                        <x:String>Horarios</x:String>
+                        <x:String>Otros</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Entry Text="{Binding Text, Mode=TwoWay}" FontSize="Medium" Placeholder="Nombre" />
+            <Editor Text="{Binding Description, Mode=TwoWay}" HeightRequest="200" FontSize="Medium" Margin="0"  Placeholder="Comentario:"/>
+            <Image Source="icon_emotions.png" Margin="0,0,0,10"/>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Cancelar" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
+                <Button Text="Guardar" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+    
+</ContentPage>

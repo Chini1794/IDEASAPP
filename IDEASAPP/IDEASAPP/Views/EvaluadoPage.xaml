@@ -6,7 +6,7 @@
         <ScrollView>
             <StackLayout>
 
-                <Label FontSize="20" Text="Mis Ideas" FontAttributes="Bold"  HorizontalTextAlignment="Center" Margin="0,25,0,10"/>
+                <Label FontSize="20" Text="Historial de Evaluaciones" FontAttributes="Bold"  HorizontalTextAlignment="Center" Margin="0,25,0,10"/>
                 <Entry Placeholder="Buscar" HorizontalOptions="Center" WidthRequest="350" Margin="0,0,0,10"/>
                 <StackLayout Orientation="Vertical">
 
@@ -17,8 +17,8 @@
                         
                                 <Label FontSize="18" Text="Walmart" FontAttributes="Bold" HorizontalOptions="Start"/>
                                 <Label FontSize="12" Text="San Francisco, Heredia       Distancia: 2km"  VerticalOptions="Center"/>
-                                <Label FontSize="12" Text="Calificación dada: 4,5/5"  VerticalOptions="Center"/>
-   
+                            <Label FontSize="12" Text="Calificación dada: 4,5/5"  VerticalOptions="Center" TextColor="Orange"/>
+
                         </StackLayout>
 
                     </Frame>
@@ -29,7 +29,7 @@
 
                             <Label FontSize="18" Text="Pricesmart" FontAttributes="Bold" HorizontalOptions="Start"/>
                             <Label FontSize="12" Text="San Pablo, Heredia       Distancia: 7km"  VerticalOptions="Center"/>
-                            <Label FontSize="12" Text="Calificación dada: 4,9/5"  VerticalOptions="Center"/>
+                            <Label FontSize="12" Text="Calificación dada: 4,9/5"  VerticalOptions="Center" TextColor="Orange"/>
 
                         </StackLayout>
 
@@ -42,7 +42,7 @@
 
                             <Label FontSize="18" Text="Epa" FontAttributes="Bold" HorizontalOptions="Start"/>
                             <Label FontSize="12" Text="Belén, Heredia       Distancia: 1km"  VerticalOptions="Center"/>
-                            <Label FontSize="12" Text="Calificación dada: 4/5"  VerticalOptions="Center"/>
+                            <Label FontSize="12" Text="Calificación dada: 4/5"  VerticalOptions="Center" TextColor="Orange"/>
 
                         </StackLayout>
 
@@ -55,7 +55,7 @@
 
                             <Label FontSize="18" Text="Burger King" FontAttributes="Bold" HorizontalOptions="Start"/>
                             <Label FontSize="12" Text="Heredia, Heredia       Distancia: 5km"  VerticalOptions="Center"/>
-                            <Label FontSize="12" Text="Calificación dada: 3,5/5"  VerticalOptions="Center"/>
+                            <Label FontSize="12" Text="Calificación dada: 3,5/5"  VerticalOptions="Center" TextColor="Orange"/>
 
                         </StackLayout>
 

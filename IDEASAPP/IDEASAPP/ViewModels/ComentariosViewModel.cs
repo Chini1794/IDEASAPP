@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace IDEASAPP.ViewModels
 {
-    public class ItemsViewModel : BaseViewModel
+    public class ComentariosViewModel : BaseViewModel
     {
         private Item _selectedItem;
 
@@ -17,7 +17,7 @@ namespace IDEASAPP.ViewModels
         public Command AddItemCommand { get; }
         public Command<Item> ItemTapped { get; }
 
-        public ItemsViewModel()
+        public ComentariosViewModel()
         {
             Title = "Browse";
             Items = new ObservableCollection<Item>();
@@ -69,7 +69,7 @@ namespace IDEASAPP.ViewModels
 
         private async void OnAddItem(object obj)
         {
-            await Shell.Current.GoToAsync(nameof(NewItemPage));
+            await Shell.Current.GoToAsync(nameof(NuevoComentarioPage));
         }
 
         async void OnItemSelected(Item item)

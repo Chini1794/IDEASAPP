@@ -8,14 +8,15 @@ using Xamarin.Forms.Xaml;
 
 namespace IDEASAPP.Views
 {
-    public partial class NewItemPage : ContentPage
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class NuevoComentarioPage : ContentPage
     {
         public Item Item { get; set; }
 
-        public NewItemPage()
+        public NuevoComentarioPage()
         {
             InitializeComponent();
-            BindingContext = new NewItemViewModel();
+            BindingContext = new NuevoComentarioViewModel();
         }
     }
 }

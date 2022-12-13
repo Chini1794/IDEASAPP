@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IDEASAPP.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace IDEASAPP.Views
 		public CuentaPage ()
 		{
 			InitializeComponent ();
+			this.BindingContext = new CuentaViewModel();
 		}
 	}
 }

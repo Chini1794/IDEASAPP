@@ -11,11 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\PortalPage.xaml.cs">
-      <DependentUpon>PortalPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\RegistroPage.xaml.cs">
-      <DependentUpon>RegistroPage.xaml</DependentUpon>
+    <Compile Update="Views\ComentariosPage.xaml.cs">
+      <DependentUpon>ComentariosPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 

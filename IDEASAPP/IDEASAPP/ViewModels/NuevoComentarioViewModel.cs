@@ -7,12 +7,12 @@ using Xamarin.Forms;
 
 namespace IDEASAPP.ViewModels
 {
-    public class NewItemViewModel : BaseViewModel
+    public class NuevoComentarioViewModel : BaseViewModel
     {
         private string text;
         private string description;
 
-        public NewItemViewModel()
+        public NuevoComentarioViewModel()
         {
             SaveCommand = new Command(OnSave, ValidateSave);
             CancelCommand = new Command(OnCancel);

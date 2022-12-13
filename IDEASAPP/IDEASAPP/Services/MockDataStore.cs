@@ -14,12 +14,10 @@ namespace IDEASAPP.Services
         {
             items = new List<Item>()
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." }
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Diego", Description="Es un lugar genial, cerca de tiendas y restaurantes, muy tranquilo." },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "María", Description="Para ser honesta, esta es la mejor panadria en la que he comprado. El servicio es súper bueno, el sabor del pan no se puede describir. Te lo recomiendo." },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Daniela", Description="La ubicación de la panadería es fácil de encontrar y hay servidio de estacionamiento gratuito. El cajero fue muy educado, muy satisfecha con el servicio." }
+
             };
         }
 

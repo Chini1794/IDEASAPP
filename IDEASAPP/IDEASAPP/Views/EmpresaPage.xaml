@@ -79,7 +79,7 @@
 
         </ScrollView>
 
-            <Button VerticalOptions="Center" Text="Evaluar" Command="{Binding LoginCommand}"  CornerRadius="60" HorizontalOptions="Center"/>
+            <Button VerticalOptions="Center" Text="Ver Comentarios" Command="{Binding EvaluarCommand}"  CornerRadius="60" HorizontalOptions="Center"/>
         </StackLayout>
             
             

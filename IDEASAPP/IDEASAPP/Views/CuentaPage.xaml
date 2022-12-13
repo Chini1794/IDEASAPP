@@ -4,9 +4,73 @@
              x:Class="IDEASAPP.Views.CuentaPage">
     <ContentPage.Content>
 
+        <StackLayout Orientation="Vertical">
+            
+            
+            <Frame BorderColor="Transparent" HasShadow="False">
+                <StackLayout>
+                <Label FontSize="28" Text="Jose Pérez" FontAttributes="Bold" HorizontalOptions="Start" />
+                <Label FontSize="12" Text="Editar"  HorizontalOptions="Start" />
+                </StackLayout>
+            </Frame>
+            
+            
+            <BoxView 
+                   HeightRequest="1"
+                   Color="LightGray"
+                   Margin ="10, 0, 10, 0"/>
+            <Frame Margin ="15, 0, 15, 0" BorderColor="Transparent" HasShadow="False">            
+                <Label FontSize="16" Text="Cambiar contraseña" FontAttributes="Bold" HorizontalOptions="Start" />
+            </Frame>
 
-        <StackLayout Orientation="Horizontal" >
-            <Button VerticalOptions="Center" HorizontalOptions="Center" Text="Cerrar Sesión" Command="{Binding PortalCommand}" CornerRadius="60" Margin="150" />
+            <BoxView 
+                   HeightRequest="1"
+                   Color="LightGray"
+                   Margin ="10, 0, 10, 0"/>
+            <Frame Margin ="15, 0, 15, 0" BorderColor="Transparent" HasShadow="False">
+                <Label FontSize="16" Text="Invitar Amigos" FontAttributes="Bold" HorizontalOptions="Start" />
+            </Frame>
+
+            <BoxView 
+                   HeightRequest="1"
+                   Color="LightGray"
+                   Margin ="10, 0, 10, 0"/>
+            <Frame Margin ="15, 0, 15, 0" BorderColor="Transparent" HasShadow="False">
+                <Label FontSize="16" Text="Puntos y cupones" FontAttributes="Bold" HorizontalOptions="Start" />
+            </Frame>
+
+            <BoxView 
+                   HeightRequest="1"
+                   Color="LightGray"
+                   Margin ="10, 0, 10, 0"/>
+            <Frame Margin ="15, 0, 15, 0" BorderColor="Transparent" HasShadow="False">
+                <Label FontSize="16" Text="Centro de ayuda" FontAttributes="Bold" HorizontalOptions="Start" />
+            </Frame>
+
+            <BoxView 
+                   HeightRequest="1"
+                   Color="LightGray"
+                   Margin ="10, 0, 10, 0"/>
+            <Frame Margin ="15, 0, 15,0 " BorderColor="Transparent" HasShadow="False">
+                <Label FontSize="16" Text="Pagos" FontAttributes="Bold" HorizontalOptions="Start" />
+            </Frame>
+            <BoxView 
+                   HeightRequest="1"
+                   Color="LightGray"
+                   Margin ="10, 0, 10, 0"/>
+            <Frame Margin ="15, 0, 15, 0" BorderColor="Transparent" HasShadow="False">
+                <Label FontSize="16" Text="Configuración" FontAttributes="Bold" HorizontalOptions="Start" />
+            </Frame>
+            <BoxView 
+                   HeightRequest="1"
+                   Color="LightGray"
+                   Margin ="10, 0, 10, 40"/>
+
+            <Button VerticalOptions="Center" Text="Cerrar Sesión" Command="{Binding PortalCommand}" CornerRadius="60" HorizontalOptions="Center"/>
+            
         </StackLayout>
+
+
+            
     </ContentPage.Content>
 </ContentPage>

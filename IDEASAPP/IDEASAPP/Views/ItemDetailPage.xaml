@@ -5,10 +5,26 @@
              Title="{Binding Title}">
 
     <StackLayout Spacing="20" Padding="15">
-        <Label Text="Text:" FontSize="Medium" />
-        <Label Text="{Binding Text}" FontSize="Small"/>
-        <Label Text="Description:" FontSize="Medium" />
-        <Label Text="{Binding Description}" FontSize="Small"/>
+
+      
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding Text}" FontSize="Large" />
+                    <Label Text="Calificación: 4.5/5" FontSize="Medium" HorizontalOptions="EndAndExpand" TextColor="Orange"/>
+                </StackLayout>
+      
+                <Label Text="Categoría:    Servicio" FontSize="Medium"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Emotion:      " FontSize="Medium"/>
+                    <Image Source="icon_like.png" VerticalOptions="StartAndExpand" WidthRequest="40" HeightRequest="40"/>
+                </StackLayout>
+        <Label Text="Comentario:" FontSize="Medium" />
+        <Frame CornerRadius="25" HasShadow="True">
+                    <StackLayout>
+    
+        <Label Text="{Binding Description}" FontSize="16"/>
+                    </StackLayout>
+                </Frame>
+       
     </StackLayout>
     
 </ContentPage>
