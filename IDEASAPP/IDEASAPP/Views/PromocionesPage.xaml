@@ -2,17 +2,27 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IDEASAPP.Views.PromocionesPage"
+               Shell.NavBarIsVisible="False"
             >
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
 
-                <Label FontSize="20" Text="Promociones de la Semana" FontAttributes="Bold"  HorizontalTextAlignment="Center" Margin="0,25,0,0"/>
-                <Entry Placeholder="Buscar" HorizontalOptions="Center" WidthRequest="350" Margin="0,0,0,30"/>
+                <Label FontSize="28" Text="Promociones" FontAttributes="Bold"  HorizontalTextAlignment="Center" Margin="0,25,0,0"/>
 
+                <Frame HasShadow="False">
+                    <StackLayout >
+                    <Entry Placeholder="Buscar" HorizontalOptions="Center" WidthRequest="350" />
 
+                <StackLayout Orientation="Horizontal" Margin="0,0,0,20" >
 
+                    <RadioButton Content="Hoy"  />
+                    <RadioButton Content="Semana" />
+                    <RadioButton Content="30 días" />
 
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
                 <StackLayout Orientation="Vertical">
 
                     <Frame CornerRadius="30"

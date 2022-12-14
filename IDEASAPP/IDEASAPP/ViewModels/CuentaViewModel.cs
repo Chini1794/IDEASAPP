@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace IDEASAPP.ViewModels
 {
@@ -16,8 +17,11 @@ namespace IDEASAPP.ViewModels
         }
 
         private async void OnCerrarTapped(object obj)
+            
         {
-            await Shell.Current.GoToAsync($"//{nameof(PortalPage)}");
+
+			await Shell.Current.GoToAsync($"//{nameof(PortalPage)}");
+           
 
         }
     }

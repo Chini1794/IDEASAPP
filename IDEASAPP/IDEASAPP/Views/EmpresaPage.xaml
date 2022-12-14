@@ -30,11 +30,14 @@
                     <Label FontSize="40" Text="9,5" FontAttributes="Bold" />
                     <Label FontSize="14" Text="Calificación General" FontAttributes="Bold" Margin="10,20,0,0" />
                     </StackLayout>
-                    <StackLayout Margin="20,0,0,0">
-                        <Label FontSize="12" Text="Comodidad     |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"  HorizontalOptions="Start"/>
-                        <Label FontSize="12" Text="Servicio            ||||||||||||||||||||||||||||||||||||||||||||||||||"  HorizontalOptions="Start"/>
-                        <Label FontSize="12" Text="Posición           |||||||||||||||||||||||||||||||||||||||||||||||||"  HorizontalOptions="Start"/>
-                        <Label FontSize="12" Text="Limpieza          |||||||||||||||||||||||||||||||||||||||||||||||||"  HorizontalOptions="Start"/>
+                    <StackLayout Orientation="Horizontal">
+                    <StackLayout Margin="20,0,0,0" Orientation="Vertical">
+                        <Label FontSize="12" Text="Comodidad"  HorizontalOptions="Start"/>
+                        <Label FontSize="12" Text="Servicio"  HorizontalOptions="Start"/>
+                        <Label FontSize="12" Text="Posición"  HorizontalOptions="Start"/>
+                        <Label FontSize="12" Text="Limpieza"  HorizontalOptions="Start"/>
+                    </StackLayout>
+                    <Image Source="icon_bar" HeightRequest="80" WidthRequest="200" HorizontalOptions="CenterAndExpand"  Aspect="AspectFit"  />
                     </StackLayout>
                 </StackLayout>
 
@@ -45,12 +48,12 @@
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center"   VerticalOptions="Center">
 
                 <Frame  CornerRadius="30"
-                                       WidthRequest="100" HeightRequest="100" Margin="5">
+                                       WidthRequest="100" HeightRequest="100" Margin="5" >
 
 
                     <StackLayout>
                             <Image Source="https://media-cdn.tripadvisor.com/media/photo-s/04/cb/de/dc/musmanni-pastry.jpg" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
-
+    
                     </StackLayout>
 
                 </Frame>

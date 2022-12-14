@@ -21,6 +21,10 @@
 
                     <Frame  CornerRadius="30"
                                    WidthRequest="150" HeightRequest="150">
+
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding EmpresaCommand}"  />
+                        </Frame.GestureRecognizers>
                         <StackLayout>
                             <Image Source="https://facturaelectronica.mipueblocr.com/resources/Companies/123/Logo/musmanni_palmares.png" Aspect="AspectFit" HeightRequest="100" WidthRequest="100"/>
                             <Label FontSize="14" Text="Musmanni el Parque" FontAttributes="Bold" HorizontalOptions="Start"/>

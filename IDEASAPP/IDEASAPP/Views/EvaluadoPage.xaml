@@ -1,23 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="IDEASAPP.Views.EvaluadoPage">
+             x:Class="IDEASAPP.Views.EvaluadoPage"
+               Shell.NavBarIsVisible="False">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
 
-                <Label FontSize="20" Text="Historial de Evaluaciones" FontAttributes="Bold"  HorizontalTextAlignment="Center" Margin="0,25,0,10"/>
+                <Label FontSize="28" Text="Historial de Evaluaciones" FontAttributes="Bold"  HorizontalTextAlignment="Center" Margin="0,25,0,10"/>
                 <Entry Placeholder="Buscar" HorizontalOptions="Center" WidthRequest="350" Margin="0,0,0,10"/>
                 <StackLayout Orientation="Vertical">
+
 
                     <Frame CornerRadius="30"
                              Margin="5"      >
                         <StackLayout Orientation="Vertical">
-                            <Image Source="https://cdn.mos.cms.futurecdn.net/5StAbRHLA4ZdyzQZVivm2c.jpg" Aspect="AspectFill"  HorizontalOptions="FillAndExpand" HeightRequest="150"/>
-                        
-                                <Label FontSize="18" Text="Walmart" FontAttributes="Bold" HorizontalOptions="Start"/>
-                                <Label FontSize="12" Text="San Francisco, Heredia       Distancia: 2km"  VerticalOptions="Center"/>
-                            <Label FontSize="12" Text="Calificación dada: 4,5/5"  VerticalOptions="Center" TextColor="Orange"/>
+                            <Image Source="https://cdn.mos.cms.futurecdn.net/5StAbRHLA4ZdyzQZVivm2c.jpg" Aspect="AspectFill"  HorizontalOptions="FillAndExpand" HeightRequest="100"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontSize="18" Text="Walmart" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+                                <Image Source="icon_heart" Aspect="AspectFit" HeightRequest="20" WidthRequest="20" HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontSize="14" Text="Ubicación: San Francisco, Heredia"  HorizontalOptions="StartAndExpand"/>
+                                <Label FontSize="14" Text="Distancia: 2km"  HorizontalOptions="EndAndExpand"/>
+
+                            </StackLayout>
+                            <Label Text="Categoría: Servicio" FontSize="14"/>
+                            <Label FontSize="14" Text="Fecha: 12/08/2022"  HorizontalOptions="StartAndExpand"/>
+                            <Label FontSize="14" Text="Puntos obtenidos: 40"  HorizontalOptions="StartAndExpand"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontSize="14" Text="Calificación dada: 4/5"  TextColor="Orange"/>
+                                <Label Text="Emotion:" FontSize="14" HorizontalOptions="EndAndExpand"/>
+
+                                <Image Source="icon_smiley.png" VerticalOptions="StartAndExpand" WidthRequest="30" HeightRequest="30"/>
+                            </StackLayout>
 
                         </StackLayout>
 
@@ -25,11 +41,27 @@
                     <Frame CornerRadius="30"
                               Margin="5"     >
                         <StackLayout Orientation="Vertical">
-                            <Image Source="https://upload.wikimedia.org/wikipedia/commons/3/3f/PriceSmart_Logo.png" Aspect="AspectFill"  HorizontalOptions="FillAndExpand" HeightRequest="150"/>
+                            <Image Source="https://upload.wikimedia.org/wikipedia/commons/3/3f/PriceSmart_Logo.png" Aspect="AspectFill"  HorizontalOptions="FillAndExpand" HeightRequest="100"/>
 
-                            <Label FontSize="18" Text="Pricesmart" FontAttributes="Bold" HorizontalOptions="Start"/>
-                            <Label FontSize="12" Text="San Pablo, Heredia       Distancia: 7km"  VerticalOptions="Center"/>
-                            <Label FontSize="12" Text="Calificación dada: 4,9/5"  VerticalOptions="Center" TextColor="Orange"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontSize="18" Text="Pricesmart" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+                                <Image Source="icon_heart" Aspect="AspectFit" HeightRequest="20" WidthRequest="20" HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontSize="14" Text="Ubicación: San Pablo, Heredia"  HorizontalOptions="StartAndExpand"/>
+                                <Label FontSize="14" Text="Distancia: 7km"  HorizontalOptions="EndAndExpand"/>
+
+                            </StackLayout>
+                            <Label Text="Categoría: Servicio" FontSize="14"/>
+                            <Label FontSize="14" Text="Fecha: 22/11/2022"  HorizontalOptions="StartAndExpand"/>
+                            <Label FontSize="14" Text="Puntos obtenidos: 20"  HorizontalOptions="StartAndExpand"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontSize="14" Text="Calificación dada: 4,9/5"  TextColor="Orange"/>
+                                <Label Text="Emotion:" FontSize="14" HorizontalOptions="EndAndExpand"/>
+
+                                <Image Source="icon_like.png" VerticalOptions="StartAndExpand" WidthRequest="30" HeightRequest="30"/>
+                            </StackLayout>
+
 
                         </StackLayout>
 
@@ -38,24 +70,55 @@
                     <Frame CornerRadius="30"
                                Margin="5"    >
                         <StackLayout Orientation="Vertical">
-                            <Image Source="https://seeklogo.com/images/E/epa-logo-92A85C7055-seeklogo.com.png" Aspect="AspectFill"  HorizontalOptions="FillAndExpand" HeightRequest="150"/>
+                            <Image Source="https://seeklogo.com/images/E/epa-logo-92A85C7055-seeklogo.com.png" Aspect="AspectFill"  HorizontalOptions="FillAndExpand" HeightRequest="100"/>
 
-                            <Label FontSize="18" Text="Epa" FontAttributes="Bold" HorizontalOptions="Start"/>
-                            <Label FontSize="12" Text="Belén, Heredia       Distancia: 1km"  VerticalOptions="Center"/>
-                            <Label FontSize="12" Text="Calificación dada: 4/5"  VerticalOptions="Center" TextColor="Orange"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontSize="18" Text="EPA" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+                                <Image Source="icon_heart" Aspect="AspectFit" HeightRequest="20" WidthRequest="20" HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontSize="14" Text="Ubicación: Belén, Heredia"  HorizontalOptions="StartAndExpand"/>
+                                <Label FontSize="14" Text="Distancia: 1km"  HorizontalOptions="EndAndExpand"/>
+
+                            </StackLayout>
+                            <Label Text="Categoría: Servicio" FontSize="14"/>
+                            <Label FontSize="14" Text="Fecha: 04/08/2022"  HorizontalOptions="StartAndExpand"/>
+                            <Label FontSize="14" Text="Puntos obtenidos: 30"  HorizontalOptions="StartAndExpand"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontSize="14" Text="Calificación dada: 5/5"  TextColor="Orange"/>
+                                <Label Text="Emotion:" FontSize="14" HorizontalOptions="EndAndExpand"/>
+
+                                <Image Source="icon_favorite.png" VerticalOptions="StartAndExpand" WidthRequest="30" HeightRequest="30"/>
+                            </StackLayout>
+
 
                         </StackLayout>
 
                     </Frame>
 
                     <Frame CornerRadius="30"
-                                Margin="5"   >
+                                   >
                         <StackLayout Orientation="Vertical">
-                            <Image Source="https://theflashtoday.com/wp-content/uploads/2017/06/Burger-King-logo-feature.png" Aspect="AspectFill"  HorizontalOptions="FillAndExpand" HeightRequest="150"/>
+                            <Image Source="https://theflashtoday.com/wp-content/uploads/2017/06/Burger-King-logo-feature.png" Aspect="AspectFill"  HorizontalOptions="FillAndExpand" HeightRequest="100"/>
 
-                            <Label FontSize="18" Text="Burger King" FontAttributes="Bold" HorizontalOptions="Start"/>
-                            <Label FontSize="12" Text="Heredia, Heredia       Distancia: 5km"  VerticalOptions="Center"/>
-                            <Label FontSize="12" Text="Calificación dada: 3,5/5"  VerticalOptions="Center" TextColor="Orange"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontSize="18" Text="Burger King" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+                                <Image Source="icon_heart" Aspect="AspectFit" HeightRequest="20" WidthRequest="20" HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontSize="14" Text="Ubicación: San Pablo, Heredia"  HorizontalOptions="StartAndExpand"/>
+                                <Label FontSize="14" Text="Distancia: 5km"  HorizontalOptions="EndAndExpand"/>
+
+                            </StackLayout>
+                            <Label Text="Categoría: Servicio" FontSize="14"/>
+                            <Label FontSize="14" Text="Fecha: 06/07/2022"  HorizontalOptions="StartAndExpand"/>
+                            <Label FontSize="14" Text="Puntos obtenidos: 10"  HorizontalOptions="StartAndExpand"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontSize="14" Text="Calificación dada: 4/5"  TextColor="Orange"/>
+                                <Label Text="Emotion:" FontSize="14" HorizontalOptions="EndAndExpand"/>
+
+                                <Image Source="icon_pen.png" VerticalOptions="StartAndExpand" WidthRequest="30" HeightRequest="30"/>
+                            </StackLayout>
 
                         </StackLayout>
 

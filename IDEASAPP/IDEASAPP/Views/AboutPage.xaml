@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IDEASAPP.Views.AboutPage"
              xmlns:vm="clr-namespace:IDEASAPP.ViewModels"
+             Shell.NavBarIsVisible="False"
             >
 
     <ContentPage.BindingContext>
@@ -77,6 +78,18 @@
                             <Image Source="https://upload.wikimedia.org/wikipedia/commons/3/3f/PriceSmart_Logo.png" Aspect="AspectFit" VerticalOptions="Center" HeightRequest="70" WidthRequest="70"/>
                             <Label FontSize="14" Text="Pricesmart" FontAttributes="Bold" HorizontalOptions="Start"/>
                             <Label FontSize="12" Text="Puntos: 600"  HorizontalOptions="Start"/>
+                        </StackLayout>
+
+                    </Frame>
+
+
+                    <Frame  CornerRadius="30"
+                                           WidthRequest="100" HeightRequest="100" Margin="5">
+
+                        <StackLayout>
+                            <Image Source="https://cdn.mos.cms.futurecdn.net/5StAbRHLA4ZdyzQZVivm2c.jpg" Aspect="AspectFit" HeightRequest="70" WidthRequest="70"/>
+                            <Label FontSize="14" Text="Walmart" FontAttributes="Bold" HorizontalOptions="Start"/>
+                            <Label FontSize="12" Text="Puntos: 450"  HorizontalOptions="Start"/>
                         </StackLayout>
 
                     </Frame>

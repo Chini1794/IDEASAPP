@@ -19,25 +19,32 @@
                 </Frame.GestureRecognizers>
 
             </Frame>
-            <Label Text="Registro"
+
+            <Frame Margin="10, 70, 10,0 "  CornerRadius="60" HasShadow="True">
+                <StackLayout>
+                    <Label Text="Registro"
                HorizontalOptions="Center"   
                      FontSize="30"
                    FontAttributes="Bold"
-                    Margin="0, 70, 0, 40"
+                    
                    />
-            <Label Text="Username" FontSize="Medium" />
-            <Entry Text="{Binding Username, Mode=TwoWay}" FontSize="Medium" />
-            <Label Text="Correo" FontSize="Medium" />
-            <Entry Text="{Binding Correo, Mode=TwoWay}" FontSize="Medium" />
-            <Label Text="Contraseña" FontSize="Medium"  />
-            <Entry Text="{Binding Contraseña, Mode=TwoWay}" FontSize="Medium" IsPassword="true"  />
+                    <Label Text="Username" FontSize="Medium" />
+                    <Entry Text="{Binding Username, Mode=TwoWay}" FontSize="Medium" />
+                    <Label Text="Correo" FontSize="Medium" />
+                    <Entry Text="{Binding Correo, Mode=TwoWay}" FontSize="Medium" />
+                    <Label Text="Contraseña" FontSize="Medium"  />
+                    <Entry Text="{Binding Contraseña, Mode=TwoWay}" FontSize="Medium" IsPassword="true"  />
 
-            <StackLayout Orientation="Horizontal" Margin="0, 0, 0, 40">
-                <CheckBox IsChecked="true" Color="blue"/>
-            <Label Text="Acepto términos y condiciones" FontSize="Medium"/>
-            </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0, 0, 0, 40">
+                        <CheckBox IsChecked="true" Color="blue"/>
+                        <Label Text="Acepto términos y condiciones" FontSize="Medium"/>
+                    </StackLayout>
+                    <Button VerticalOptions="Center" Text="Registrarse" Command="{Binding PortalCommand}"  CornerRadius="60" HorizontalOptions="Center"/>
+                </StackLayout>
 
-            <Button VerticalOptions="Center" Text="Registrarse" Command="{Binding PortalCommand}"  CornerRadius="60" HorizontalOptions="Center"/>
+
+            </Frame>
+
 
         </StackLayout>
     </ContentPage.Content>

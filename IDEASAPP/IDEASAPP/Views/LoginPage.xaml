@@ -19,20 +19,22 @@
                 </Frame.GestureRecognizers>
 
             </Frame>
-            
-            <Label Text="Inicio de Sesión"
+            <Frame Margin="10, 110, 10,0 "  CornerRadius="60" HasShadow="True">
+                <StackLayout>
+                <Label Text="Inicio de Sesión"
                HorizontalOptions="Center" 
                      FontSize="30"
                    FontAttributes="Bold"
-                    Margin="0, 120   , 0, 40"
-                   />
-            <Label Text="Correo" FontSize="Medium" />
-            <Entry Text="{Binding Correo, Mode=TwoWay}" FontSize="Medium" />
-            <Label Text="Contraseña" FontSize="Medium"   />
-            <Entry Text="{Binding Contraseña, Mode=TwoWay}" FontSize="Medium" IsPassword="true"  />
-            <Label Text="Olvidé mi contraseña" HorizontalOptions="End" FontSize="12" Margin="0, 0, 0, 40" TextDecorations="Underline"/>
-            <Button VerticalOptions="Center" Text="Ingresar" Command="{Binding LoginCommand}" CornerRadius="60" HorizontalOptions="Center"/>
 
+                   />
+                <Label Text="Correo" FontSize="Medium" />
+                <Entry Text="{Binding Correo, Mode=TwoWay}" FontSize="Medium" />
+                <Label Text="Contraseña" FontSize="Medium"   />
+                <Entry Text="{Binding Contraseña, Mode=TwoWay}" FontSize="Medium" IsPassword="true"  />
+                <Label Text="Olvidé mi contraseña" HorizontalOptions="End" FontSize="12" Margin="0, 0, 0, 40" TextDecorations="Underline"/>
+                <Button VerticalOptions="Center" Text="Ingresar" Command="{Binding LoginCommand}" CornerRadius="60" HorizontalOptions="Center"/>
+                </StackLayout>
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -24,25 +24,19 @@
                 <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
                 <Setter Property="Shell.TabBarTitleColor" Value="Orange"/>
+
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
             <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>
     </Shell.Resources>
 
-    <TabBar Route="Portal">
-        <ShellContent Route="PortalPage" ContentTemplate="{DataTemplate local:PortalPage}" />
-    </TabBar>
 
-    <TabBar Route="Login">
-        <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
-    </TabBar>
-
-
-    <TabBar Route="Registro">
+    <ShellContent Route="PortalPage" ContentTemplate="{DataTemplate local:PortalPage}" />
+    <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
     <ShellContent Route="RegistroPage" ContentTemplate="{DataTemplate local:RegistroPage}" />
-    </TabBar>
-    <TabBar Route="Home">
+
+    <TabBar Route="About">
         <ShellContent Title="Inicio" Icon="icon_inicio.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
         <ShellContent Title="Evaluaciones" Icon="icon_evaluaciones.png" ContentTemplate="{DataTemplate local:EvaluadoPage}" />
         <ShellContent Title="Promociones" Icon="icon_promociones.png" ContentTemplate="{DataTemplate local:PromocionesPage}" />

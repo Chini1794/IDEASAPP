@@ -14,13 +14,12 @@ namespace IDEASAPP.ViewModels
         public AboutViewModel()
         {
             Title = "About";
-            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
+
             EmpresaCommand = new Command(OnEmpresaRecienteTapped);
             BusquedaCommand = new Command(OnBusquedaTapped);
 
         }
 
-        public ICommand OpenWebCommand { get; }
 
         private async void OnEmpresaRecienteTapped(object obj)
         {
