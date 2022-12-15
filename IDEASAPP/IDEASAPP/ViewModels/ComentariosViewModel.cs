@@ -15,6 +15,7 @@ namespace IDEASAPP.ViewModels
         public ObservableCollection<Item> Items { get; }
         public Command LoadItemsCommand { get; }
         public Command AddItemCommand { get; }
+        public Command SelectedCommand { get; }
         public Command<Item> ItemTapped { get; }
 
         public ComentariosViewModel()
@@ -26,9 +27,23 @@ namespace IDEASAPP.ViewModels
             ItemTapped = new Command<Item>(OnItemSelected);
 
             AddItemCommand = new Command(OnAddItem);
+			SelectedCommand = new Command(OnSelectItem);
         }
-
-        async Task ExecuteLoadItemsCommand()
+		private void OnSelectItem(object obj)
+		{
+			if (obj is Frame sl)
+			{
+				if (sl.BackgroundColor == Color.FromHex("#9EA1A3"))
+				{
+					sl.BackgroundColor = Color.White;
+				}
+				else
+				{
+					sl.BackgroundColor = Color.FromHex("#9EA1A3");
+				}
+			}
+		}
+		async Task ExecuteLoadItemsCommand()
         {
             IsBusy = true;
 

@@ -16,7 +16,7 @@
 
                 <StackLayout Orientation="Horizontal" Margin="0,0,0,20" >
 
-                    <RadioButton Content="Hoy"  />
+                    <RadioButton Content="Hoy" IsChecked="True" />
                     <RadioButton Content="Semana" />
                     <RadioButton Content="30 días" />
 

@@ -13,24 +13,59 @@
 
 
                     <Frame CornerRadius="30"
-                             Margin="5"      >
+                             Margin="5"     x:Name="Evaluacion1" >
+
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding LinkCommand}"  NumberOfTapsRequired="1" CommandParameter="{x:Reference Evaluacion1}" />
+
+                        </Frame.GestureRecognizers>
                         <StackLayout Orientation="Vertical">
                             <Image Source="https://cdn.mos.cms.futurecdn.net/5StAbRHLA4ZdyzQZVivm2c.jpg" Aspect="AspectFill"  HorizontalOptions="FillAndExpand" HeightRequest="100"/>
+
+                            <BoxView 
+                   HeightRequest="1"
+                   Color="LightGray"
+                   Margin ="0, 10, 0, 10"/>
                             <StackLayout Orientation="Horizontal">
-                                <Label FontSize="18" Text="Walmart" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+                                
+                                <Label FontSize="24" Text="Walmart" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
                                 <Image Source="icon_heart" Aspect="AspectFit" HeightRequest="20" WidthRequest="20" HorizontalOptions="EndAndExpand"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
-                                <Label FontSize="14" Text="Ubicación: San Francisco, Heredia"  HorizontalOptions="StartAndExpand"/>
-                                <Label FontSize="14" Text="Distancia: 2km"  HorizontalOptions="EndAndExpand"/>
+                                <Label FontSize="14" Text="Ubicación:"  HorizontalOptions="Start" FontAttributes="Bold"/>
+                                <Label FontSize="14" Text="San Francisco, Heredia"  HorizontalOptions="StartAndExpand" TextColor="Orange"  FontAttributes="Bold"/>
+
 
                             </StackLayout>
-                            <Label Text="Categoría: Servicio" FontSize="14"/>
-                            <Label FontSize="14" Text="Fecha: 12/08/2022"  HorizontalOptions="StartAndExpand"/>
-                            <Label FontSize="14" Text="Puntos obtenidos: 40"  HorizontalOptions="StartAndExpand"/>
                             <StackLayout Orientation="Horizontal">
-                                <Label FontSize="14" Text="Calificación dada: 4/5"  TextColor="Orange"/>
-                                <Label Text="Emotion:" FontSize="14" HorizontalOptions="EndAndExpand"/>
+
+                                <Label Text="Distancia:" FontSize="14" FontAttributes="Bold"/>
+                                <Label Text="2km" FontSize="14" TextColor="Orange"  FontAttributes="Bold"/>
+
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+
+                                <Label Text="Categoría:" FontSize="14" FontAttributes="Bold"/>
+                                <Label Text="Servicio" FontSize="14" TextColor="Orange"  FontAttributes="Bold"/>
+                            </StackLayout>             
+                            
+                            <StackLayout Orientation="Horizontal">
+
+                                <Label FontSize="14" Text="Fecha:"  FontAttributes="Bold"/>
+                                <Label Text="12/08/2022" FontSize="14" TextColor="Orange"  FontAttributes="Bold"/>
+
+                            </StackLayout>                          
+                            <StackLayout Orientation="Horizontal">
+
+                                <Label FontSize="14" Text="Puntos obtenidos:"   FontAttributes="Bold"/>
+                                <Label Text="40 " FontSize="14" TextColor="Orange"  FontAttributes="Bold"/>
+
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontSize="14" Text="Calificación dada:"  FontAttributes="Bold"/>
+                                <Label FontSize="14" Text="4/5"  TextColor="Orange" FontAttributes="Bold"/>
+                                <Label Text="Emotion:" FontSize="14" HorizontalOptions="EndAndExpand" FontAttributes="Bold"/>
 
                                 <Image Source="icon_smiley.png" VerticalOptions="StartAndExpand" WidthRequest="30" HeightRequest="30"/>
                             </StackLayout>
@@ -39,83 +74,186 @@
 
                     </Frame>
                     <Frame CornerRadius="30"
-                              Margin="5"     >
+                              Margin="5"   x:Name="Evaluacion2"  >
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding LinkCommand}"  NumberOfTapsRequired="1" CommandParameter="{x:Reference Evaluacion2}" />
+
+                        </Frame.GestureRecognizers>
+
                         <StackLayout Orientation="Vertical">
                             <Image Source="https://upload.wikimedia.org/wikipedia/commons/3/3f/PriceSmart_Logo.png" Aspect="AspectFill"  HorizontalOptions="FillAndExpand" HeightRequest="100"/>
 
+                          
+                            <BoxView 
+                   HeightRequest="1"
+                   Color="LightGray"
+                   Margin ="0, 10, 0, 10"/>
                             <StackLayout Orientation="Horizontal">
-                                <Label FontSize="18" Text="Pricesmart" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+
+                                <Label FontSize="24" Text="Pricesmart" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
                                 <Image Source="icon_heart" Aspect="AspectFit" HeightRequest="20" WidthRequest="20" HorizontalOptions="EndAndExpand"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
-                                <Label FontSize="14" Text="Ubicación: San Pablo, Heredia"  HorizontalOptions="StartAndExpand"/>
-                                <Label FontSize="14" Text="Distancia: 7km"  HorizontalOptions="EndAndExpand"/>
+                                <Label FontSize="14" Text="Ubicación:"  HorizontalOptions="Start" FontAttributes="Bold"/>
+                                <Label FontSize="14" Text="San Pablo, Heredia"  HorizontalOptions="StartAndExpand" TextColor="Orange"  FontAttributes="Bold"/>
+
 
                             </StackLayout>
-                            <Label Text="Categoría: Servicio" FontSize="14"/>
-                            <Label FontSize="14" Text="Fecha: 22/11/2022"  HorizontalOptions="StartAndExpand"/>
-                            <Label FontSize="14" Text="Puntos obtenidos: 20"  HorizontalOptions="StartAndExpand"/>
                             <StackLayout Orientation="Horizontal">
-                                <Label FontSize="14" Text="Calificación dada: 4,9/5"  TextColor="Orange"/>
-                                <Label Text="Emotion:" FontSize="14" HorizontalOptions="EndAndExpand"/>
+
+                                <Label Text="Distancia:" FontSize="14" FontAttributes="Bold"/>
+                                <Label Text="7km" FontSize="14" TextColor="Orange"  FontAttributes="Bold"/>
+
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+
+                                <Label Text="Categoría:" FontSize="14" FontAttributes="Bold"/>
+                                <Label Text="Servicio" FontSize="14" TextColor="Orange"  FontAttributes="Bold"/>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+
+                                <Label FontSize="14" Text="Fecha:"  FontAttributes="Bold"/>
+                                <Label Text="22/11/2022" FontSize="14" TextColor="Orange"  FontAttributes="Bold"/>
+
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+
+                                <Label FontSize="14" Text="Puntos obtenidos:"   FontAttributes="Bold"/>
+                                <Label Text="20 " FontSize="14" TextColor="Orange"  FontAttributes="Bold"/>
+
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontSize="14" Text="Calificación dada:"  FontAttributes="Bold"/>
+                                <Label FontSize="14" Text="4.9/5"  TextColor="Orange" FontAttributes="Bold"/>
+                                <Label Text="Emotion:" FontSize="14" HorizontalOptions="EndAndExpand" FontAttributes="Bold"/>
 
                                 <Image Source="icon_like.png" VerticalOptions="StartAndExpand" WidthRequest="30" HeightRequest="30"/>
                             </StackLayout>
 
-
                         </StackLayout>
 
                     </Frame>
 
                     <Frame CornerRadius="30"
-                               Margin="5"    >
+                               Margin="5"    x:Name="Evaluacion3" >
+
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding LinkCommand}"  NumberOfTapsRequired="1" CommandParameter="{x:Reference Evaluacion3}" />
+
+                        </Frame.GestureRecognizers>
                         <StackLayout Orientation="Vertical">
                             <Image Source="https://seeklogo.com/images/E/epa-logo-92A85C7055-seeklogo.com.png" Aspect="AspectFill"  HorizontalOptions="FillAndExpand" HeightRequest="100"/>
 
+    
+
+                            <BoxView 
+                   HeightRequest="1"
+                   Color="LightGray"
+                   Margin ="0, 10, 0, 10"/>
                             <StackLayout Orientation="Horizontal">
-                                <Label FontSize="18" Text="EPA" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+
+                                <Label FontSize="24" Text="EPA" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
                                 <Image Source="icon_heart" Aspect="AspectFit" HeightRequest="20" WidthRequest="20" HorizontalOptions="EndAndExpand"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
-                                <Label FontSize="14" Text="Ubicación: Belén, Heredia"  HorizontalOptions="StartAndExpand"/>
-                                <Label FontSize="14" Text="Distancia: 1km"  HorizontalOptions="EndAndExpand"/>
+                                <Label FontSize="14" Text="Ubicación:"  HorizontalOptions="Start" FontAttributes="Bold"/>
+                                <Label FontSize="14" Text="Belén, Heredia"  HorizontalOptions="StartAndExpand" TextColor="Orange"  FontAttributes="Bold"/>
+
 
                             </StackLayout>
-                            <Label Text="Categoría: Servicio" FontSize="14"/>
-                            <Label FontSize="14" Text="Fecha: 04/08/2022"  HorizontalOptions="StartAndExpand"/>
-                            <Label FontSize="14" Text="Puntos obtenidos: 30"  HorizontalOptions="StartAndExpand"/>
                             <StackLayout Orientation="Horizontal">
-                                <Label FontSize="14" Text="Calificación dada: 5/5"  TextColor="Orange"/>
-                                <Label Text="Emotion:" FontSize="14" HorizontalOptions="EndAndExpand"/>
+
+                                <Label Text="Distancia:" FontSize="14" FontAttributes="Bold"/>
+                                <Label Text="1km" FontSize="14" TextColor="Orange"  FontAttributes="Bold"/>
+
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+
+                                <Label Text="Categoría:" FontSize="14" FontAttributes="Bold"/>
+                                <Label Text="Servicio" FontSize="14" TextColor="Orange"  FontAttributes="Bold"/>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+
+                                <Label FontSize="14" Text="Fecha:"  FontAttributes="Bold"/>
+                                <Label Text="04/08/2022" FontSize="14" TextColor="Orange"  FontAttributes="Bold"/>
+
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+
+                                <Label FontSize="14" Text="Puntos obtenidos:"   FontAttributes="Bold"/>
+                                <Label Text="30" FontSize="14" TextColor="Orange"  FontAttributes="Bold"/>
+
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontSize="14" Text="Calificación dada:"  FontAttributes="Bold"/>
+                                <Label FontSize="14" Text="5/5"  TextColor="Orange" FontAttributes="Bold"/>
+                                <Label Text="Emotion:" FontSize="14" HorizontalOptions="EndAndExpand" FontAttributes="Bold"/>
 
                                 <Image Source="icon_favorite.png" VerticalOptions="StartAndExpand" WidthRequest="30" HeightRequest="30"/>
                             </StackLayout>
 
-
                         </StackLayout>
 
                     </Frame>
 
                     <Frame CornerRadius="30"
-                                   >
+                                  x:Name="Evaluacion4"  >
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding LinkCommand}"  NumberOfTapsRequired="1" CommandParameter="{x:Reference Evaluacion4}" />
+
+                        </Frame.GestureRecognizers>
+
                         <StackLayout Orientation="Vertical">
                             <Image Source="https://theflashtoday.com/wp-content/uploads/2017/06/Burger-King-logo-feature.png" Aspect="AspectFill"  HorizontalOptions="FillAndExpand" HeightRequest="100"/>
 
+                            <BoxView 
+                   HeightRequest="1"
+                   Color="LightGray"
+                   Margin ="0, 10, 0, 0"/>
                             <StackLayout Orientation="Horizontal">
-                                <Label FontSize="18" Text="Burger King" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+
+                                <Label FontSize="24" Text="Burger King" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
                                 <Image Source="icon_heart" Aspect="AspectFit" HeightRequest="20" WidthRequest="20" HorizontalOptions="EndAndExpand"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
-                                <Label FontSize="14" Text="Ubicación: San Pablo, Heredia"  HorizontalOptions="StartAndExpand"/>
-                                <Label FontSize="14" Text="Distancia: 5km"  HorizontalOptions="EndAndExpand"/>
+                                <Label FontSize="14" Text="Ubicación:"  HorizontalOptions="Start" FontAttributes="Bold"/>
+                                <Label FontSize="14" Text="Heredia, Heredia"  HorizontalOptions="StartAndExpand" TextColor="Orange"  FontAttributes="Bold"/>
+
 
                             </StackLayout>
-                            <Label Text="Categoría: Servicio" FontSize="14"/>
-                            <Label FontSize="14" Text="Fecha: 06/07/2022"  HorizontalOptions="StartAndExpand"/>
-                            <Label FontSize="14" Text="Puntos obtenidos: 10"  HorizontalOptions="StartAndExpand"/>
                             <StackLayout Orientation="Horizontal">
-                                <Label FontSize="14" Text="Calificación dada: 4/5"  TextColor="Orange"/>
-                                <Label Text="Emotion:" FontSize="14" HorizontalOptions="EndAndExpand"/>
+
+                                <Label Text="Distancia:" FontSize="14" FontAttributes="Bold"/>
+                                <Label Text="5km" FontSize="14" TextColor="Orange"  FontAttributes="Bold"/>
+
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+
+                                <Label Text="Categoría:" FontSize="14" FontAttributes="Bold"/>
+                                <Label Text="Servicio" FontSize="14" TextColor="Orange"  FontAttributes="Bold"/>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+
+                                <Label FontSize="14" Text="Fecha:"  FontAttributes="Bold"/>
+                                <Label Text="06/07/2022" FontSize="14" TextColor="Orange"  FontAttributes="Bold"/>
+
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+
+                                <Label FontSize="14" Text="Puntos obtenidos:"   FontAttributes="Bold"/>
+                                <Label Text="10 " FontSize="14" TextColor="Orange"  FontAttributes="Bold"/>
+
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontSize="14" Text="Calificación dada:"  FontAttributes="Bold"/>
+                                <Label FontSize="14" Text="4/5"  TextColor="Orange" FontAttributes="Bold"/>
+                                <Label Text="Emotion:" FontSize="14" HorizontalOptions="EndAndExpand" FontAttributes="Bold"/>
 
                                 <Image Source="icon_pen.png" VerticalOptions="StartAndExpand" WidthRequest="30" HeightRequest="30"/>
                             </StackLayout>

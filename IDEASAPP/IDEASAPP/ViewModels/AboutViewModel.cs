@@ -10,6 +10,7 @@ namespace IDEASAPP.ViewModels
     {   
         public Command EmpresaCommand { get; }
         public Command BusquedaCommand { get; }
+        public Command LinkCommand { get; }
 
         public AboutViewModel()
         {
@@ -17,15 +18,29 @@ namespace IDEASAPP.ViewModels
 
             EmpresaCommand = new Command(OnEmpresaRecienteTapped);
             BusquedaCommand = new Command(OnBusquedaTapped);
+			LinkCommand = new Command(OnLinkTapped);
 
         }
 
 
-        private async void OnEmpresaRecienteTapped(object obj)
-        {
-            await Shell.Current.GoToAsync("EmpresaPage");
-        }      
+		private void OnEmpresaRecienteTapped(object obj)
+		{
+			if (obj is Frame sl)
+			{
+				if (sl.BackgroundColor == Color.FromHex("#9EA1A3"))
+				{
+					sl.BackgroundColor = Color.White;
+				}
+				else
+				{
+					sl.BackgroundColor = Color.FromHex("#9EA1A3");
+				}
+			}
+		}
 
+			private async void OnLinkTapped(object obj) {
+				await Shell.Current.GoToAsync("EmpresaPage");
+			}
         private async void OnBusquedaTapped(object obj)
         {
             await Shell.Current.GoToAsync("BusquedaPage");

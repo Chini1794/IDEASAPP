@@ -53,8 +53,11 @@
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center"   VerticalOptions="Center">
 
                     <Frame  CornerRadius="30"
-                                           WidthRequest="100" HeightRequest="100" Margin="5">
+                                           WidthRequest="100" HeightRequest="100" Margin="5" x:Name="Frame4">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding EmpresaCommand}"  NumberOfTapsRequired="1" CommandParameter="{x:Reference Frame4}" />
 
+                        </Frame.GestureRecognizers>
 
                         <StackLayout>
                             <Image Source="https://cdn.mos.cms.futurecdn.net/5StAbRHLA4ZdyzQZVivm2c.jpg" Aspect="AspectFit" HeightRequest="70" WidthRequest="70"/>
@@ -64,7 +67,10 @@
 
                     </Frame>
                     <Frame CornerRadius="30"
-                                           WidthRequest="100" HeightRequest="100"  Margin="5">
+                                           WidthRequest="100" HeightRequest="100"  Margin="5" x:Name="Frame5">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding EmpresaCommand}"  NumberOfTapsRequired="1" CommandParameter="{x:Reference Frame5}" />
+                        </Frame.GestureRecognizers>
                         <StackLayout>
                             <Image Source="https://stringfixer.com/files/127986454.jpg" Aspect="AspectFit" HeightRequest="70" WidthRequest="70"/>
                             <Label FontSize="14" Text="Aliss" FontAttributes="Bold" HorizontalOptions="Start"/>
@@ -73,7 +79,10 @@
 
                     </Frame>
                     <Frame CornerRadius="30"
-                                           WidthRequest="100" HeightRequest="100"  Margin="5">
+                                           WidthRequest="100" HeightRequest="100"  Margin="5" x:Name="Frame6">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding EmpresaCommand}"  NumberOfTapsRequired="1" CommandParameter="{x:Reference Frame6}" />
+                        </Frame.GestureRecognizers>
                         <StackLayout>
                             <Image Source="https://upload.wikimedia.org/wikipedia/commons/3/3f/PriceSmart_Logo.png" Aspect="AspectFit" VerticalOptions="Center" HeightRequest="70" WidthRequest="70"/>
                             <Label FontSize="14" Text="Pricesmart" FontAttributes="Bold" HorizontalOptions="Start"/>
@@ -84,11 +93,13 @@
 
 
                     <Frame  CornerRadius="30"
-                                           WidthRequest="100" HeightRequest="100" Margin="5">
-
+                                           WidthRequest="100" HeightRequest="100" Margin="5" x:Name="Frame7">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding EmpresaCommand}"  NumberOfTapsRequired="1" CommandParameter="{x:Reference Frame7}" />
+                        </Frame.GestureRecognizers>
                         <StackLayout>
-                            <Image Source="https://cdn.mos.cms.futurecdn.net/5StAbRHLA4ZdyzQZVivm2c.jpg" Aspect="AspectFit" HeightRequest="70" WidthRequest="70"/>
-                            <Label FontSize="14" Text="Walmart" FontAttributes="Bold" HorizontalOptions="Start"/>
+                            <Image Source="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Logo_Dos_Pinos.svg/2560px-Logo_Dos_Pinos.svg.png" Aspect="AspectFit" HeightRequest="70" WidthRequest="70"/>
+                            <Label FontSize="14" Text="Dos Pinos" FontAttributes="Bold" HorizontalOptions="Start"/>
                             <Label FontSize="12" Text="Puntos: 450"  HorizontalOptions="Start"/>
                         </StackLayout>
 
@@ -104,10 +115,11 @@
         <StackLayout Orientation="Vertical" Grid.Row="2" Margin="0,90,0,0">
 
             <Frame CornerRadius="30"
-                                   WidthRequest="100" HeightRequest="100"  Margin="5">
+                                   WidthRequest="100" HeightRequest="100"  Margin="5" x:Name="Frame1" >
 
                     <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding EmpresaCommand}"  />
+                        <TapGestureRecognizer Command="{Binding EmpresaCommand}" CommandParameter="{x:Reference Frame1}"  NumberOfTapsRequired="1"/>
+                        <TapGestureRecognizer Command="{Binding LinkCommand}"  NumberOfTapsRequired="2"/>
                     </Frame.GestureRecognizers>
                     <StackLayout Orientation="Horizontal">
                         <Image Source="https://facturaelectronica.mipueblocr.com/resources/Companies/123/Logo/musmanni_palmares.png" Aspect="AspectFill" VerticalOptions="Center" HeightRequest="100" WidthRequest="100" Margin="0,0,30,0"/>
@@ -121,7 +133,11 @@
 
                 </Frame>
             <Frame CornerRadius="30"
-                                   WidthRequest="100" HeightRequest="100"  Margin="5">
+                                   WidthRequest="100" HeightRequest="100"  Margin="5" x:Name="Frame2">
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding EmpresaCommand}" CommandParameter="{x:Reference Frame2}"  NumberOfTapsRequired="1"/>
+                    </Frame.GestureRecognizers>
                     <StackLayout Orientation="Horizontal">
                         <Image Source="https://tumallsanpedro.com/wp-content/uploads/2016/01/Local_icon.jpg" Aspect="AspectFill" VerticalOptions="Center" HeightRequest="100" WidthRequest="100" Margin="0,0,30,0"/>
                         <StackLayout Orientation="Vertical">
@@ -134,7 +150,10 @@
 
                 </Frame>
             <Frame CornerRadius="30"
-                                   WidthRequest="100" HeightRequest="100"  Margin="5">
+                                   WidthRequest="100" HeightRequest="100"  Margin="5"  x:Name="Frame3">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding EmpresaCommand}" CommandParameter="{x:Reference Frame3}"  NumberOfTapsRequired="1"/>
+                    </Frame.GestureRecognizers>
                     <StackLayout Orientation="Horizontal">
                         <Image Source="https://www.coopeande1.com/sites/default/files/2021-01/gollo_logo.png" Aspect="AspectFill" VerticalOptions="Center" HeightRequest="100" WidthRequest="100" Margin="0,0,30,0"/>
                         <StackLayout Orientation="Vertical">
