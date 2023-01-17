@@ -9,24 +9,57 @@
         <ResourceDictionary>
             <Color x:Key="Primary">#2196F3</Color>
             <Style TargetType="Button">
-                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="TextColor"
+                        Value="White"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                    <Setter Property="BackgroundColor"
+                                            Value="{StaticResource Primary}" />
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Disabled">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="#332196F3" />
+                                    <Setter Property="BackgroundColor"
+                                            Value="#332196F3" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>
                     </VisualStateGroupList>
                 </Setter>
             </Style>
-        </ResourceDictionary>        
+            <Style x:Key="Bienvenida"
+                   TargetType="Frame">
+                <Setter Property="Margin"
+                        Value="0,450,0,0"></Setter>
+                <Setter Property="Background"
+                        Value="linear-gradient(180deg, rgba(255, 255, 255, 0.688) 0%, rgba(255, 255, 255, 0.344) 100%);"></Setter>
+            </Style>
+            <Style x:Key="labelStyle"
+                   TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="#1D2433" />
+                <Setter Property="FontSize"
+                        Value="30" />
+                <Setter Property="FontFamily" Value="Inter"></Setter>
+                <Setter Property="FontAttributes"
+                        Value="None"></Setter>
+                <Setter Property="HorizontalTextAlignment"
+                        Value="Center"></Setter>
+            </Style>
+            <Style x:Key="labelStyle1"
+                   TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="#1F1F1F" />
+                <Setter Property="FontSize"
+                        Value="16" />
+                <Setter Property="FontFamily"
+                        Value="Outfit"></Setter>
+                <Setter Property="FontAttributes"
+                        Value="None"></Setter>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IDEASAPP.Views.InicioSesionPage">
+    <Grid BackgroundColor="#5662DE">
+        <Image Source="../img_fondo_login_uno.png"
+               Margin="-60,270,130,100" />
+        <Label Margin="20,150,0,16"
+               FontFamily="Inter"
+               FontSize="35"
+               TextColor="#FFFFFF"
+               FontAttributes="Bold">LOGOTIPO</Label>
+        <Image Source="../img_inicio.png"
+               Margin="90,0,10,100" />
+        <StackLayout>
+            <Frame x:Name="Bienvenida"
+                   Style="{StaticResource Bienvenida}"
+                   CornerRadius="40"
+                   WidthRequest="0">
+                <StackLayout>
+                    <Label Text="Bienvenido"
+                           Style="{StaticResource labelStyle}" />
+                    <Label Text="Explora todos comercios que están cerca de ti, deja reseñas y echa un vistazo a las opiniones de los demás"
+                           Style="{StaticResource labelStyle1}"
+                           HorizontalTextAlignment="Center"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center" />
+                    <StackLayout Orientation="Horizontal">
+                        <Button Text="Iniciar sesión"
+                                TextColor="#FFFFFF"
+                                Background="#5662DE"
+                                CornerRadius="60"
+                                Command="{Binding LoginCommand}"
+                                WidthRequest="159" />
+                        <Button Text="Registrase"
+                                TextColor="#1F1F1F"
+                                Background="#F6F6F6"
+                                CornerRadius="60"
+                                Command="{Binding LoginCommand}"
+                                WidthRequest="159" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </Grid>
+</ContentPage>

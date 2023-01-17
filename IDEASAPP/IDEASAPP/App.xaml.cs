@@ -13,8 +13,8 @@ namespace IDEASAPP
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
-            MainPage = new AppShell();
+            //DependencyService.Register<MockDataStore>();
+            MainPage = new InicioSesionPage();
 
         }
 
