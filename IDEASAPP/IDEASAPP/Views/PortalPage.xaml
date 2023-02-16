@@ -6,48 +6,54 @@
              mc:Ignorable="d"
              x:Class="IDEASAPP.Views.PortalPage"
              Shell.NavBarIsVisible="False">
-    <ContentPage.Content>
-        
-        
-        <StackLayout Padding="10,10,10,10">
-            <Label Text="Sugerencias"
-               HorizontalOptions="Center" 
-                     FontSize="30"
-                   FontAttributes="Bold"
-                   />           
-            <Label Text="Ideas"
-               HorizontalOptions="Center" 
-                     FontSize="30"
-                   FontAttributes="Bold"
-                   />          
-            <Label Text="Quejas"
-               HorizontalOptions="Center" 
-                     FontSize="30"
-                   FontAttributes="Bold"
-                   />   
-            <Label Text="GANE CON SUS APORTES"
-                    FontAttributes="Bold"
-                   HorizontalOptions="Center"
-                               FontSize="18"
-                   Margin="0,20,0,0"
-                   TextColor="DarkOrange"
-                  />
-            <Image Source="portal.png" Margin="0,30,0,0" />
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="0,40,0,20">            
-                
-            <Button  Text="Iniciar Sesión" Command="{Binding StartCommand} " CornerRadius="60" WidthRequest="130"/>
+    <Grid BackgroundColor="#5662DE">
+        <Image Source="../img_fondo_login_uno.png"
+               Margin="-60,270,130,100" />
+        <Label Margin="20,150,0,16"
+               FontFamily="Inter"
+               FontSize="35"
+               TextColor="#FFFFFF"
+               FontAttributes="Bold">LOGOTIPO</Label>
+        <Image Source="../img_inicio.png"
+               Margin="90,0,10,100" />
+        <StackLayout>
+            <Frame x:Name="Bienvenida"
+                   Style="{StaticResource Bienvenida}"
+                   CornerRadius="40"
+                   WidthRequest="0">
+                <StackLayout>
+                    <Label Text="Bienvenido"
+                           Style="{StaticResource labelStyle}" />
+                    <Label Text="Explora todos comercios que están cerca de ti, deja reseñas y echa un vistazo a las opiniones de los demás"
+                           Style="{StaticResource labelStyle1}"
+                           HorizontalTextAlignment="Center"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center" Margin="0,0,0,35"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Button Text="Iniciar sesión"
+                                TextColor="#FFFFFF"
+                                Background="#5662DE"
+                                CornerRadius="60"
+                                Command="{Binding LoginCommand}"
+                                WidthRequest="159" />
+                        <Button Text="Registrase"
+                                TextColor="#1F1F1F"
+                                Background="#F6F6F6"
+                                CornerRadius="60"
+                                Command="{Binding RegistroCommand}"
+                                WidthRequest="159" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Button Text="Invitado"
+                                TextColor="#FFFFFF"
+                                Background="#5662DE"
+                                CornerRadius="60"
+                                Command="{Binding StartCommand}"
+                                WidthRequest="159" />
 
-                <Button  Text="Invitado" Command="{Binding LoginCommand}" WidthRequest="130" CornerRadius="60"/>
-            </StackLayout>
-
-            <Label Text="Registrarse"
-                    TextDecorations="Underline"
-                   HorizontalOptions="Center" 
-                    FontSize="15">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding RegistroCommand}" />
-                </Label.GestureRecognizers>
-            </Label>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
         </StackLayout>
-    </ContentPage.Content>
+    </Grid>
 </ContentPage>

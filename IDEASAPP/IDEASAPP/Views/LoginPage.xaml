@@ -6,35 +6,49 @@
              mc:Ignorable="d"
              x:Class="IDEASAPP.Views.LoginPage"
              Shell.NavBarIsVisible="False">
-    <ContentPage.Content>
 
+    <Grid BackgroundColor="#FFFFFF">
+        <Image Source="../img_fondo_login_dos.png"
+              Margin="-10"/>
 
         <StackLayout >
-            <Frame BackgroundColor="White" CornerRadius="60" HasShadow="True"
-               Margin="10" HorizontalOptions="Start">
-                <Image Source="icon_back.png" HeightRequest="25" WidthRequest="25" />
 
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding BackCommand}"  />
-                </Frame.GestureRecognizers>
-
-            </Frame>
-            <Frame Margin="10, 110, 10,0 "  CornerRadius="60" HasShadow="True">
+            <Frame x:Name="Login"
+                   Style="{StaticResource Login}">
+                
                 <StackLayout>
-                <Label Text="Inicio de Sesión"
-               HorizontalOptions="Center" 
-                     FontSize="30"
-                   FontAttributes="Bold"
+                    <Label Text="Logotipo"
+                           Style="{StaticResource TituloLogin}" />
+                    <Label Text="Para continuar inicia sesión con tu cuenta en Ideas App."
+                           Style="{StaticResource TextoLogin}"
+                             HorizontalTextAlignment="Center"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"></Label>
 
-                   />
-                <Label Text="Correo" FontSize="Medium" />
-                <Entry Text="{Binding Correo, Mode=TwoWay}" FontSize="Medium" />
-                <Label Text="Contraseña" FontSize="Medium"   />
-                <Entry Text="{Binding Contraseña, Mode=TwoWay}" FontSize="Medium" IsPassword="true"  />
-                <Label Text="Olvidé mi contraseña" HorizontalOptions="End" FontSize="12" Margin="0, 0, 0, 40" TextDecorations="Underline"/>
-                <Button VerticalOptions="Center" Text="Ingresar" Command="{Binding LoginCommand}" CornerRadius="60" HorizontalOptions="Center"/>
+                    <Frame Style="{StaticResource InputLogin}" Padding = "5" IsClippedToBounds="true" >
+                        <Entry Text="{Binding Correo, Mode=TwoWay}" Placeholder="Usuario"  /> 
+                    </Frame>
+                    <Frame Style="{StaticResource InputLogin}" Padding = "5" IsClippedToBounds="true"> 
+                        <Entry Text="{Binding Contraseña, Mode=TwoWay}" Placeholder="Contraseña" VerticalOptions="EndAndExpand"  />
+                    </Frame>
+                    <Label Text="¿Olvidaste tu contraseña?" HorizontalOptions="End" FontSize="14" FontFamily="Outfit" TextColor="#5662DE" Margin="0, 0, 0, 20" />
+                    <Button   TextColor="#FFFFFF"
+                                Background="#5662DE"
+                                CornerRadius="16" Text="Ingresar" Command="{Binding LoginCommand}" HorizontalOptions="Center"  WidthRequest="300" Margin="0,10,0,0"/>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,50,0,0">
+                        <Label Text="¿No tiene una cuenta?"
+                         FontFamily="Outfit"
+        
+                               FontSize="14"
+                           HorizontalOptions="Center"></Label>                
+                        <Label Text="Abrir cuenta"
+                           FontSize="14"    
+                           VerticalOptions="Center" HorizontalOptions="Start" FontFamily="Outfit" TextColor="#5662DE"></Label>
+                    </StackLayout>
                 </StackLayout>
             </Frame>
         </StackLayout>
-    </ContentPage.Content>
+    </Grid>
+
 </ContentPage>
