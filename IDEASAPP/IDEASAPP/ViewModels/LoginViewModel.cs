@@ -65,6 +65,8 @@ namespace IDEASAPP.ViewModels
 
 			if (response.StatusCode == HttpStatusCode.OK)
 			{
+                Username = "";
+                Password = "";
 				await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
 			}
 			else

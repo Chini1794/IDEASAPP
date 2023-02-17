@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.IO;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,7 @@ namespace IDEASAPP.ViewModels
         public Command BusquedaCommand { get; }
         public Command LinkCommand { get; }
 		public Command LoadRecientesCommand { get; }
+		public Command LoadEmpresasCommand { get; }
 		public AboutViewModel()
         {
             Title = "About";
@@ -46,6 +48,7 @@ namespace IDEASAPP.ViewModels
 			
 			foreach (var item in resultado)
 			{
+				item.SourceFoto = ImageSource.FromStream(() => new MemoryStream(item.DLogo));
 				NegociosRecientes.Add(item);
 			}
 			IsBusy = false;

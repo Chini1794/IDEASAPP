@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms;
 
 namespace IDEASAPP.Models
 {
@@ -25,5 +26,7 @@ namespace IDEASAPP.Models
 		public byte[] DFoto { get; set; }
 		public string DContactoAdministrador { get; set; }
 		public string DAdministrador { get; set; }
+
+		public ImageSource SourceFoto { get; set; }
 	}
 }

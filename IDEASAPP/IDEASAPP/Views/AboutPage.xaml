@@ -4,8 +4,10 @@
              x:Class="IDEASAPP.Views.AboutPage"
              xmlns:local="clr-namespace:IDEASAPP.ViewModels"  
              xmlns:model="clr-namespace:IDEASAPP.Models"  
+   xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              Shell.NavBarIsVisible="False"
             >
+
     <Grid BackgroundColor="#FFFFFF">
 
         <StackLayout>
@@ -64,29 +66,37 @@
 
             <StackLayout Margin="15">
                 <Label FontSize="16" Style="{StaticResource TituloAbout}" Text="Búsquedas Recientes" FontAttributes="Bold"  VerticalOptions="Start" />
-            
-            <ScrollView>
-                <CollectionView x:Name="RecientesListView"
+
+                <ScrollView>
+                    <CollectionView x:Name="RecientesListView"
                 ItemsSource="{Binding NegociosRecientes}"
                 SelectionMode="None" HeightRequest="100">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                        <StackLayout Padding="5" x:DataType="model:NegocioMiembro" Orientation="Horizontal">
+                                <StackLayout Padding="5" x:DataType="model:NegocioMiembro" Orientation="Horizontal">
                                     <Frame CornerRadius="10"
-                               HasShadow="True" IsClippedToBounds="true" Padding = "5"  WidthRequest="140" HeightRequest="120">
-                                    <StackLayout Orientation="Vertical">
-                                        <Label Text="{Binding DNombreComercial}" 
-                            LineBreakMode="NoWrap" 
-
-                            FontAttributes="Bold"   
-                            FontSize="16" 
+                               HasShadow="True" IsClippedToBounds="true" Padding = "0"  WidthRequest="140" HeightRequest="260">
+                                        <StackLayout Orientation="Vertical">
+                                            <Image Source="{Binding SourceFoto}"   HeightRequest="50" WidthRequest="50" Aspect="AspectFill"
                               />
-                                        <Label Text="{Binding DDescripcion}" 
+                                            <Label Text="{Binding DNombreComercial}" 
                             LineBreakMode="TailTruncation"
-                            FontSize="13" 
+                            FontSize="16" 
+                                              FontAttributes="Bold"
+                                               FontFamily="Outfit"
+                                               VerticalOptions="Start" Padding="0" Margin="0,-5,0,0"
+                                               
                                />
-                                            </StackLayout>
-         
+                                            <Label Text="{Binding DDireccion}" 
+                      LineBreakMode="NoWrap"
+                            FontSize="14" 
+                             Padding="0" Margin="0,-10,0,0"
+                                               FontFamily="Outfit"
+                                               VerticalOptions="Start"
+                                               
+                               />
+                                        </StackLayout>
+
                                     </Frame>
                                     <!--<StackLayout.GestureRecognizers>
                                         <TapGestureRecognizer 
@@ -99,16 +109,68 @@
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
 
-                    <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Horizontal" />
-                    </CollectionView.ItemsLayout>
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Horizontal" />
+                        </CollectionView.ItemsLayout>
 
-                </CollectionView>
+                    </CollectionView>
 
-         
-            </ScrollView>
-            <Label FontSize="16" Style="{StaticResource TituloAbout}" Text="Búsquedas Recientes" FontAttributes="Bold"  VerticalOptions="Start" />
 
+                </ScrollView>
+                <Label FontSize="16" Style="{StaticResource TituloAbout}" Text="Los más populares" FontAttributes="Bold"  VerticalOptions="Start" />
+                <ScrollView>
+                    <CollectionView x:Name="EmpresasListView"
+                ItemsSource="{Binding NegociosRecientes}"
+                SelectionMode="None" HeightRequest="300">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Padding="5" x:DataType="model:NegocioMiembro" Orientation="Horizontal">
+                                    <Frame CornerRadius="10"
+                               HasShadow="True" IsClippedToBounds="true" Padding = "0" HorizontalOptions="FillAndExpand"  HeightRequest="200">
+                                        <StackLayout Orientation="Vertical" >
+
+
+                                            <Image Source="{Binding SourceFoto}"  HeightRequest="100" Aspect="AspectFill"/>
+
+                                            <StackLayout Orientation="Horizontal" Margin="5,0,5,0">
+                                            <Label Text="{Binding DNombreComercial}" 
+                            LineBreakMode="TailTruncation"
+                            FontSize="20" 
+                                              FontAttributes="Bold"
+                                               FontFamily="Outfit"
+                                               VerticalOptions="Start" Padding="0" Margin="0,-5,0,0"  />
+
+                                                <Image Source="../i_corazon.png"   HeightRequest="20" WidthRequest="20"  Aspect="Fill" HorizontalOptions="EndAndExpand"></Image>
+                                            </StackLayout>
+                                            <Label Text="{Binding DDireccion}" Margin="5,0,5,0" 
+                                                                    
+                
+                            FontSize="14" 
+                             Padding="0"
+                                               FontFamily="Outfit"
+                                               VerticalOptions="Start"
+                                               
+                               />
+                                        </StackLayout>
+
+                                    </Frame>
+                                    <!--<StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:About}}, Path=ItemTapped}"		
+                                CommandParameter="{Binding .}">
+                                        </TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>-->
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" />
+                        </CollectionView.ItemsLayout>
+
+                    </CollectionView>
+                </ScrollView>
             </StackLayout>
         </StackLayout>
     </Grid>

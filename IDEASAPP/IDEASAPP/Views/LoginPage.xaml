@@ -33,7 +33,7 @@
                     </Frame>
                     <Frame Style="{StaticResource InputLogin}" Padding = "5" IsClippedToBounds="true"   >
                         <StackLayout Orientation="Horizontal">
-                        <Entry Text="{Binding Password}" x:Name="Password" Placeholder="Contraseña" HorizontalOptions="FillAndExpand"  />
+                        <Entry Text="{Binding Password}" x:Name="Password" Placeholder="Contraseña" HorizontalOptions="FillAndExpand" IsPassword="True"  />
                             <Image Source="../ion_eye_outline.png" />
                 </StackLayout>
  
