@@ -2,11 +2,117 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IDEASAPP.Views.AboutPage"
-             xmlns:vm="clr-namespace:IDEASAPP.ViewModels"
+             xmlns:local="clr-namespace:IDEASAPP.ViewModels"  
+             xmlns:model="clr-namespace:IDEASAPP.Models"  
              Shell.NavBarIsVisible="False"
             >
+    <Grid BackgroundColor="#FFFFFF">
 
-    <ContentPage.BindingContext>
+        <StackLayout>
+            <Frame x:Name="Busqueda"
+                   Style="{StaticResource Busqueda}"
+                   CornerRadius="36"
+                   WidthRequest="0"
+                   HeightRequest="240"
+                   BackgroundColor="#5662DE">
+                <StackLayout Margin="0,30,0,0">
+                    <Label Text="Logotipo"
+                           Style="{StaticResource TituloAbout}" />
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="../i_ubicacion.png" />
+                        <Label Text="Heredia, Costa Rica"
+                           Style="{StaticResource Ubicacion}"
+                       />
+                    </StackLayout>
+                    <Frame Style="{StaticResource InputAbout}" Padding = "5" IsClippedToBounds="true"    >
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="../i_lupa.png" />
+                            <Entry Text="{Binding Busqueda}" x:Name="Password" Placeholder="Busqueda aquí"  HorizontalOptions="FillAndExpand"  />
+                        </StackLayout>
+                    </Frame>
+
+                    <StackLayout Orientation="Horizontal" Margin="0,10,0,20">
+                        <Frame Style="{StaticResource FrameFiltro}" Padding = "5" IsClippedToBounds="true"    >
+                            <StackLayout Orientation="Vertical">
+                                <Image Source="../i_comida.png" />
+                                <Label Style="{StaticResource TextoFiltros}" Text="Restaurante"></Label>
+                            </StackLayout>
+                        </Frame>
+                        <Frame Style="{StaticResource FrameFiltro}" Padding = "5" IsClippedToBounds="true"    >
+                            <StackLayout Orientation="Vertical">
+                                <Image Source="../i_ropa.png" />
+                                <Label  Style="{StaticResource TextoFiltros}" Text="Vestuario"></Label>
+                            </StackLayout>
+                        </Frame>
+                        <Frame Style="{StaticResource FrameFiltro}" Padding = "5" IsClippedToBounds="true"    >
+                            <StackLayout Orientation="Vertical">
+                                <Image Source="../i_compras.png" />
+                                <Label Style="{StaticResource TextoFiltros}" Text="Compras"></Label>
+                            </StackLayout>
+                        </Frame>
+                        <Frame Style="{StaticResource FrameFiltro}" Padding = "5" IsClippedToBounds="true"    >
+                            <StackLayout Orientation="Vertical">
+                                <Image Source="../i_gym.png" />
+                                <Label Style="{StaticResource TextoFiltros}" Text="Gimnasios"></Label>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                </StackLayout>
+            </Frame>
+
+
+            <StackLayout Margin="15">
+                <Label FontSize="16" Style="{StaticResource TituloAbout}" Text="Búsquedas Recientes" FontAttributes="Bold"  VerticalOptions="Start" />
+            
+            <ScrollView>
+                <CollectionView x:Name="RecientesListView"
+                ItemsSource="{Binding NegociosRecientes}"
+                SelectionMode="None" HeightRequest="100">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                        <StackLayout Padding="5" x:DataType="model:NegocioMiembro" Orientation="Horizontal">
+                                    <Frame CornerRadius="10"
+                               HasShadow="True" IsClippedToBounds="true" Padding = "5"  WidthRequest="140" HeightRequest="120">
+                                    <StackLayout Orientation="Vertical">
+                                        <Label Text="{Binding DNombreComercial}" 
+                            LineBreakMode="NoWrap" 
+
+                            FontAttributes="Bold"   
+                            FontSize="16" 
+                              />
+                                        <Label Text="{Binding DDescripcion}" 
+                            LineBreakMode="TailTruncation"
+                            FontSize="13" 
+                               />
+                                            </StackLayout>
+         
+                                    </Frame>
+                                    <!--<StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:About}}, Path=ItemTapped}"		
+                                CommandParameter="{Binding .}">
+                                        </TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>-->
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+
+                </CollectionView>
+
+         
+            </ScrollView>
+            <Label FontSize="16" Style="{StaticResource TituloAbout}" Text="Búsquedas Recientes" FontAttributes="Bold"  VerticalOptions="Start" />
+
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+    <!--<ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
 
@@ -168,7 +274,7 @@
 
         </StackLayout>
     </Grid>
-    </ScrollView>
-   
+    </ScrollView>-->
+
 </ContentPage>
 

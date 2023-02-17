@@ -21,9 +21,12 @@
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
                 <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
-                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
-                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
-                <Setter Property="Shell.TabBarTitleColor" Value="Orange"/>
+                <Setter Property="Shell.TabBarForegroundColor" Value="#5F5F5F"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#5F5F5F"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="#5662DE"/>
+                <Setter Property="Shell.NavBarHasShadow" Value="True"/>
+
+
 
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
@@ -37,10 +40,10 @@
     <ShellContent Route="RegistroPage" ContentTemplate="{DataTemplate local:RegistroPage}" />
 
     <TabBar Route="About">
-        <ShellContent Title="Inicio" Icon="icon_inicio.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
-        <ShellContent Title="Evaluaciones" Icon="icon_evaluaciones.png" ContentTemplate="{DataTemplate local:EvaluadoPage}" />
+        <ShellContent Title="Buscar" Icon="i_lupa.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+        <ShellContent Title="Evaluaciones" Icon="i_comentario.png" ContentTemplate="{DataTemplate local:EvaluadoPage}" />
         <ShellContent Title="Promociones" Icon="icon_promociones.png" ContentTemplate="{DataTemplate local:PromocionesPage}" />
-        <ShellContent Title="Mi Cuenta" Icon="icon_cuenta.png" ContentTemplate="{DataTemplate local:CuentaPage}" />
+        <ShellContent Title="Mi Cuenta" Icon="i_cuenta.png" ContentTemplate="{DataTemplate local:CuentaPage}" />
     </TabBar>
 
     <!--

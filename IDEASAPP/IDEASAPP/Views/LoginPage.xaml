@@ -26,15 +26,22 @@
                            HorizontalOptions="Center"></Label>
 
                     <Frame Style="{StaticResource InputLogin}" Padding = "5" IsClippedToBounds="true" >
-                        <Entry Text="{Binding Correo, Mode=TwoWay}" Placeholder="Usuario"  /> 
+                        <StackLayout Orientation="Horizontal">
+                            <Entry Text="{Binding Username}" x:Name="Username" Placeholder="Usuario" HorizontalOptions="FillAndExpand"  />
+                            <Image Source="../i_correo.png" />
+                        </StackLayout>
                     </Frame>
-                    <Frame Style="{StaticResource InputLogin}" Padding = "5" IsClippedToBounds="true"> 
-                        <Entry Text="{Binding Contraseña, Mode=TwoWay}" Placeholder="Contraseña" VerticalOptions="EndAndExpand"  />
+                    <Frame Style="{StaticResource InputLogin}" Padding = "5" IsClippedToBounds="true"   >
+                        <StackLayout Orientation="Horizontal">
+                        <Entry Text="{Binding Password}" x:Name="Password" Placeholder="Contraseña" HorizontalOptions="FillAndExpand"  />
+                            <Image Source="../ion_eye_outline.png" />
+                </StackLayout>
+ 
                     </Frame>
                     <Label Text="¿Olvidaste tu contraseña?" HorizontalOptions="End" FontSize="14" FontFamily="Outfit" TextColor="#5662DE" Margin="0, 0, 0, 20" />
                     <Button   TextColor="#FFFFFF"
                                 Background="#5662DE"
-                                CornerRadius="16" Text="Ingresar" Command="{Binding LoginCommand}" HorizontalOptions="Center"  WidthRequest="300" Margin="0,10,0,0"/>
+                                CornerRadius="16" Text="Ingresar"  Command="{Binding LoginCommand}" HorizontalOptions="Center" WidthRequest="300" Margin="0,10,0,0"/>
 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,50,0,0">
                         <Label Text="¿No tiene una cuenta?"
@@ -44,7 +51,11 @@
                            HorizontalOptions="Center"></Label>                
                         <Label Text="Abrir cuenta"
                            FontSize="14"    
-                           VerticalOptions="Center" HorizontalOptions="Start" FontFamily="Outfit" TextColor="#5662DE"></Label>
+                           VerticalOptions="Center" HorizontalOptions="Start" FontFamily="Outfit" TextColor="#5662DE">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding RegistroCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
                     </StackLayout>
                 </StackLayout>
             </Frame>

@@ -6,6 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Newtonsoft.Json;
+using System.Net.Http;
+using IDEASAPP.Models;
+using System.Net;
 
 namespace IDEASAPP.Views
 {
@@ -17,5 +21,7 @@ namespace IDEASAPP.Views
             InitializeComponent();
             this.BindingContext = new LoginViewModel();
         }
+
+
     }
 }
