@@ -7,45 +7,57 @@
              x:Class="IDEASAPP.Views.RegistroPage"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
+        <Grid BackgroundColor="#FFFFFF">
+            <Image Source="../img_fondo_login_dos.png"
+              Margin="-10"/>
+
+            <StackLayout >
+
+                <Frame x:Name="Login"
+                   Style="{StaticResource Login}">
+
+                    <StackLayout>
+                        <Label Text="Logotipo"
+                           Style="{StaticResource TituloLogin}" />
+                        <Label Text="Ingresa los datos para tu nueva cuenta de Ideas App."
+                           Style="{StaticResource TextoLogin}"
+                             HorizontalTextAlignment="Center"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"></Label>
+
+                        <Frame Style="{StaticResource InputLogin}" Padding = "5" IsClippedToBounds="true" >
+                            <StackLayout Orientation="Horizontal">
+                                <Entry Text="{Binding Username}" x:Name="Username" Placeholder="Usuario" HorizontalOptions="FillAndExpand"  />
+                                <Image Source="../i_cuenta.png" />
+                            </StackLayout>
+                        </Frame>
+                        <Frame Style="{StaticResource InputLogin}" Padding = "5" IsClippedToBounds="true" >
+                            <StackLayout Orientation="Horizontal">
+                                <Entry Text="{Binding Correo}" x:Name="Correo" Placeholder="Correo" HorizontalOptions="FillAndExpand"  />
+                                <Image Source="../i_correo.png" />
+                            </StackLayout>
+                        </Frame>
+                        <Frame Style="{StaticResource InputLogin}" Padding = "5" IsClippedToBounds="true"   >
+                            <StackLayout Orientation="Horizontal">
+                                <Entry Text="{Binding Password}" x:Name="Password" Placeholder="Contraseña" HorizontalOptions="FillAndExpand" IsPassword="True"  />
+                                <Image Source="../ion_eye_outline.png" />
+                            </StackLayout>
+
+                        </Frame>
+                        <StackLayout Orientation="Horizontal" Margin="0, 15, 0, 40">
+                            <CheckBox IsChecked="true" Color="#5662DE"/>
+                            <Label Text="Acepto términos y condiciones" FontSize="Medium"/>
+                        </StackLayout>
+                        <Button   TextColor="#FFFFFF"
+                                Background="#5662DE"
+                                CornerRadius="16" Text="Registrarse"  Command="{Binding LoginCommand}" HorizontalOptions="Center" WidthRequest="300" Margin="0,10,0,0"/>
 
 
-        <StackLayout >
-            <Frame BackgroundColor="White" CornerRadius="60" HasShadow="True"
-               Margin="10" HorizontalOptions="Start">
-                <Image Source="icon_back.png" HeightRequest="25" WidthRequest="25" />
-
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding BackCommand}"  />
-                </Frame.GestureRecognizers>
-
-            </Frame>
-
-            <Frame Margin="10, 70, 10,0 "  CornerRadius="60" HasShadow="True">
-                <StackLayout>
-                    <Label Text="Registro"
-               HorizontalOptions="Center"   
-                     FontSize="30"
-                   FontAttributes="Bold"
-                    
-                   />
-                    <Label Text="Username" FontSize="Medium" />
-                    <Entry Text="{Binding Username, Mode=TwoWay}" FontSize="Medium" />
-                    <Label Text="Correo" FontSize="Medium" />
-                    <Entry Text="{Binding Correo, Mode=TwoWay}" FontSize="Medium" />
-                    <Label Text="Contraseña" FontSize="Medium"  />
-                    <Entry Text="{Binding Contraseña, Mode=TwoWay}" FontSize="Medium" IsPassword="true"  />
-
-                    <StackLayout Orientation="Horizontal" Margin="0, 0, 0, 40">
-                        <CheckBox IsChecked="true" Color="blue"/>
-                        <Label Text="Acepto términos y condiciones" FontSize="Medium"/>
                     </StackLayout>
-                    <Button VerticalOptions="Center" Text="Registrarse" Command="{Binding PortalCommand}"  CornerRadius="60" HorizontalOptions="Center"/>
-                </StackLayout>
+                </Frame>
+            </StackLayout>
+        </Grid>
 
-
-            </Frame>
-
-
-        </StackLayout>
+      
     </ContentPage.Content>
 </ContentPage>

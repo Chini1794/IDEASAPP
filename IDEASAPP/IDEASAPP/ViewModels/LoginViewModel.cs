@@ -15,11 +15,10 @@ namespace IDEASAPP.ViewModels
     {
         public Command LoginCommand { get; }
         public Command RegistroCommand { get; }
-        public Command BackCommand { get; }
         public LoginViewModel()
         {
             LoginCommand = new Command(OnLoginClicked);
-            BackCommand = new Command(OnBackClicked);
+
             RegistroCommand = new Command(OnRegisterClicked);
 
         }
@@ -72,17 +71,12 @@ namespace IDEASAPP.ViewModels
 			else
 			{
 
-				await Application.Current.MainPage.DisplayAlert("Mensaje", "Datos ïnvalidos", "OK");
+				await Application.Current.MainPage.DisplayAlert("Mensaje", "Datos Invalidos", "OK");
 			}
         }   
-        private async void OnBackClicked(object obj)
-        {
-            // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            await Shell.Current.GoToAsync($"//{nameof(PortalPage)}");
-        }
         private async void OnRegisterClicked()
         {
-            await Shell.Current.GoToAsync($"//{nameof(RegistroPage)}");
-        }
+			await Shell.Current.GoToAsync("RegistroPage");
+		}
     }
 }

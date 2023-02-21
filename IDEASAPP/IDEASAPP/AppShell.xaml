@@ -25,32 +25,26 @@
                 <Setter Property="Shell.TabBarUnselectedColor" Value="#5F5F5F"/>
                 <Setter Property="Shell.TabBarTitleColor" Value="#5662DE"/>
                 <Setter Property="Shell.NavBarHasShadow" Value="True"/>
-
-
-
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
-            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>
     </Shell.Resources>
 
-
-    <ShellContent Route="PortalPage" ContentTemplate="{DataTemplate local:PortalPage}" />
-    <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
-    <ShellContent Route="RegistroPage" ContentTemplate="{DataTemplate local:RegistroPage}" />
+    <ShellContent Route="portal" ContentTemplate="{DataTemplate local:PortalPage}" />
 
     <TabBar Route="About">
-        <ShellContent Title="Buscar" Icon="i_lupa.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
-        <ShellContent Title="Evaluaciones" Icon="i_comentario.png" ContentTemplate="{DataTemplate local:EvaluadoPage}" />
-        <ShellContent Title="Promociones" Icon="icon_promociones.png" ContentTemplate="{DataTemplate local:PromocionesPage}" />
-        <ShellContent Title="Mi Cuenta" Icon="i_cuenta.png" ContentTemplate="{DataTemplate local:CuentaPage}" />
+        <ShellContent Title="Buscar" Icon="i_lupa.png" Route="about" ContentTemplate="{DataTemplate local:AboutPage}" />
+        <ShellContent Title="Aportes" Icon="i_comentario.png" Route="aportes" ContentTemplate="{DataTemplate local:EvaluadoPage}" />
+        <ShellContent Title="Promociones" Icon="icon_promociones.png" Route="promociones" ContentTemplate="{DataTemplate local:PromocionesPage}" />
+        <ShellContent Title="Mi Cuenta" Icon="i_cuenta.png" Route="cuenta" ContentTemplate="{DataTemplate local:CuentaPage}" />
     </TabBar>
 
     <!--
         If you would like to navigate to this content you can do so by calling
         await Shell.Current.GoToAsync("//LoginPage");
     -->
- 
+
+    
 
 
 </Shell>

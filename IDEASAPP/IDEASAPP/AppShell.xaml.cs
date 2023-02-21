@@ -13,12 +13,13 @@ namespace IDEASAPP
             InitializeComponent();
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             Routing.RegisterRoute(nameof(NuevoComentarioPage), typeof(NuevoComentarioPage));
-            Routing.RegisterRoute("CuentaPage", typeof(CuentaPage));
-            Routing.RegisterRoute("BusquedaPage", typeof(BusquedaPage));
-            Routing.RegisterRoute("EmpresaPage", typeof(EmpresaPage));
-            Routing.RegisterRoute("PortalPage", typeof(PortalPage));
-            Routing.RegisterRoute("ComentariosPage", typeof(ComentariosPage));
-            Routing.RegisterRoute("NuevoComentarioPage", typeof(NuevoComentarioPage));
+            Routing.RegisterRoute("portal/login", typeof(LoginPage));
+            Routing.RegisterRoute("portal/registro", typeof(RegistroPage));
+
+            Routing.RegisterRoute("about/busqueda", typeof(BusquedaPage));
+            Routing.RegisterRoute("about/empresa", typeof(EmpresaPage));
+            Routing.RegisterRoute("about/empresa/comentarios", typeof(ComentariosPage));
+            Routing.RegisterRoute("about/empresa/comentarios/nuevo", typeof(NuevoComentarioPage));
         }
 
     }

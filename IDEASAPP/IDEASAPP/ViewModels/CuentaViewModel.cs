@@ -20,7 +20,7 @@ namespace IDEASAPP.ViewModels
             
         {
 
-			await Shell.Current.GoToAsync($"//{nameof(PortalPage)}");
+			await Shell.Current.GoToAsync($"//portal");
            
 
         }
