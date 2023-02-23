@@ -13,14 +13,14 @@ namespace IDEASAPP.Views
         {
             InitializeComponent();
 			BindingContext = _viewModel = new AboutViewModel();
-            _viewModel.LoadRecientesCommand.Execute(this);
+            _viewModel.LoadEmpresasCommand.Execute(this);
 
-            RecientesListView.ItemsSource = _viewModel.NegociosRecientes;
+		}
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+			_viewModel.OnAppearing();
 		}
 
-        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
-        {
-
-        }
     }
 }

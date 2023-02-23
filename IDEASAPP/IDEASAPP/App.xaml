@@ -200,6 +200,15 @@
                 <Setter Property="FontFamily"
                         Value="Outfit"></Setter>
             </Style>
+
+            <!--Empresa-->
+            <Style x:Key="Empresa"
+                   TargetType="Frame">
+                <Setter Property="Margin"
+                        Value="0,100,0,-40"></Setter>
+                <Setter Property="Background"
+                        Value="#F4F4F4;"></Setter>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -9,13 +9,13 @@
     <Grid BackgroundColor="#5662DE">
         <Image Source="../img_fondo_login_uno.png"
                Margin="-60,270,130,100" />
-        <Label Margin="20,150,0,16"
+        <Label Margin="20,50,0,16"
                FontFamily="Inter"
                FontSize="35"
                TextColor="#FFFFFF"
                FontAttributes="Bold">LOGOTIPO</Label>
-        <Image Source="../img_inicio.png"
-               Margin="90,0,10,100" />
+        <Image Source="../i_personaje.png"
+               Margin="100,100,-50,200" />
         <StackLayout>
             <Frame x:Name="Bienvenida"
                    Style="{StaticResource Bienvenida}"
@@ -28,8 +28,10 @@
                            Style="{StaticResource labelStyle1}"
                            HorizontalTextAlignment="Center"
                            VerticalOptions="Center"
-                           HorizontalOptions="Center" Margin="0,0,0,35"/>
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                           HorizontalOptions="Center" 
+                           Margin="0,0,0,35"/>
+                    <StackLayout Orientation="Horizontal" 
+                                 HorizontalOptions="Center">
                         <Button Text="Iniciar sesión"
                                 TextColor="#FFFFFF"
                                 Background="#5662DE"
@@ -43,7 +45,8 @@
                                 Command="{Binding RegistroCommand}"
                                 WidthRequest="159" />
                     </StackLayout>
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <StackLayout Orientation="Horizontal" 
+                                 HorizontalOptions="Center">
                         <Button Text="Invitado"
                                 TextColor="#FFFFFF"
                                 Background="#5662DE"

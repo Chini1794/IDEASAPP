@@ -13,10 +13,13 @@ namespace IDEASAPP.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class EmpresaPage : ContentPage
 	{
+		EmpresaViewModel _viewModel;
 		public EmpresaPage ()
 		{
 			InitializeComponent ();
-			this.BindingContext = new EmpresaViewModel();	
+			BindingContext = _viewModel = new EmpresaViewModel();
+			_viewModel.LoadAportesCommand.Execute(this);
 		}
+
 	}
 }

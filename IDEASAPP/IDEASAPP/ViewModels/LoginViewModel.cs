@@ -66,7 +66,7 @@ namespace IDEASAPP.ViewModels
 			{
                 Username = "";
                 Password = "";
-				await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+				await Shell.Current.GoToAsync($"//about");
 			}
 			else
 			{

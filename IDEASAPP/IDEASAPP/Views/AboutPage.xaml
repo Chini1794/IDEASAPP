@@ -4,7 +4,6 @@
              x:Class="IDEASAPP.Views.AboutPage"
              xmlns:local="clr-namespace:IDEASAPP.ViewModels"  
              xmlns:model="clr-namespace:IDEASAPP.Models"  
-   xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              Shell.NavBarIsVisible="False"
             >
 
@@ -17,47 +16,82 @@
                    WidthRequest="0"
                    HeightRequest="240"
                    BackgroundColor="#5662DE">
+                
                 <StackLayout Margin="0,30,0,0">
+                    
                     <Label Text="Logotipo"
-                           Style="{StaticResource TituloAbout}" />
+                           Style="{StaticResource TituloAbout}"/>
+                    
                     <StackLayout Orientation="Horizontal">
-                        <Image Source="../i_ubicacion.png" />
+                        <Image Source="../i_ubicacion.png"/>
                         <Label Text="Heredia, Costa Rica"
-                           Style="{StaticResource Ubicacion}"
-                       />
+                               Style="{StaticResource Ubicacion}"/>
                     </StackLayout>
-                    <Frame Style="{StaticResource InputAbout}" Padding = "5" IsClippedToBounds="true"    >
+                    
+                    <Frame Style="{StaticResource InputAbout}" 
+                           Padding = "5" 
+                           IsClippedToBounds="true">
+                        
                         <StackLayout Orientation="Horizontal">
-                            <Image Source="../i_lupa.png" />
-                            <Entry Text="{Binding Busqueda}" x:Name="Password" Placeholder="Busqueda aquí"  HorizontalOptions="FillAndExpand"  />
+                            <Image Source="../i_lupa.png"/>
+                            <Entry Text="{Binding Busqueda}" 
+                                   x:Name="Password" 
+                                   Placeholder="Busqueda aquí"  
+                                   HorizontalOptions="FillAndExpand"/>
                         </StackLayout>
+                        
                     </Frame>
 
                     <StackLayout Orientation="Horizontal" Margin="0,10,0,20">
-                        <Frame Style="{StaticResource FrameFiltro}" Padding = "5" IsClippedToBounds="true"    >
+                        
+                        <Frame Style="{StaticResource FrameFiltro}" 
+                               Padding = "5" 
+                               IsClippedToBounds="true">
+                            
                             <StackLayout Orientation="Vertical">
-                                <Image Source="../i_comida.png" />
-                                <Label Style="{StaticResource TextoFiltros}" Text="Restaurante"></Label>
+                                <Image Source="../i_comida.png"/>
+                                <Label Style="{StaticResource TextoFiltros}"
+                                       Text="Restaurante"/>
                             </StackLayout>
+                            
                         </Frame>
-                        <Frame Style="{StaticResource FrameFiltro}" Padding = "5" IsClippedToBounds="true"    >
+                        
+                        <Frame Style="{StaticResource FrameFiltro}" 
+                               Padding = "5" 
+                               IsClippedToBounds="true">
+                            
                             <StackLayout Orientation="Vertical">
-                                <Image Source="../i_ropa.png" />
-                                <Label  Style="{StaticResource TextoFiltros}" Text="Vestuario"></Label>
+                                <Image Source="../i_ropa.png"/>
+                                <Label  Style="{StaticResource TextoFiltros}" 
+                                        Text="Vestuario"></Label>
                             </StackLayout>
+                            
                         </Frame>
-                        <Frame Style="{StaticResource FrameFiltro}" Padding = "5" IsClippedToBounds="true"    >
+                        
+                        <Frame Style="{StaticResource FrameFiltro}" 
+                               Padding = "5" 
+                               IsClippedToBounds="true">
+                            
                             <StackLayout Orientation="Vertical">
-                                <Image Source="../i_compras.png" />
-                                <Label Style="{StaticResource TextoFiltros}" Text="Compras"></Label>
+                                <Image Source="../i_compras.png"/>
+                                <Label Style="{StaticResource TextoFiltros}" 
+                                       Text="Compras"></Label>
                             </StackLayout>
+                            
                         </Frame>
-                        <Frame Style="{StaticResource FrameFiltro}" Padding = "5" IsClippedToBounds="true"    >
+                        
+                        <Frame Style="{StaticResource FrameFiltro}" 
+                               Padding = "5" 
+                               IsClippedToBounds="true">
+                            
                             <StackLayout Orientation="Vertical">
-                                <Image Source="../i_gym.png" />
-                                <Label Style="{StaticResource TextoFiltros}" Text="Gimnasios"></Label>
+                                <Image Source="../i_gym.png"/>
+                                <Label Style="{StaticResource TextoFiltros}" 
+                                       Text="Gimnasios"></Label>
                             </StackLayout>
+                            
                         </Frame>
+                        
                     </StackLayout>
 
                 </StackLayout>
@@ -65,46 +99,57 @@
 
 
             <StackLayout Margin="15">
-                <Label FontSize="16" Style="{StaticResource TituloAbout}" Text="Búsquedas Recientes" FontAttributes="Bold"  VerticalOptions="Start" />
+                <Label FontSize="16" 
+                       Style="{StaticResource TituloAbout}" 
+                       Text="Nuevos Miembros" 
+                       FontAttributes="Bold"  
+                       VerticalOptions="Start"/>
 
                 <ScrollView>
-                    <CollectionView x:Name="RecientesListView"
-                ItemsSource="{Binding NegociosRecientes}"
-                SelectionMode="None" HeightRequest="100">
+                    <CollectionView x:Name="RecientesListView" 
+                                    ItemsSource="{Binding NegociosRecientes}" 
+                                    SelectionMode="None" 
+                                    HeightRequest="100">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <StackLayout Padding="5" x:DataType="model:NegocioMiembro" Orientation="Horizontal">
-                                    <Frame CornerRadius="10"
-                               HasShadow="True" IsClippedToBounds="true" Padding = "0"  WidthRequest="140" HeightRequest="260">
+                                <StackLayout Padding="5" 
+                                             x:DataType="model:NegocioMiembro" 
+                                             Orientation="Horizontal">
+                                    <Frame CornerRadius="10"  
+                                           HasShadow="True" 
+                                           IsClippedToBounds="true" 
+                                           Padding = "0"  
+                                           WidthRequest="140" 
+                                           HeightRequest="260">
                                         <StackLayout Orientation="Vertical">
-                                            <Image Source="{Binding SourceFoto}"   HeightRequest="50" WidthRequest="50" Aspect="AspectFill"
-                              />
-                                            <Label Text="{Binding DNombreComercial}" 
-                            LineBreakMode="TailTruncation"
-                            FontSize="16" 
-                                              FontAttributes="Bold"
-                                               FontFamily="Outfit"
-                                               VerticalOptions="Start" Padding="0" Margin="0,-5,0,0"
-                                               
-                               />
-                                            <Label Text="{Binding DDireccion}" 
-                      LineBreakMode="NoWrap"
-                            FontSize="14" 
-                             Padding="0" Margin="0,-10,0,0"
-                                               FontFamily="Outfit"
-                                               VerticalOptions="Start"
-                                               
-                               />
+                                            <Image Source="{Binding SourceFoto}" 
+                                                   HeightRequest="50" 
+                                                   WidthRequest="50" 
+                                                   Aspect="AspectFill"/>
+                                            <StackLayout Margin="5,-5,5,0">
+                                                <Label Text="{Binding DNombreComercial}"
+                                                       LineBreakMode="TailTruncation" 
+                                                       FontSize="16"  
+                                                       FontAttributes="Bold" 
+                                                       FontFamily="Outfit" 
+                                                       VerticalOptions="Start" 
+                                                       Padding="0"/>
+                                                <Label Text="{Binding DDireccion}"
+                                                       LineBreakMode="NoWrap"  
+                                                       FontSize="14" 
+                                                       Padding="0" 
+                                                       Margin="0,-10,0,0" 
+                                                       FontFamily="Outfit"  
+                                                       VerticalOptions="Start"/>
+                                            </StackLayout>
                                         </StackLayout>
-
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type local:AboutViewModel}}, Path=ItemTapped}" 
+                                                                  CommandParameter="{Binding .}">
+                                            </TapGestureRecognizer>
+                                        </Frame.GestureRecognizers>
                                     </Frame>
-                                    <!--<StackLayout.GestureRecognizers>
-                                        <TapGestureRecognizer 
-                                NumberOfTapsRequired="1"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:About}}, Path=ItemTapped}"		
-                                CommandParameter="{Binding .}">
-                                        </TapGestureRecognizer>
-                                    </StackLayout.GestureRecognizers>-->
                                 </StackLayout>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
@@ -120,7 +165,7 @@
                 <Label FontSize="16" Style="{StaticResource TituloAbout}" Text="Los más populares" FontAttributes="Bold"  VerticalOptions="Start" />
                 <ScrollView>
                     <CollectionView x:Name="EmpresasListView"
-                ItemsSource="{Binding NegociosRecientes}"
+                ItemsSource="{Binding NegociosPopulares}"
                 SelectionMode="None" HeightRequest="300">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
@@ -132,17 +177,16 @@
 
                                             <Image Source="{Binding SourceFoto}"  HeightRequest="100" Aspect="AspectFill"/>
 
-                                            <StackLayout Orientation="Horizontal" Margin="5,0,5,0">
-                                            <Label Text="{Binding DNombreComercial}" 
+                                            <StackLayout Margin="5,0,5,0">
+                                                <Label Text="{Binding DNombreComercial}" 
                             LineBreakMode="TailTruncation"
                             FontSize="20" 
                                               FontAttributes="Bold"
                                                FontFamily="Outfit"
-                                               VerticalOptions="Start" Padding="0" Margin="0,-5,0,0"  />
+                                               VerticalOptions="Start" Padding="0"  />
 
-                                                <Image Source="../i_corazon.png"   HeightRequest="20" WidthRequest="20"  Aspect="Fill" HorizontalOptions="EndAndExpand"></Image>
-                                            </StackLayout>
-                                            <Label Text="{Binding DDireccion}" Margin="5,0,5,0" 
+
+                                            <Label Text="{Binding DDireccion}"
                                                                     
                 
                             FontSize="14" 
@@ -151,16 +195,19 @@
                                                VerticalOptions="Start"
                                                
                                />
-                                        </StackLayout>
 
-                                    </Frame>
-                                    <!--<StackLayout.GestureRecognizers>
-                                        <TapGestureRecognizer 
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer 
                                 NumberOfTapsRequired="1"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:About}}, Path=ItemTapped}"		
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:AboutViewModel}}, Path=ItemTapped}"		
                                 CommandParameter="{Binding .}">
-                                        </TapGestureRecognizer>
-                                    </StackLayout.GestureRecognizers>-->
+                                            </TapGestureRecognizer>
+                                        </Frame.GestureRecognizers>
+                                    </Frame>
+
+
                                 </StackLayout>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
@@ -174,169 +221,7 @@
             </StackLayout>
         </StackLayout>
     </Grid>
-    <!--<ContentPage.BindingContext>
-        <vm:AboutViewModel />
-    </ContentPage.BindingContext>
 
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Color x:Key="Accent">#96d1ff</Color>
-        </ResourceDictionary>
-    </ContentPage.Resources>
-
-    <ScrollView>
-    <Grid RowSpacing="0">
-        <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-
-        <Image Grid.Row="0" Grid.Column="0"
-               Opacity="0.7"
-           Source="https://images.visitarcostarica.com/turismo-en-san-jose.jpg"
-           HorizontalOptions="FillAndExpand"
-           VerticalOptions="StartAndExpand" 
-           Aspect="AspectFill"   
-               HeightRequest="415"
-               />
-
-            <Frame HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="30" Grid.Row="0" Grid.Column="0" WidthRequest="300" Margin="0,315,0,0">
-
-            <StackLayout >
-
-                <Entry Placeholder="Buscar" HorizontalOptions="Fill"/>
-
-                <Label FontSize="16" Text="Seleccionar Fecha" HorizontalOptions="Center"/>
-                <Label FontSize="16" Text="12 Mayo - 22 Mayo" FontAttributes="Bold" HorizontalOptions="Center"/>
-
-
-                    <Button Text="Buscar Lugar" CornerRadius="60" Command="{Binding BusquedaCommand}" />
-            </StackLayout>
-
-        </Frame>
-                <Label FontSize="16" Text="Búsquedas Recientes" FontAttributes="Bold" Grid.Row="1" Margin="10,50,0,0" VerticalOptions="Start"/>
-
-
-            <ScrollView Orientation="Horizontal" Margin="0,90,0,10" Grid.Row="1"  HeightRequest="160">
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center"   VerticalOptions="Center">
-
-                    <Frame  CornerRadius="30"
-                                           WidthRequest="100" HeightRequest="100" Margin="5" x:Name="Frame4">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding EmpresaCommand}"  NumberOfTapsRequired="1" CommandParameter="{x:Reference Frame4}" />
-
-                        </Frame.GestureRecognizers>
-
-                        <StackLayout>
-                            <Image Source="https://cdn.mos.cms.futurecdn.net/5StAbRHLA4ZdyzQZVivm2c.jpg" Aspect="AspectFit" HeightRequest="70" WidthRequest="70"/>
-                            <Label FontSize="14" Text="Walmart" FontAttributes="Bold" HorizontalOptions="Start"/>
-                            <Label FontSize="12" Text="Puntos: 450"  HorizontalOptions="Start"/>
-                        </StackLayout>
-
-                    </Frame>
-                    <Frame CornerRadius="30"
-                                           WidthRequest="100" HeightRequest="100"  Margin="5" x:Name="Frame5">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding EmpresaCommand}"  NumberOfTapsRequired="1" CommandParameter="{x:Reference Frame5}" />
-                        </Frame.GestureRecognizers>
-                        <StackLayout>
-                            <Image Source="https://stringfixer.com/files/127986454.jpg" Aspect="AspectFit" HeightRequest="70" WidthRequest="70"/>
-                            <Label FontSize="14" Text="Aliss" FontAttributes="Bold" HorizontalOptions="Start"/>
-                            <Label FontSize="12" Text="Puntos: 500"  HorizontalOptions="Start"/>
-                        </StackLayout>
-
-                    </Frame>
-                    <Frame CornerRadius="30"
-                                           WidthRequest="100" HeightRequest="100"  Margin="5" x:Name="Frame6">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding EmpresaCommand}"  NumberOfTapsRequired="1" CommandParameter="{x:Reference Frame6}" />
-                        </Frame.GestureRecognizers>
-                        <StackLayout>
-                            <Image Source="https://upload.wikimedia.org/wikipedia/commons/3/3f/PriceSmart_Logo.png" Aspect="AspectFit" VerticalOptions="Center" HeightRequest="70" WidthRequest="70"/>
-                            <Label FontSize="14" Text="Pricesmart" FontAttributes="Bold" HorizontalOptions="Start"/>
-                            <Label FontSize="12" Text="Puntos: 600"  HorizontalOptions="Start"/>
-                        </StackLayout>
-
-                    </Frame>
-
-
-                    <Frame  CornerRadius="30"
-                                           WidthRequest="100" HeightRequest="100" Margin="5" x:Name="Frame7">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding EmpresaCommand}"  NumberOfTapsRequired="1" CommandParameter="{x:Reference Frame7}" />
-                        </Frame.GestureRecognizers>
-                        <StackLayout>
-                            <Image Source="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Logo_Dos_Pinos.svg/2560px-Logo_Dos_Pinos.svg.png" Aspect="AspectFit" HeightRequest="70" WidthRequest="70"/>
-                            <Label FontSize="14" Text="Dos Pinos" FontAttributes="Bold" HorizontalOptions="Start"/>
-                            <Label FontSize="12" Text="Puntos: 450"  HorizontalOptions="Start"/>
-                        </StackLayout>
-
-                    </Frame>
-
-                </StackLayout>
-
-            </ScrollView>
-
-
-            <Label FontSize="16" Text="Lugares más populares" FontAttributes="Bold" HorizontalOptions="Start" Margin="10,50,0,0" Grid.Row="2"/>
-
-        <StackLayout Orientation="Vertical" Grid.Row="2" Margin="0,90,0,0">
-
-            <Frame CornerRadius="30"
-                                   WidthRequest="100" HeightRequest="100"  Margin="5" x:Name="Frame1" >
-
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding EmpresaCommand}" CommandParameter="{x:Reference Frame1}"  NumberOfTapsRequired="1"/>
-                        <TapGestureRecognizer Command="{Binding LinkCommand}"  NumberOfTapsRequired="2"/>
-                    </Frame.GestureRecognizers>
-                    <StackLayout Orientation="Horizontal">
-                        <Image Source="https://facturaelectronica.mipueblocr.com/resources/Companies/123/Logo/musmanni_palmares.png" Aspect="AspectFill" VerticalOptions="Center" HeightRequest="100" WidthRequest="100" Margin="0,0,30,0"/>
-                        <StackLayout Orientation="Vertical">
-                            <Label FontSize="18" Text="Mussmani Heredia" FontAttributes="Bold" HorizontalOptions="Start"/>
-                            <Label FontSize="14" Text="Heredia, Diagonal parque central"  HorizontalOptions="Start"/>
-                            <Label FontSize="14" Text="Distancia: 600m"  HorizontalOptions="Start"/>
-                            <Label FontSize="14" Text="Calificación: 4.5"  HorizontalOptions="Start"/>
-                        </StackLayout>
-                    </StackLayout>
-
-                </Frame>
-            <Frame CornerRadius="30"
-                                   WidthRequest="100" HeightRequest="100"  Margin="5" x:Name="Frame2">
-
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding EmpresaCommand}" CommandParameter="{x:Reference Frame2}"  NumberOfTapsRequired="1"/>
-                    </Frame.GestureRecognizers>
-                    <StackLayout Orientation="Horizontal">
-                        <Image Source="https://tumallsanpedro.com/wp-content/uploads/2016/01/Local_icon.jpg" Aspect="AspectFill" VerticalOptions="Center" HeightRequest="100" WidthRequest="100" Margin="0,0,30,0"/>
-                        <StackLayout Orientation="Vertical">
-                            <Label FontSize="18" Text="Tienda iCon" FontAttributes="Bold" HorizontalOptions="Start"/>
-                            <Label FontSize="14" Text="Alajuela, Plaza Antares"  HorizontalOptions="Start"/>
-                            <Label FontSize="14" Text="Distancia: 7km"  HorizontalOptions="Start"/>
-                            <Label FontSize="14" Text="Calificación: 4.5"  HorizontalOptions="Start"/>
-                        </StackLayout>
-                    </StackLayout>
-
-                </Frame>
-            <Frame CornerRadius="30"
-                                   WidthRequest="100" HeightRequest="100"  Margin="5"  x:Name="Frame3">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding EmpresaCommand}" CommandParameter="{x:Reference Frame3}"  NumberOfTapsRequired="1"/>
-                    </Frame.GestureRecognizers>
-                    <StackLayout Orientation="Horizontal">
-                        <Image Source="https://www.coopeande1.com/sites/default/files/2021-01/gollo_logo.png" Aspect="AspectFill" VerticalOptions="Center" HeightRequest="100" WidthRequest="100" Margin="0,0,30,0"/>
-                        <StackLayout Orientation="Vertical">
-                            <Label FontSize="18" Text="Tienda Gollo" FontAttributes="Bold" HorizontalOptions="Start"/>
-                            <Label FontSize="14" Text="50m este Parque de los Angeles"  HorizontalOptions="Start"/>
-                            <Label FontSize="14" Text="Distancia: 600m"  HorizontalOptions="Start"/>
-                            <Label FontSize="14" Text="Calificación: 4.5"  HorizontalOptions="Start"/>
-                        </StackLayout>
-                    </StackLayout>
-
-                </Frame>
-
-        </StackLayout>
-    </Grid>
-    </ScrollView>-->
 
 </ContentPage>
 

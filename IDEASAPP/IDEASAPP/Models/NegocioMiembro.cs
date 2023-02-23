@@ -28,5 +28,6 @@ namespace IDEASAPP.Models
 		public string DAdministrador { get; set; }
 
 		public ImageSource SourceFoto { get; set; }
+		public int NumeroAportes { get; set; }
 	}
 }
