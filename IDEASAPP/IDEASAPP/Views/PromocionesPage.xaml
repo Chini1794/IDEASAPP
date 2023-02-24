@@ -2,94 +2,134 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IDEASAPP.Views.PromocionesPage"
-               Shell.NavBarIsVisible="False"
+     xmlns:local="clr-namespace:IDEASAPP.ViewModels"  
+             xmlns:model="clr-namespace:IDEASAPP.Models"  
+             Shell.NavBarIsVisible="False"
             >
-    <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
 
-                <Label FontSize="28" Text="Promociones" FontAttributes="Bold"  HorizontalTextAlignment="Center" Margin="0,25,0,0"/>
+    <Grid BackgroundColor="#FFFFFF">
 
-                <Frame HasShadow="False">
-                    <StackLayout >
-                    <Entry Placeholder="Buscar" HorizontalOptions="Center" WidthRequest="350" />
+        <StackLayout>
+            <Frame x:Name="Busqueda"
+                   Style="{StaticResource Busqueda}"
+                   CornerRadius="36"
+                   WidthRequest="0"
+                   HeightRequest="320"
+                   BackgroundColor="#5662DE"
+                   Margin="0,-30,0,0">
+                <StackLayout  Margin="0,20,0,0">
+                    <Label Text="Promociones"
+                           Style="{StaticResource TituloAbout}"/>
 
-                <StackLayout Orientation="Horizontal" Margin="0,0,0,20" >
 
-                    <RadioButton Content="Hoy" IsChecked="True" />
-                    <RadioButton Content="Semana" />
-                    <RadioButton Content="30 días" />
+                    <Frame Style="{StaticResource InputAbout}" 
+                           Padding = "5" 
+                           IsClippedToBounds="true"  Margin="0,15,0,15">
 
-                        </StackLayout>
-                    </StackLayout>
-                </Frame>
-                <StackLayout Orientation="Vertical">
-
-                    <Frame CornerRadius="30"
-                                   WidthRequest="100" HeightRequest="100"   Margin="5">
                         <StackLayout Orientation="Horizontal">
-                            <Image Source="https://stringfixer.com/files/127986454.jpg" Aspect="AspectFill" VerticalOptions="Center" HeightRequest="100" WidthRequest="100" Margin="0,0,30,0"/>
-                            <StackLayout Orientation="Vertical">
-                                <Label FontSize="20" Text="Tienda Aliss" FontAttributes="Bold" HorizontalOptions="Start"/>
-                                <Label FontSize="16" Text="20% Mercadería Seleccionada"  VerticalOptions="Center"/>
-                                <Label FontSize="14" Text="Recompensa: 20 puntos"  VerticalOptions="Center" TextColor="Orange"/>
-                            </StackLayout>
+                            <Image Source="../i_lupa.png"/>
+                            <Entry Text="{Binding Busqueda}" 
+                                   x:Name="Password" 
+                                   Placeholder="Busqueda aquí"  
+                                   HorizontalOptions="FillAndExpand"/>
                         </StackLayout>
 
                     </Frame>
-                    <Frame CornerRadius="30"
-                                   WidthRequest="100" HeightRequest="100"  Margin="5">
-                        <StackLayout Orientation="Horizontal">
-                            <Image Source="https://upload.wikimedia.org/wikipedia/en/thumb/b/b3/Taco_Bell_2016.svg/640px-Taco_Bell_2016.svg.png" Aspect="AspectFit" VerticalOptions="Center" HeightRequest="100" WidthRequest="100" Margin="0,0,30,0"/>
-                            <StackLayout Orientation="Vertical">
-                                <Label FontSize="20" Text="Taco Bell" FontAttributes="Bold" HorizontalOptions="Start"/>
-                                <Label FontSize="16" Text="2x1 Combo #6"  HorizontalOptions="Start"/>
-                                <Label FontSize="14" Text="Recompensa: 40 puntos"  VerticalOptions="Center" TextColor="Orange"/>
-                            </StackLayout>
+                    <Frame Style="{StaticResource InputAbout}" 
+                           Padding = "5" 
+                           IsClippedToBounds="true"
+                         HorizontalOptions="Center">
+                        <StackLayout RadioButtonGroup.GroupName="calificacion" Orientation="Horizontal" HorizontalOptions="Center">
+
+                            <RadioButton Content="Hoy" IsChecked="True"  Value="1" />
+                            <RadioButton Content="Semana" Value="2" />
+                            <RadioButton  Content="Mes" Value="3"/>
+
                         </StackLayout>
-
-                    </Frame>
-                    
-                    <Frame CornerRadius="30"
-                                   WidthRequest="100" HeightRequest="100"  Margin="5">
-                        <StackLayout Orientation="Horizontal">
-                            <Image Source="https://seeklogo.com/images/S/smart-fit-logo-1A613F03DC-seeklogo.com.png" Aspect="AspectFit" VerticalOptions="Center" HeightRequest="100" WidthRequest="100" Margin="0,0,30,0"/>
-                            <StackLayout Orientation="Vertical">
-                                <Label FontSize="20" Text="Smart Fit" FontAttributes="Bold" HorizontalOptions="Start"/>
-                                <Label FontSize="16" Text="25% Subscripción Anual"  HorizontalOptions="Start"/>
-                                <Label FontSize="14" Text="Recompensa: 50 puntos"  VerticalOptions="Center" TextColor="Orange"/>
-                            </StackLayout>
-                        </StackLayout>
-                        
-
-                    </Frame>
-                    <Frame CornerRadius="30"
-                                   WidthRequest="100" HeightRequest="100"  Margin="5">
-                        <StackLayout Orientation="Horizontal">
-                            <Image Source="https://ampm.cr/wp-content/uploads/2020/08/logo-AMPM.png" Aspect="AspectFit" VerticalOptions="Center" HeightRequest="100" WidthRequest="100" Margin="0,0,30,0"/>
-                            <StackLayout Orientation="Vertical">
-                                <Label FontSize="20" Text="AMPM" FontAttributes="Bold" HorizontalOptions="Start"/>
-                                <Label FontSize="16" Text="40% Compras mayores a 10.000crc"  HorizontalOptions="Start"/>
-                                <Label FontSize="14" Text="Recompensa: 20 puntos"  VerticalOptions="Center" TextColor="Orange"/>
-                            </StackLayout>
-                        </StackLayout>
-
-                    </Frame>
-
-                    <Frame CornerRadius="30"
-                                   WidthRequest="100" HeightRequest="100"  Margin="5">
-                        <StackLayout Orientation="Horizontal">
-                            <Image Source="https://extremos.cr/wp-content/uploads/2018/05/logo-extremos.png" Aspect="AspectFit" VerticalOptions="Center" HeightRequest="100" WidthRequest="100" Margin="0,0,30,0"/>
-                            <StackLayout Orientation="Vertical">
-                                <Label FontSize="20" Text="Extremos" FontAttributes="Bold" HorizontalOptions="Start"/>
-                                <Label FontSize="16" Text="10% Tennis Adidas"  HorizontalOptions="Start"/>
-                                <Label FontSize="14" Text="Recompensa: 30 puntos"  VerticalOptions="Center" TextColor="Orange"/>
-                            </StackLayout>
-                        </StackLayout>
-
                     </Frame>
                 </StackLayout>
-            </StackLayout>
-        </ScrollView>
-    </ContentPage.Content>
+            </Frame>
+
+            <CollectionView x:Name="PromocionesListView"
+                ItemsSource="{Binding Promociones}"
+                SelectionMode="None" Margin="15">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="5" x:DataType="model:Promocion" Orientation="Horizontal">
+                            <Frame CornerRadius="10"
+                                   HasShadow="True"
+                                   IsClippedToBounds="true" 
+                                   Padding = "0" 
+                                   HorizontalOptions="FillAndExpand" 
+                                   HeightRequest="200"
+                                  >
+                                <StackLayout Orientation="Horizontal" >
+
+
+                                    <Image Source="{Binding SourceFoto}" 
+                                            WidthRequest="200"
+                                           Aspect="AspectFit"/>
+
+                                    <StackLayout Orientation="Vertical" Margin="5,0,5,0">
+                                        <Label Text="{Binding NombreEmpresa}" 
+                                               LineBreakMode="TailTruncation"
+                                               FontSize="20" 
+                                               FontAttributes="Bold"
+                                               FontFamily="Outfit"
+                                               VerticalOptions="Start" Padding="0"  />
+
+
+                                        <Label Text="{Binding DDescripcion}"
+                                               FontSize="14" 
+                                               Padding="0"
+                                               FontFamily="Outfit"
+                                               VerticalOptions="Start"
+                                               />
+                                        <Label Text= "Recompensa: "
+                                               FontSize="14" 
+                                               Padding="0"
+                                               FontFamily="Outfit"
+                                               VerticalOptions="Start"
+                                               />
+                                        <StackLayout Orientation="Horizontal" Margin="0,-5,0,0">
+                                            <Label Text= "{Binding DRecompensaPuntos}"
+                                               FontSize="14" 
+                                               Padding="0"
+                                               FontFamily="Outfit"
+                                               FontAttributes="Bold"
+                                               VerticalOptions="Start"
+                                               />
+                                            <Label Text= "Puntos"
+                                               FontSize="14" 
+                                               Padding="0"
+                                               FontFamily="Outfit"
+                                               VerticalOptions="Start"
+                                               FontAttributes="Bold"
+                                               />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:PromocionesViewModel}}, Path=ItemTapped}"		
+                                CommandParameter="{Binding .}">
+                                    </TapGestureRecognizer>
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+
+            </CollectionView>
+
+        </StackLayout>
+    </Grid>
+
 </ContentPage>

@@ -33,7 +33,6 @@ namespace IDEASAPP.ViewModels
 			LoadEmpresasCommand = new Command(async () => await LoadEmpresas());
 			EmpresaCommand = new Command(OnEmpresaRecienteTapped);
 			BusquedaCommand = new Command(OnBusquedaTapped);
-			LinkCommand = new Command(OnLinkTapped);
 			ItemTapped = new Command<NegocioMiembro>(OnItemSelected);
 
 		}
@@ -91,7 +90,7 @@ namespace IDEASAPP.ViewModels
 				aux.Add(item);
 			}
 
-			foreach (var item in aux.OrderBy(x => x.NumeroAportes)) {
+			foreach (var item in aux.OrderByDescending(x => x.NumeroAportes)) {
 				NegociosPopulares.Add(item);
 			}
 
@@ -132,10 +131,6 @@ namespace IDEASAPP.ViewModels
 			}
 		}
 
-		private async void OnLinkTapped(object obj)
-		{
-			await Shell.Current.GoToAsync("EmpresaPage");
-		}
 		private async void OnBusquedaTapped(object obj)
 		{
 			await Shell.Current.GoToAsync("BusquedaPage");

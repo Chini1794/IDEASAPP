@@ -17,6 +17,8 @@ namespace IDEASAPP.Views
         {
             InitializeComponent();
             BindingContext = new NuevoComentarioViewModel();
+
+            
         }
     }
 }

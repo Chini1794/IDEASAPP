@@ -1,99 +1,142 @@
 ﻿using IDEASAPP.Models;
 using IDEASAPP.Views;
+using Newtonsoft.Json;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace IDEASAPP.ViewModels
 {
-    public class ComentariosViewModel : BaseViewModel
+	[QueryProperty(nameof(EmpresaId), nameof(EmpresaId))]
+	public class ComentariosViewModel : BaseViewModel
     {
-        private Item _selectedItem;
+        private string empresaId;
 
-        public ObservableCollection<Item> Items { get; }
-        public Command LoadItemsCommand { get; }
-        public Command AddItemCommand { get; }
-        public Command SelectedCommand { get; }
-        public Command<Item> ItemTapped { get; }
+		public ObservableCollection<Aporte> AportesEmpresa { get; }
+		public Command LoadAportesCommand { get; }
 
         public ComentariosViewModel()
         {
-            Title = "Browse";
-            Items = new ObservableCollection<Item>();
-            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            ItemTapped = new Command<Item>(OnItemSelected);
+			AportesEmpresa = new ObservableCollection<Aporte>();
+			LoadAportesCommand = new Command(async () => await LoadAportes());
 
-            AddItemCommand = new Command(OnAddItem);
-			SelectedCommand = new Command(OnSelectItem);
+
         }
-		private void OnSelectItem(object obj)
+		async Task LoadAportes()
 		{
-			if (obj is Frame sl)
+
+			ObservableCollection<Aporte> aux = new ObservableCollection<Aporte>();
+			var request = new HttpRequestMessage();
+			request.RequestUri = new Uri("https://felino.vitalit.co.cr/api/api/Aporte");
+			request.Method = HttpMethod.Get;
+
+			var client = new HttpClient();
+			HttpResponseMessage response = await client.SendAsync(request);
+			AportesEmpresa.Clear();
+
+			string content = await response.Content.ReadAsStringAsync();
+			var resultado = JsonConvert.DeserializeObject<ObservableCollection<Aporte>>(content).OrderByDescending(x => x.FechaAporte);
+
+			foreach (var item in resultado)
 			{
-				if (sl.BackgroundColor == Color.FromHex("#9EA1A3"))
+				if (item.CNegocio == Convert.ToInt64(EmpresaId))
 				{
-					sl.BackgroundColor = Color.White;
-				}
-				else
-				{
-					sl.BackgroundColor = Color.FromHex("#9EA1A3");
+					AportesPersona aportePersona = await GetAportePersona(item.Id);
+					if (aportePersona == null)
+					{
+
+						item.NombrePersona = "Anonimo";
+						item.SourceFoto = "../i_cuenta.png";
+					}
+					else
+					{
+						PersonaMiembro persona = await GetPersonaMiembro(aportePersona.CPersona);
+						item.NombrePersona = persona.DNombre;
+						item.SourceFoto = ImageSource.FromStream(() => new MemoryStream(persona.DFoto));
+
+					}
+					aux.Add(item);
 				}
 			}
+
+			foreach (var item in aux)
+			{
+				AportesEmpresa.Add(item);
+			}
+
 		}
-		async Task ExecuteLoadItemsCommand()
-        {
-            IsBusy = true;
+		async Task<AportesPersona> GetAportePersona(int idAporte)
+		{
+			var request = new HttpRequestMessage();
+			request.RequestUri = new Uri("https://felino.vitalit.co.cr/api/api/AportesPersona");
+			request.Method = HttpMethod.Get;
 
-            try
-            {
-                Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
-                foreach (var item in items)
-                {
-                    Items.Add(item);
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
-            finally
-            {
-                IsBusy = false;
-            }
-        }
+			var client = new HttpClient();
+			HttpResponseMessage response = await client.SendAsync(request);
+			AportesEmpresa.Clear();
 
-        public void OnAppearing()
-        {
-            IsBusy = true;
-            SelectedItem = null;
-        }
+			string content = await response.Content.ReadAsStringAsync();
+			var resultado = JsonConvert.DeserializeObject<ObservableCollection<AportesPersona>>(content);
 
-        public Item SelectedItem
-        {
-            get => _selectedItem;
-            set
-            {
-                SetProperty(ref _selectedItem, value);
-                OnItemSelected(value);
-            }
-        }
+			foreach (var item in resultado)
+			{
+				if (item.CAporte == idAporte)
+				{
+					return item;
+				}
+			}
 
-        private async void OnAddItem(object obj)
-        {
-            await Shell.Current.GoToAsync(nameof(NuevoComentarioPage));
-        }
+			return null;
 
-        async void OnItemSelected(Item item)
-        {
-            if (item == null)
-                return;
+		}
+		async Task<PersonaMiembro> GetPersonaMiembro(int idPersona)
+		{
 
-            // This will push the ItemDetailPage onto the navigation stack
-            await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={item.Id}");
-        }
-    }
+			var request = new HttpRequestMessage();
+			request.RequestUri = new Uri("https://felino.vitalit.co.cr/api/api/PersonaMiembro/" + idPersona);
+			request.Method = HttpMethod.Get;
+
+			var client = new HttpClient();
+			HttpResponseMessage response = await client.SendAsync(request);
+			AportesEmpresa.Clear();
+
+			string content = await response.Content.ReadAsStringAsync();
+			var resultado = JsonConvert.DeserializeObject<PersonaMiembro>(content);
+
+			return resultado;
+
+		}
+		public string EmpresaId
+		{
+			get
+			{
+				return empresaId;
+			}
+			set
+			{
+				empresaId = value;
+				LoadEmpresaId(value);
+			}
+		}
+
+		public async void LoadEmpresaId(string id)
+		{
+			var request = new HttpRequestMessage();
+			request.RequestUri = new Uri("https://felino.vitalit.co.cr/api/api/NegocioMiembro/" + id);
+			request.Method = HttpMethod.Get;
+
+			var client = new HttpClient();
+			HttpResponseMessage response = await client.SendAsync(request);
+			string content = await response.Content.ReadAsStringAsync();
+			var resultado = JsonConvert.DeserializeObject<NegocioMiembro>(content);
+		}
+
+	}
 }

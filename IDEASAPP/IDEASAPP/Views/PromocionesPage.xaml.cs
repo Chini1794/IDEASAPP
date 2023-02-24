@@ -13,10 +13,12 @@ namespace IDEASAPP.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class PromocionesPage : ContentPage
 	{
+		PromocionesViewModel _viewModel;
 		public PromocionesPage ()
 		{
 			InitializeComponent ();
-			this.BindingContext = new PromocionesViewModel();
+			BindingContext = _viewModel = new PromocionesViewModel();
+			_viewModel.LoadPromocionesCommand.Execute(this);
 		}
 	}
 }

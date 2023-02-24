@@ -19,7 +19,7 @@ namespace IDEASAPP
             Routing.RegisterRoute("about/busqueda", typeof(BusquedaPage));
             Routing.RegisterRoute("about/empresa", typeof(EmpresaPage));
             Routing.RegisterRoute("about/empresa/comentarios", typeof(ComentariosPage));
-            Routing.RegisterRoute("about/empresa/comentarios/nuevo", typeof(NuevoComentarioPage));
+            Routing.RegisterRoute("about/empresa/nuevo", typeof(NuevoComentarioPage));
         }
 
     }

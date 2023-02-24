@@ -8,6 +8,8 @@ using System.Net;
 using System.Text;
 using Xamarin.Forms;
 using System.ComponentModel;
+using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace IDEASAPP.ViewModels
 {
@@ -64,17 +66,46 @@ namespace IDEASAPP.ViewModels
 
 			if (response.StatusCode == HttpStatusCode.OK)
 			{
-                Username = "";
+				PersonaMiembro persona = await GetPersonaUser(Username);
+				Application.Current.Properties["idUsuario"] = persona.Id;
+
+				Username = "";
                 Password = "";
 				await Shell.Current.GoToAsync($"//about");
+		
 			}
 			else
 			{
 
 				await Application.Current.MainPage.DisplayAlert("Mensaje", "Datos Invalidos", "OK");
 			}
-        }   
-        private async void OnRegisterClicked()
+        }
+
+		async Task<PersonaMiembro> GetPersonaUser(string user)
+		{
+			PersonaMiembro persona = new PersonaMiembro();
+			var request = new HttpRequestMessage();
+			request.RequestUri = new Uri("https://felino.vitalit.co.cr/api/api/PersonaMiembro/");
+			request.Method = HttpMethod.Get;
+
+			var client = new HttpClient();
+			HttpResponseMessage response = await client.SendAsync(request);
+
+			string content = await response.Content.ReadAsStringAsync();
+			var resultado = JsonConvert.DeserializeObject<ObservableCollection<PersonaMiembro>>(content);
+
+			foreach (PersonaMiembro obj in resultado) {
+				if (obj.CIdMiembro == user)
+				{
+					persona = obj;
+				}
+			
+			}
+
+			return persona;
+
+		}
+		private async void OnRegisterClicked()
         {
 			await Shell.Current.GoToAsync("RegistroPage");
 		}

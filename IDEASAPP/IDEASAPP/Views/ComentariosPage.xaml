@@ -2,73 +2,56 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IDEASAPP.Views.ComentariosPage"
-             Title="Comentarios"
-             xmlns:local="clr-namespace:IDEASAPP.ViewModels"  
+              xmlns:local="clr-namespace:IDEASAPP.ViewModels"  
              xmlns:model="clr-namespace:IDEASAPP.Models"  
-             x:Name="BrowseItemsPage">
+             Shell.NavBarIsVisible="False"
+           >
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Agregar" Command="{Binding AddItemCommand}" />
-    </ContentPage.ToolbarItems>
-    <!--
-      x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
-      https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
-    -->
-    <RefreshView x:DataType="local:ComentariosViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
-        <CollectionView x:Name="ItemsListView"
-                ItemsSource="{Binding Items}"
+    <StackLayout >
+        <StackLayout Margin="15">
+        <Label Text="Reseñas"  TextColor="#1F1F1F" FontSize="22" FontFamily="Outfit" HorizontalOptions="Center"></Label>
+            <Label Text="Calificación general"  TextColor="#1D2433" FontSize="16" FontFamily="Outfit" Margin="0,15,0,0" ></Label>
+
+            <StackLayout Orientation="Horizontal" >
+
+                <Label Text="8.0" TextColor="#5662DE" FontSize="35" FontFamily="Outfit" VerticalOptions="EndAndExpand" HorizontalOptions="StartAndExpand"/>
+                <Image Source="../i_cuenta_peq.png" HorizontalOptions="End" VerticalOptions="EndAndExpand" />
+                <Label Text="reseñas(70)" TextColor="#1F1F1F" FontSize="14" FontFamily="Outfit" VerticalOptions="EndAndExpand" HorizontalOptions="End"/>
+
+            </StackLayout>
+            <Image Source="../img_barras.png" HorizontalOptions="Center" Aspect="AspectFill" />
+        </StackLayout>
+        <CollectionView x:Name="AportesListView"
+                ItemsSource="{Binding AportesEmpresa}"
                 SelectionMode="None">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Padding="5" x:DataType="model:Item">
-                        <Frame CornerRadius="25"
-                               HasShadow="True">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout Padding="5" x:DataType="model:Aporte" Orientation="Vertical">
+
+                    <StackLayout Orientation="Horizontal" Margin="5,0,5,0">
+                            <Image Source="{Binding SourceFoto}"  HeightRequest="35" WidthRequest="35" Aspect="AspectFill"/>
                             <StackLayout Orientation="Vertical">
-                                
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding Text}" 
-                            LineBreakMode="NoWrap" 
-                            Style="{DynamicResource ListItemTextStyle}"
-                            FontAttributes="Bold"   
-                            FontSize="16" 
-                              />
+                                <Label Text="{Binding NombrePersona}" FontSize="16" TextColor="#1F1F1F"></Label>
+                            <Label Text="{Binding FechaAporte}"></Label>
+                        </StackLayout>
 
-                                    <Label Text="Calificación: 4.5/5" 
-                            LineBreakMode="TailTruncation"
-                            Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="13" 
-                                           HorizontalOptions="EndAndExpand"
-                                           VerticalOptions="Center"
-                               />
-                                </StackLayout>
-                                
-                                <Label Text="En línea" 
-                            LineBreakMode="TailTruncation"
-                            Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="13" 
-                               />
-                          
-                            <Label Text="{Binding Description}" 
-                            LineBreakMode="TailTruncation"
-                            Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="13" 
-                               />
-                            </StackLayout>
-                        </Frame>
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer 
-                                NumberOfTapsRequired="1"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:ComentariosViewModel}}, Path=ItemTapped}"		
-                                CommandParameter="{Binding .}">
-                            </TapGestureRecognizer>
-                        </StackLayout.GestureRecognizers>
                     </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-            
-            
-        </CollectionView>
 
-    </RefreshView>
+                        <Label Text="{Binding DComentario}" Margin="5,0,5,0" FontSize="14"  TextColor="#1F1F1F" Padding="0" FontFamily="Outfit" VerticalOptions="Start" />
+                        <BoxView 
+                   HeightRequest="1"
+                   Color="LightGray"
+                   Margin ="-20, 10, -20, 10"/>
+                    </StackLayout>
+
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+
+        <CollectionView.ItemsLayout>
+            <GridItemsLayout Orientation="Vertical" />
+        </CollectionView.ItemsLayout>
+
+    </CollectionView>
+    </StackLayout>
 
 </ContentPage>

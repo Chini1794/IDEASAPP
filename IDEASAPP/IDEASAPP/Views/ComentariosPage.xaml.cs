@@ -21,12 +21,9 @@ namespace IDEASAPP.Views
             InitializeComponent();
 
             BindingContext = _viewModel = new ComentariosViewModel();
-        }
+			_viewModel.LoadAportesCommand.Execute(this);
+		}
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            _viewModel.OnAppearing();
-        }
+
     }
 }

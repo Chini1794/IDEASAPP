@@ -22,5 +22,10 @@ namespace IDEASAPP.Models
 
 		public ImageSource SourceFoto { get; set; }
 		public string NombrePersona { get; set; }
+		public string NombreEmpresa { get; set; }	
+		public string VistaCalificacion { get; set; }	
+		public string VistaCategoriaAporte { get; set; }	
+		public string VistaEstado { get; set; }	
+		public string VistaTipoAporte { get; set; }
 	}
 }
