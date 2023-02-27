@@ -11,14 +11,25 @@ namespace IDEASAPP.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class NuevoComentarioPage : ContentPage
     {
-        public Item Item { get; set; }
 
-        public NuevoComentarioPage()
+		NuevoComentarioViewModel _viewModel;
+		public NuevoComentarioPage()
         {
             InitializeComponent();
-            BindingContext = new NuevoComentarioViewModel();
+			BindingContext = _viewModel = new NuevoComentarioViewModel();
 
-            
-        }
-    }
+
+		}
+
+		void Categoria_SelectedIndexChanged(object sender, System.EventArgs e)
+		{
+			var selectedOption = (sender as Picker).SelectedIndex;
+			_viewModel.CategoriaAporte = selectedOption+1;
+		}	
+		void Tipo_SelectedIndexChanged(object sender, System.EventArgs e)
+		{
+			var selectedOption = (sender as Picker).SelectedIndex;
+			_viewModel.TipoAporte = selectedOption+1;
+		}
+	}
 }

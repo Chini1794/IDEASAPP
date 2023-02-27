@@ -13,9 +13,9 @@
 
 
 
-            <Picker x:Name="picker"
+            <Picker x:Name="categoriaAporte"
         Title="Seleccionar Categoría de aporte"
-        >
+      SelectedIndexChanged="Categoria_SelectedIndexChanged"  >
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Producto</x:String>
@@ -25,24 +25,25 @@
                         <x:String>Concepto de Negocio</x:String>
                     </x:Array>
                 </Picker.ItemsSource>
-            </Picker>            <Picker x:Name="picker2"
-        Title="Seleccionar Tipo de aporte"
+            </Picker>          
+            <Picker x:Name="tipoAporte"
+        Title="Seleccionar Tipo de aporte" SelectedIndexChanged="Tipo_SelectedIndexChanged"
         >
-                <Picker.ItemsSource>
+                <Picker.ItemsSource   >
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Recomendación</x:String>
-                        <x:String>Idea</x:String>
                         <x:String>Sugerencia</x:String>
+                        <x:String>Idea</x:String>
                         <x:String>Queja</x:String>
 
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>
 
-            <StackLayout RadioButtonGroup.GroupName="calificacion">
+            <StackLayout RadioButtonGroup.GroupName="calificacion" RadioButtonGroup.SelectedValue="{Binding Calificacion}">
                 <Label Text="Calificación" />
                 <RadioButton Content="Excelente" Value="1" />
-                <RadioButton Content="Muy Bueno" Value="0" />
+                <RadioButton Content="Muy Bueno" Value="2" />
                 <RadioButton Content="Bueno" Value="3"/>
                 <RadioButton Content="Regular" Value="4"/>
                 <RadioButton Content="Malo" Value="5"/>
