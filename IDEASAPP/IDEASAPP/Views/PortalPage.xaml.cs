@@ -12,10 +12,18 @@ namespace IDEASAPP.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PortalPage : ContentPage
     {
-        public PortalPage()
+		PortalViewModel _viewModel;
+		public PortalPage()
         {
             InitializeComponent();
-            this.BindingContext = new PortalViewModel();
+			BindingContext = _viewModel = new PortalViewModel();
         }
-    }
+
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+			_viewModel.OnAppearing();
+
+		}
+	}
 }

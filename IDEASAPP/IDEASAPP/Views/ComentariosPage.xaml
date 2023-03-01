@@ -14,9 +14,9 @@
 
             <StackLayout Orientation="Horizontal" >
 
-                <Label Text="8.0" TextColor="#5662DE" FontSize="35" FontFamily="Outfit" VerticalOptions="EndAndExpand" HorizontalOptions="StartAndExpand"/>
+                <Label Text="{Binding CalificacionEmpresa}" TextColor="#5662DE" FontSize="35" FontFamily="Outfit" VerticalOptions="EndAndExpand" HorizontalOptions="StartAndExpand"/>
                 <Image Source="../i_cuenta_peq.png" HorizontalOptions="End" VerticalOptions="EndAndExpand" />
-                <Label Text="reseñas(70)" TextColor="#1F1F1F" FontSize="14" FontFamily="Outfit" VerticalOptions="EndAndExpand" HorizontalOptions="End"/>
+                <Label Text="{Binding NumeroAportes}" TextColor="#1F1F1F" FontSize="14" FontFamily="Outfit" VerticalOptions="EndAndExpand" HorizontalOptions="End"/>
 
             </StackLayout>
             <Image Source="../img_barras.png" HorizontalOptions="Center" Aspect="AspectFill" />

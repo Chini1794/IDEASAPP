@@ -24,12 +24,12 @@ namespace IDEASAPP.Views
 		void Categoria_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
 			var selectedOption = (sender as Picker).SelectedIndex;
-			_viewModel.CategoriaAporte = selectedOption+1;
+			_viewModel.CategoriaAporte = Convert.ToString(selectedOption +1);
 		}	
 		void Tipo_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
 			var selectedOption = (sender as Picker).SelectedIndex;
-			_viewModel.TipoAporte = selectedOption+1;
+			_viewModel.TipoAporte = Convert.ToString(selectedOption + 1);
 		}
 	}
 }

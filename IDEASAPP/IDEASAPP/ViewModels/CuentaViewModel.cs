@@ -17,9 +17,11 @@ namespace IDEASAPP.ViewModels
         }
 
         private async void OnCerrarTapped(object obj)
-            
-        {
 
+		{
+			Application.Current.Properties["idUsuario"] = "";
+			Application.Current.Properties["sesion"] = "";
+			await Application.Current.SavePropertiesAsync();
 			await Shell.Current.GoToAsync($"//portal");
            
 

@@ -68,7 +68,8 @@ namespace IDEASAPP.ViewModels
 			{
 				PersonaMiembro persona = await GetPersonaUser(Username);
 				Application.Current.Properties["idUsuario"] = persona.Id;
-
+				Application.Current.Properties["sesion"] = "UsuarioMiembro";
+				await Application.Current.SavePropertiesAsync();
 				Username = "";
                 Password = "";
 				await Shell.Current.GoToAsync($"//about");

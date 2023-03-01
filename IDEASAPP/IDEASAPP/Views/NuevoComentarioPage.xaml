@@ -6,54 +6,74 @@
              Title="New Item"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="true">
-    <ContentPage.Content>
-        <StackLayout Spacing="3" Padding="15">
 
-            <Label FontSize="26" Text="Nuevo Aporte" FontAttributes="Bold" Margin="10,10,0,20"/>
+    <Grid BackgroundColor="#5662DE">
 
 
+        <StackLayout >
 
-            <Picker x:Name="categoriaAporte"
-        Title="Seleccionar Categoría de aporte"
+            <Frame x:Name="Login"
+                   Style="{StaticResource NuevoAporte}">
+                <StackLayout  Padding="20">
+
+                    <Label FontSize="26" Text="Nuevo Aporte" FontFamily="Outfit" FontAttributes="Bold" Margin="10" HorizontalOptions="Center"
+                   />
+
+
+                    <Frame Style="{StaticResource InputLogin}" Padding = "5" IsClippedToBounds="true" >
+                        <Picker x:Name="categoriaAporte"
+        Title="Categoría de aporte"
       SelectedIndexChanged="Categoria_SelectedIndexChanged"  >
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Producto</x:String>
-                        <x:String>Servicio</x:String>
-                        <x:String>Ubicación</x:String>
-                        <x:String>Estado del Local</x:String>
-                        <x:String>Concepto de Negocio</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>          
-            <Picker x:Name="tipoAporte"
-        Title="Seleccionar Tipo de aporte" SelectedIndexChanged="Tipo_SelectedIndexChanged"
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Producto</x:String>
+                                    <x:String>Servicio</x:String>
+                                    <x:String>Ubicación</x:String>
+                                    <x:String>Estado del Local</x:String>
+                                    <x:String>Concepto de Negocio</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+
+                    </Frame>
+                    <Frame Style="{StaticResource InputLogin}" Padding = "5" IsClippedToBounds="true" >
+                        <Picker x:Name="tipoAporte"
+        Title="Tipo de aporte" SelectedIndexChanged="Tipo_SelectedIndexChanged"
         >
-                <Picker.ItemsSource   >
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Recomendación</x:String>
-                        <x:String>Sugerencia</x:String>
-                        <x:String>Idea</x:String>
-                        <x:String>Queja</x:String>
+                            <Picker.ItemsSource   >
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Recomendación</x:String>
+                                    <x:String>Sugerencia</x:String>
+                                    <x:String>Idea</x:String>
+                                    <x:String>Queja</x:String>
 
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                    </Frame>
+                    <Frame Style="{StaticResource InputLogin}" Padding = "5" IsClippedToBounds="true" >
+                        <StackLayout RadioButtonGroup.GroupName="calificacion" RadioButtonGroup.SelectedValue="{Binding Calificacion}">
+                            <Label Text="Calificación" FontSize="18"/>
+                            <RadioButton Content="Excelente" Value="1" />
+                            <RadioButton Content="Muy Bueno" Value="2" />
+                            <RadioButton Content="Bueno" Value="3"/>
+                            <RadioButton Content="Regular" Value="4"/>
+                            <RadioButton Content="Malo" Value="5"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Style="{StaticResource InputLogin}" Padding = "5" IsClippedToBounds="true" >
+                        <Editor Text="{Binding Description, Mode=TwoWay}" HeightRequest="200" FontSize="Medium" Margin="0"  Placeholder="Comentario:"/>
+                    </Frame>
+                    <StackLayout Orientation="Horizontal">
+                        <Button Text="Cancelar" Command="{Binding CancelCommand}" CornerRadius="14" HorizontalOptions="FillAndExpand" ></Button>
+                        <Button Text="Enviar" Command="{Binding SaveCommand}" CornerRadius="14" HorizontalOptions="FillAndExpand" ></Button>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
 
-            <StackLayout RadioButtonGroup.GroupName="calificacion" RadioButtonGroup.SelectedValue="{Binding Calificacion}">
-                <Label Text="Calificación" />
-                <RadioButton Content="Excelente" Value="1" />
-                <RadioButton Content="Muy Bueno" Value="2" />
-                <RadioButton Content="Bueno" Value="3"/>
-                <RadioButton Content="Regular" Value="4"/>
-                <RadioButton Content="Malo" Value="5"/>
-            </StackLayout>
-            <Editor Text="{Binding Description, Mode=TwoWay}" HeightRequest="200" FontSize="Medium" Margin="0"  Placeholder="Comentario:"/>
-            <StackLayout Orientation="Horizontal">
-                <Button Text="Cancelar" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
-                <Button Text="Guardar" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
-            </StackLayout>
         </StackLayout>
-    </ContentPage.Content>
+
+        </Grid>
+
     
 </ContentPage>

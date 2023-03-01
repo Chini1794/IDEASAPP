@@ -36,6 +36,7 @@ namespace IDEASAPP.ViewModels
 			LoadAportesCommand = new Command(async () => await LoadAportes());
 
 		}
+
 		async Task LoadAportes()
 		{
 

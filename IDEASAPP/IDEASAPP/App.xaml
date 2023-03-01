@@ -209,6 +209,24 @@
                 <Setter Property="Background"
                         Value="#F4F4F4;"></Setter>
             </Style>
+
+
+            <Style x:Key="NuevoAporte"
+                   TargetType="Frame">
+                <Setter Property="Margin"
+                        Value="10"></Setter>
+                <Setter Property="Background"
+                        Value="linear-gradient(180deg, rgba(255, 255, 255, 0.688) 0%, rgba(255, 255, 255, 0.344) 100%);"></Setter>
+                <Setter Property="HasShadow"
+                        Value="True"></Setter>
+
+                <Setter Property="WidthRequest"
+                        Value="363"></Setter>
+                <Setter Property="CornerRadius"
+                        Value="18"></Setter>
+
+
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
