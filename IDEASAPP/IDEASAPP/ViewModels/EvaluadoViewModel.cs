@@ -15,146 +15,45 @@ namespace IDEASAPP.ViewModels
 	public class EvaluadoViewModel : BaseViewModel
 	{
 		public ObservableCollection<Aporte> Aportes { get; }
-
 		public Command LoadAportesCommand { get; }
+
 		public EvaluadoViewModel()
 		{
 			Aportes = new ObservableCollection<Aporte>();
 			LoadAportesCommand = new Command(async () => await LoadAportes());
 		}
+
 		async Task LoadAportes()
 		{
-
+			Aportes.Clear();
 			ObservableCollection<Aporte> aux = new ObservableCollection<Aporte>();
-			ObservableCollection<AportesPersona> aportesPersona = new ObservableCollection<AportesPersona>();
 
-
-
-			aportesPersona = await GetAportesPersona(Convert.ToInt32(Application.Current.Properties["idUsuario"]));
+			var aportesPersona = await GetAportesPersona(Convert.ToInt32(Application.Current.Properties["idUsuario"]));
 
 			foreach (AportesPersona aportePersona in aportesPersona)
 			{
-				Aporte aporte = await GetAporte(aportePersona.CAporte);
-				aux.Add(aporte);
+				Aporte aporte = await AporteDataStore.GetItemAsync(aportePersona.CAporte);
+				Calificacion calificacion = await CalificacionDataStore.GetItemAsync(aporte.CCalificacion);
+				CategoriaAporte categoriaAporte = await CategoriaAporteDataStore.GetItemAsync(aporte.CCategoriaAporte);
+				Estado estado = await EstadoDataStore.GetItemAsync(aporte.CEstado);
+				TipoAporte tipoAporte = await TipoAporteDataStore.GetItemAsync(aporte.CTipoAporte);
+				NegocioMiembro negocio = await NegocioMiembroDataStore.GetItemAsync(aporte.CNegocio);
+				aporte.SourceFoto = ImageSource.FromStream(() => new MemoryStream(negocio.DFoto));
+				aporte.NombreEmpresa = negocio.DNombreComercial;
+				aporte.VistaCalificacion = calificacion.DDescripcion;
+				aporte.VistaCategoriaAporte = categoriaAporte.DCategoriaAporte;
+				aporte.VistaEstado = estado.DEstado;
+				aporte.VistaTipoAporte = tipoAporte.DTipoAporte;
+
+				Aportes.Add(aporte);
 			}
-
-			Aportes.Clear();
-
-
-			foreach (var item in aux.OrderByDescending(x => x.FechaAporte))
-			{
-				Calificacion calificacion = await GetCalificacion(item.CCalificacion);
-				CategoriaAporte categoriaAporte = await GetCategoriaAporte(item.CCategoriaAporte);
-				Estado estado = await GetEstado(item.CEstado);
-				TipoAporte tipoAporte = await GetTipoAporte(item.CTipoAporte);
-
-				NegocioMiembro negocio = await GetNegocioMiembro(item.CNegocio);
-				item.SourceFoto = ImageSource.FromStream(() => new MemoryStream(negocio.DFoto));
-				item.NombreEmpresa = negocio.DNombreComercial;
-				item.VistaCalificacion = calificacion.DDescripcion;
-				item.VistaCategoriaAporte = categoriaAporte.DCategoriaAporte;
-				item.VistaEstado = estado.DEstado;
-				item.VistaTipoAporte = tipoAporte.DTipoAporte;
-
-				Aportes.Add(item);
-
-			}
-
-
 		}
 
-		async Task<NegocioMiembro> GetNegocioMiembro(int idPersona)
-		{
 
-			var request = new HttpRequestMessage();
-			request.RequestUri = new Uri("https://felino.vitalit.co.cr/api/api/NegocioMiembro/" + idPersona);
-			request.Method = HttpMethod.Get;
-
-			var client = new HttpClient();
-			HttpResponseMessage response = await client.SendAsync(request);
-
-			string content = await response.Content.ReadAsStringAsync();
-			var resultado = JsonConvert.DeserializeObject<NegocioMiembro>(content);
-
-			return resultado;
-
-		}
-		async Task<Calificacion> GetCalificacion(int id)
-		{
-
-			var request = new HttpRequestMessage();
-			request.RequestUri = new Uri("https://felino.vitalit.co.cr/api/api/Calificacion/" + id);
-			request.Method = HttpMethod.Get;
-
-			var client = new HttpClient();
-			HttpResponseMessage response = await client.SendAsync(request);
-
-			string content = await response.Content.ReadAsStringAsync();
-			var resultado = JsonConvert.DeserializeObject<Calificacion>(content);
-
-			return resultado;
-
-		}
-		async Task<CategoriaAporte> GetCategoriaAporte(int id)
-		{
-
-			var request = new HttpRequestMessage();
-			request.RequestUri = new Uri("https://felino.vitalit.co.cr/api/api/CategoriaAporte/" + id);
-			request.Method = HttpMethod.Get;
-
-			var client = new HttpClient();
-			HttpResponseMessage response = await client.SendAsync(request);
-
-			string content = await response.Content.ReadAsStringAsync();
-			var resultado = JsonConvert.DeserializeObject<CategoriaAporte>(content);
-
-			return resultado;
-
-		}
-		async Task<Estado> GetEstado(int id)
-		{
-
-			var request = new HttpRequestMessage();
-			request.RequestUri = new Uri("https://felino.vitalit.co.cr/api/api/Estado/" + id);
-			request.Method = HttpMethod.Get;
-
-			var client = new HttpClient();
-			HttpResponseMessage response = await client.SendAsync(request);
-
-			string content = await response.Content.ReadAsStringAsync();
-			var resultado = JsonConvert.DeserializeObject<Estado>(content);
-
-			return resultado;
-
-		}
-		async Task<TipoAporte> GetTipoAporte(int id)
-		{
-
-			var request = new HttpRequestMessage();
-			request.RequestUri = new Uri("https://felino.vitalit.co.cr/api/api/TipoAporte/" + id);
-			request.Method = HttpMethod.Get;
-
-			var client = new HttpClient();
-			HttpResponseMessage response = await client.SendAsync(request);
-
-			string content = await response.Content.ReadAsStringAsync();
-			var resultado = JsonConvert.DeserializeObject<TipoAporte>(content);
-
-			return resultado;
-
-		}
 		async Task<ObservableCollection<AportesPersona>> GetAportesPersona(int idPersona)
 		{
 			ObservableCollection<AportesPersona> aportesPersona = new ObservableCollection<AportesPersona>();
-			var request = new HttpRequestMessage();
-			request.RequestUri = new Uri("https://felino.vitalit.co.cr/api/api/AportesPersona");
-			request.Method = HttpMethod.Get;
-
-			var client = new HttpClient();
-			HttpResponseMessage response = await client.SendAsync(request);
-
-			string content = await response.Content.ReadAsStringAsync();
-			var resultado = JsonConvert.DeserializeObject<ObservableCollection<AportesPersona>>(content);
+			var resultado = await AportesPersonaDataStore.GetItemsAsync();
 
 			foreach (var item in resultado)
 			{
@@ -165,22 +64,6 @@ namespace IDEASAPP.ViewModels
 			}
 
 			return aportesPersona;
-
-		}
-		async Task<Aporte> GetAporte(int idAporte)
-		{
-
-			var request = new HttpRequestMessage();
-			request.RequestUri = new Uri("https://felino.vitalit.co.cr/api/api/Aporte/" + idAporte);
-			request.Method = HttpMethod.Get;
-
-			var client = new HttpClient();
-			HttpResponseMessage response = await client.SendAsync(request);
-
-			string content = await response.Content.ReadAsStringAsync();
-			var resultado = JsonConvert.DeserializeObject<Aporte>(content);
-
-			return resultado;
 
 		}
 

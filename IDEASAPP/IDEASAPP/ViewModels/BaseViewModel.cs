@@ -10,9 +10,21 @@ namespace IDEASAPP.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+		public IDataStore<NegocioMiembro> NegocioMiembroDataStore => DependencyService.Get<IDataStore<NegocioMiembro>>();
+		public IDataStore<Aporte> AporteDataStore => DependencyService.Get<IDataStore<Aporte>>();
+		public IDataStore<AportesPersona> AportesPersonaDataStore => DependencyService.Get<IDataStore<AportesPersona>>();
+		public IDataStore<AportesAnonimo> AportesAnonimoDataStore => DependencyService.Get<IDataStore<AportesAnonimo>>();
+		public IDataStore<PersonaMiembro> PersonaMiembroDataStore => DependencyService.Get<IDataStore<PersonaMiembro>>();
+		public IDataStore<AnonimoMiembro> AnonimoMiembroDataStore => DependencyService.Get<IDataStore<AnonimoMiembro>>();
+		public IDataStore<Calificacion> CalificacionDataStore => DependencyService.Get<IDataStore<Calificacion>>();
+		public IDataStore<CategoriaAporte> CategoriaAporteDataStore => DependencyService.Get<IDataStore<CategoriaAporte>>();
+		public IDataStore<Estado> EstadoDataStore => DependencyService.Get<IDataStore<Estado>>();
+		public IDataStore<TipoAporte> TipoAporteDataStore => DependencyService.Get<IDataStore<TipoAporte>>();
+		public IDataStore<Promocion> PromocionDataStore => DependencyService.Get<IDataStore<Promocion>>();
+		public IDataStore<Login> LoginDataStore => DependencyService.Get<IDataStore<Login>>();
 
-        bool isBusy = false;
+
+		bool isBusy = false;
         public bool IsBusy
         {
             get { return isBusy; }

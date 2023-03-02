@@ -19,7 +19,7 @@ namespace IDEASAPP.ViewModels
 	class EmpresaViewModel : BaseViewModel
 	{
 		public ObservableCollection<Aporte> AportesEmpresa { get; }
-		private string empresaId;
+		private int empresaId;
 		private string nombre;
 		private string direccion;
 		private string descripcion;
@@ -37,35 +37,68 @@ namespace IDEASAPP.ViewModels
 
 		}
 
+		public string Nombre
+		{
+			get => nombre;
+			set => SetProperty(ref nombre, value);
+		}
+		public int NumeroAportes
+		{
+			get => numeroAportes;
+			set => SetProperty(ref numeroAportes, value);
+		}
+
+		public string Direccion
+		{
+			get => direccion;
+			set => SetProperty(ref direccion, value);
+		}
+		public string Descripcion
+		{
+			get => descripcion;
+			set => SetProperty(ref descripcion, value);
+		}
+		public ImageSource EmpresaFoto
+		{
+			get => empresaFoto;
+			set => SetProperty(ref empresaFoto, value);
+		}
+
+
+		public int EmpresaId
+		{
+			get
+			{
+				return empresaId;
+			}
+			set
+			{
+				empresaId = value;
+				LoadEmpresaId(value);
+			}
+		}
+
 		async Task LoadAportes()
 		{
-
-			ObservableCollection<Aporte> aux = new ObservableCollection<Aporte>();
-			var request = new HttpRequestMessage();
-			request.RequestUri = new Uri("https://felino.vitalit.co.cr/api/api/Aporte");
-			request.Method = HttpMethod.Get;
-
-			var client = new HttpClient();
-			HttpResponseMessage response = await client.SendAsync(request);
 			AportesEmpresa.Clear();
 
-			string content = await response.Content.ReadAsStringAsync();
-			var resultado = JsonConvert.DeserializeObject<ObservableCollection<Aporte>>(content).OrderByDescending(x => x.FechaAporte);
+			ObservableCollection<Aporte> aux = new ObservableCollection<Aporte>();
 
-			foreach (var item in resultado)
+			var resultado = await AporteDataStore.GetItemsAsync(); 
+
+			foreach (var item in resultado.OrderByDescending(x => x.FechaAporte))
 			{
-				if (item.CNegocio == Convert.ToInt64(EmpresaId))
+				if (item.CNegocio == Convert.ToInt32(EmpresaId))
 				{
-					AportesPersona aportePersona = await GetAportePersona(item.Id);
+					AportesPersona aportePersona = await GetAportesPersona(item.Id);
 					if (aportePersona == null)
 					{
-
 						item.NombrePersona = "Anonimo";
 						item.SourceFoto = "../i_cuenta.png";
 					}
 					else
 					{
-						PersonaMiembro persona = await GetPersonaMiembro(aportePersona.CPersona);
+						PersonaMiembro persona = await PersonaMiembroDataStore.GetItemAsync(aportePersona.CPersona);
 						item.NombrePersona = persona.DNombre;
 						item.SourceFoto = ImageSource.FromStream(() => new MemoryStream(persona.DFoto));
 
@@ -80,17 +113,10 @@ namespace IDEASAPP.ViewModels
 	
 		}
 
-		async Task<AportesPersona> GetAportePersona(int idAporte)
+		async Task<AportesPersona> GetAportesPersona(int idAporte)
 		{
-			var request = new HttpRequestMessage();
-			request.RequestUri = new Uri("https://felino.vitalit.co.cr/api/api/AportesPersona");
-			request.Method = HttpMethod.Get;
 
-			var client = new HttpClient();
-			HttpResponseMessage response = await client.SendAsync(request);
-
-			string content = await response.Content.ReadAsStringAsync();
-			var resultado = JsonConvert.DeserializeObject<ObservableCollection<AportesPersona>>(content);
+			var resultado =  await AportesPersonaDataStore.GetItemsAsync();
 
 			foreach (var item in resultado)
 			{
@@ -102,74 +128,15 @@ namespace IDEASAPP.ViewModels
 
 			return null;
 
-		}	
-		async Task<PersonaMiembro> GetPersonaMiembro(int idPersona)
-		{
-
-			var request = new HttpRequestMessage();
-			request.RequestUri = new Uri("https://felino.vitalit.co.cr/api/api/PersonaMiembro/"+idPersona);
-			request.Method = HttpMethod.Get;
-
-			var client = new HttpClient();
-			HttpResponseMessage response = await client.SendAsync(request);
-
-			string content = await response.Content.ReadAsStringAsync();
-			var resultado = JsonConvert.DeserializeObject<PersonaMiembro>(content);
-
-			return resultado;
-
-		}
-		public string Nombre
-		{
-			get => nombre;
-			set => SetProperty(ref nombre, value);
-		}	
-		public int NumeroAportes
-		{
-			get => numeroAportes;
-			set => SetProperty(ref numeroAportes, value);
-		}
-
-		public string Direccion
-		{
-			get => direccion;
-			set => SetProperty(ref direccion, value);
-		}	
-		public string Descripcion
-		{
-			get => descripcion;
-			set => SetProperty(ref descripcion, value);
-		}	
-		public ImageSource EmpresaFoto
-		{
-			get => empresaFoto;
-			set => SetProperty(ref empresaFoto, value);
 		}
 
 
-		public string EmpresaId
-		{
-			get
-			{
-				return empresaId;
-			}
-			set
-			{
-				empresaId = value;
-				LoadEmpresaId(value);
-			}
-		}
 		private async Task<int> GetNumeroAportes(int empresa)
 		{
 			int contador = 0;
-			var request = new HttpRequestMessage();
-			request.RequestUri = new Uri("https://felino.vitalit.co.cr/api/api/Aporte");
-			request.Method = HttpMethod.Get;
 
-			var client = new HttpClient();
-			HttpResponseMessage response = await client.SendAsync(request);
-			string content = await response.Content.ReadAsStringAsync();
-			var resultado = JsonConvert.DeserializeObject<ObservableCollection<Aporte>>(content);
+			var resultado = await AporteDataStore.GetItemsAsync();
+
 			foreach (var item in resultado)
 			{
 				if (item.CNegocio == empresa)
@@ -179,19 +146,10 @@ namespace IDEASAPP.ViewModels
 			}
 			return contador;
 		}
-		public async void LoadEmpresaId(string empresaId)
+
+		public async void LoadEmpresaId(int empresaId)
 		{
-			var request = new HttpRequestMessage();
-			request.RequestUri = new Uri("https://felino.vitalit.co.cr/api/api/NegocioMiembro/"+empresaId);
-			request.Method = HttpMethod.Get;
-
-			var client = new HttpClient();
-			HttpResponseMessage response = await client.SendAsync(request);
-			string content = await response.Content.ReadAsStringAsync();
-			var resultado = JsonConvert.DeserializeObject<NegocioMiembro>(content);
-			NegocioMiembro negocio = resultado;
-
-			
+			var negocio = await NegocioMiembroDataStore.GetItemAsync(empresaId);
 
 			Nombre = negocio.DNombreComercial;
 			Direccion = negocio.DDireccion;

@@ -10,10 +10,11 @@ using Xamarin.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using IDEASAPP.Services;
 
 namespace IDEASAPP.ViewModels
 {
-    public class LoginViewModel : INotifyPropertyChanged
+    public class LoginViewModel : BaseViewModel
     {
         public Command LoginCommand { get; }
         public Command RegistroCommand { get; }
@@ -25,46 +26,30 @@ namespace IDEASAPP.ViewModels
 
         }
 
-		public event PropertyChangedEventHandler PropertyChanged;
-
-
         private string username;
 
-        public string Username { 
-            get{ return username; }
-            set
-            {
-                username = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Username"));
-            }
-        }
+        public string Username {
+			get => username;
+			set => SetProperty(ref username, value);
+		}
 		private string password;
 
 		public string Password
 		{
-			get { return password; }
-			set
-			{
-				password = value;
-				PropertyChanged(this, new PropertyChangedEventArgs("Password"));
-			}
+			get => password;
+			set => SetProperty(ref password, value);
 		}
-		private async void OnLoginClicked(object obj)
+		private async void OnLoginClicked()
         {
-
 			Login log = new Login
 			{
 				CIdMiembro = Username,
 				DContrasena = Password
 			};
-			Uri requestUri = new Uri("https://felino.vitalit.co.cr/api/api/Login");
-			var client = new HttpClient();
-			var json = JsonConvert.SerializeObject(log);
-			var contentJson = new StringContent(json, Encoding.UTF8, "application/json");
 
-			var response = await client.PostAsync(requestUri, contentJson);
+			var response = await LoginDataStore.AddItemAsync(log);
 
-			if (response.StatusCode == HttpStatusCode.OK)
+			if (response)
 			{
 				PersonaMiembro persona = await GetPersonaUser(Username);
 				Application.Current.Properties["idUsuario"] = persona.Id;
@@ -81,28 +66,18 @@ namespace IDEASAPP.ViewModels
 				await Application.Current.MainPage.DisplayAlert("Mensaje", "Datos Invalidos", "OK");
 			}
         }
-
 		async Task<PersonaMiembro> GetPersonaUser(string user)
 		{
 			PersonaMiembro persona = new PersonaMiembro();
-			var request = new HttpRequestMessage();
-			request.RequestUri = new Uri("https://felino.vitalit.co.cr/api/api/PersonaMiembro/");
-			request.Method = HttpMethod.Get;
 
-			var client = new HttpClient();
-			HttpResponseMessage response = await client.SendAsync(request);
-
-			string content = await response.Content.ReadAsStringAsync();
-			var resultado = JsonConvert.DeserializeObject<ObservableCollection<PersonaMiembro>>(content);
+			var resultado = await PersonaMiembroDataStore.GetItemsAsync();
 
 			foreach (PersonaMiembro obj in resultado) {
 				if (obj.CIdMiembro == user)
 				{
 					persona = obj;
-				}
-			
+				}			
 			}
-
 			return persona;
 
 		}

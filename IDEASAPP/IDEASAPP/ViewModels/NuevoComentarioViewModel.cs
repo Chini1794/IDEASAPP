@@ -63,15 +63,8 @@ namespace IDEASAPP.ViewModels
 
 		public string EmpresaId
 		{
-			get
-			{
-				return empresaId;
-			}
-			set
-			{
-				empresaId = value;
-				LoadEmpresaId(value);
-			}
+			get => empresaId;
+			set => SetProperty(ref empresaId, value);
 		}
 
 		private string categoriaAporte;
@@ -115,23 +108,23 @@ namespace IDEASAPP.ViewModels
 				CEstado = 1,
 			};
 
-			Uri requestUri = new Uri("https://felino.vitalit.co.cr/api/api/Aporte");
-			var client = new HttpClient();
-			var json = JsonConvert.SerializeObject(nuevoAporte);
-			var contentJson = new StringContent(json, Encoding.UTF8, "application/json");
+			var response = await AporteDataStore.AddItemAsync(nuevoAporte);
 
-			var response = await client.PostAsync(requestUri, contentJson);
 
-			Aporte aporteAgregado = await GetLastAporte();
-			if (response.StatusCode == HttpStatusCode.OK)
+			if (response)
 			{
+				var aportesPersona = await AporteDataStore.GetItemsAsync();
+				Aporte aporteAgregado = aportesPersona.Last();
+
 				if (Application.Current.Properties["sesion"].Equals("UsuarioMiembro"))
 				{
 					AportesPersona aportePersona = new AportesPersona();
 					aportePersona.CPersona = (int)Application.Current.Properties["idUsuario"];
 					aportePersona.CAporte = aporteAgregado.Id;
-					HttpResponseMessage responsePersona = await AgregarAportePersona(aportePersona);
-					if (responsePersona.StatusCode == HttpStatusCode.OK)
+
+					var responsePersona = await AportesPersonaDataStore.AddItemAsync(aportePersona);
+
+					if (responsePersona)
 					{
 						await Shell.Current.GoToAsync($"..");
 					}
@@ -147,8 +140,8 @@ namespace IDEASAPP.ViewModels
 					AportesAnonimo aporteAnonimo = new AportesAnonimo();
 					aporteAnonimo.CAnonimo = (int)Application.Current.Properties["idUsuario"];
 					aporteAnonimo.CAporte = aporteAgregado.Id;
-					HttpResponseMessage responseAnonimo = await AgregarAporteAnonimo(aporteAnonimo);
-					if (responseAnonimo.StatusCode == HttpStatusCode.OK)
+					var responseAnonimo = await AportesAnonimoDataStore.AddItemAsync(aporteAnonimo);
+					if (responseAnonimo)
 					{
 						await Shell.Current.GoToAsync($"..");
 					}
@@ -158,9 +151,6 @@ namespace IDEASAPP.ViewModels
 						await Application.Current.MainPage.DisplayAlert("Mensaje", "Error Inesperado", "OK");
 					}
 				}
-
-
-
 			}
 			else
 			{
@@ -168,57 +158,8 @@ namespace IDEASAPP.ViewModels
 				await Application.Current.MainPage.DisplayAlert("Mensaje", "Error Inesperado", "OK");
 			}
 		}
-		async Task<Aporte> GetLastAporte()
-		{
-			ObservableCollection<Aporte> aportesPersona = new ObservableCollection<Aporte>();
-			var request = new HttpRequestMessage();
-			request.RequestUri = new Uri("https://felino.vitalit.co.cr/api/api/Aporte");
-			request.Method = HttpMethod.Get;
-
-			var client = new HttpClient();
-			HttpResponseMessage response = await client.SendAsync(request);
-
-			string content = await response.Content.ReadAsStringAsync();
-			var resultado = JsonConvert.DeserializeObject<ObservableCollection<Aporte>>(content);
-
-
-			return resultado.Last();
-
 		}
-		private async Task<HttpResponseMessage> AgregarAportePersona(AportesPersona aportePersona)
-		{
 
-			Uri requestUri = new Uri("https://felino.vitalit.co.cr/api/api/AportesPersona");
-			var client = new HttpClient();
-			var json = JsonConvert.SerializeObject(aportePersona);
-			var contentJson = new StringContent(json, Encoding.UTF8, "application/json");
 
-			var response = await client.PostAsync(requestUri, contentJson);
-
-			return response;
-		}
-		private async Task<HttpResponseMessage> AgregarAporteAnonimo(AportesAnonimo aportesAnonimo)
-		{
-
-			Uri requestUri = new Uri("https://felino.vitalit.co.cr/api/api/AportesAnonimo");
-			var client = new HttpClient();
-			var json = JsonConvert.SerializeObject(aportesAnonimo);
-			var contentJson = new StringContent(json, Encoding.UTF8, "application/json");
-
-			var response = await client.PostAsync(requestUri, contentJson);
-
-			return response;
-		}
-		public async void LoadEmpresaId(string id)
-		{
-			var request = new HttpRequestMessage();
-			request.RequestUri = new Uri("https://felino.vitalit.co.cr/api/api/NegocioMiembro/" + id);
-			request.Method = HttpMethod.Get;
-
-			var client = new HttpClient();
-			HttpResponseMessage response = await client.SendAsync(request);
-			string content = await response.Content.ReadAsStringAsync();
-			var resultado = JsonConvert.DeserializeObject<NegocioMiembro>(content);
-		}
 	}
-}
+

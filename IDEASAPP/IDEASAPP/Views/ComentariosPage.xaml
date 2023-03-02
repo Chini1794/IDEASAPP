@@ -23,7 +23,8 @@
         </StackLayout>
         <CollectionView x:Name="AportesListView"
                 ItemsSource="{Binding AportesEmpresa}"
-                SelectionMode="None">
+                SelectionMode="None"
+                        >
         <CollectionView.ItemTemplate>
             <DataTemplate>
                 <StackLayout Padding="5" x:DataType="model:Aporte" Orientation="Vertical">

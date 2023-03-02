@@ -13,7 +13,18 @@ namespace IDEASAPP
         {
             InitializeComponent();
 
-			DependencyService.Register<MockDataStore>();
+			DependencyService.Register<NegocioMiembroDataStore>();
+			DependencyService.Register<AporteDataStore>();
+			DependencyService.Register<PersonaMiembroDataStore>();
+			DependencyService.Register<AnonimoMiembroDataStore>();
+			DependencyService.Register<AportesPersonaDataStore>();
+			DependencyService.Register<AportesAnonimoDataStore>();
+			DependencyService.Register<PromocionDataStore>();
+			DependencyService.Register<CalificacionDataStore>();
+			DependencyService.Register<CategoriaAporteDataStore>();
+			DependencyService.Register<EstadoDataStore>();
+			DependencyService.Register<TipoAporteDataStore>();
+			DependencyService.Register<LoginDataStore>();
 			MainPage = new AppShell();
 
 		}

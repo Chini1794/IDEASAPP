@@ -11,7 +11,6 @@ namespace IDEASAPP
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             Routing.RegisterRoute("portal/login", typeof(LoginPage));
             Routing.RegisterRoute("portal/registro", typeof(RegistroPage));
             Routing.RegisterRoute("about/busqueda", typeof(BusquedaPage));
