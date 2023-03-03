@@ -14,11 +14,48 @@ namespace IDEASAPP.Views
 	public partial class EvaluadoPage : ContentPage
 	{
 		EvaluadoViewModel _viewModel;
-		public EvaluadoPage ()
+		public EvaluadoPage()
 		{
-			InitializeComponent ();
+			InitializeComponent();
 			BindingContext = _viewModel = new EvaluadoViewModel();
-			_viewModel.LoadAportesCommand.Execute(this);
+			Enviados.IsChecked = true;
+
+		}
+		 void OnEnviadosCheckedChanged(object sender, CheckedChangedEventArgs e)
+		{
+			_viewModel.Aportes.Clear();
+			var check = (sender as RadioButton).IsChecked;
+			if (check == true)
+			{
+
+				_viewModel.LoadEnviadosCommand.Execute(this);
+
+			}
+		}
+	 void OnEnEsperaCheckedChanged(object sender, CheckedChangedEventArgs e)
+		{
+			_viewModel.Aportes.Clear();
+			var check = (sender as RadioButton).IsChecked;
+			if (check == true)
+			{
+				
+				_viewModel.LoadEnEsperaCommand.Execute(this);
+			}
+		}
+		 void OnRespondidosCheckedChanged(object sender, CheckedChangedEventArgs e)
+		{
+			_viewModel.Aportes.Clear();
+			var check = (sender as RadioButton).IsChecked;
+			if (check == true)
+			{
+				_viewModel.LoadRespondidosCommand.Execute(this);
+
+			}
+		}
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+			
 		}
 	}
 }

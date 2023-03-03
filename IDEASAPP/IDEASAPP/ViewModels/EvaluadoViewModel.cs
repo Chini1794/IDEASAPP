@@ -15,56 +15,117 @@ namespace IDEASAPP.ViewModels
 	public class EvaluadoViewModel : BaseViewModel
 	{
 		public ObservableCollection<Aporte> Aportes { get; }
-		public Command LoadAportesCommand { get; }
+		public Command LoadEnviadosCommand { get; }
+		public Command LoadEnEsperaCommand { get; }
+		public Command LoadRespondidosCommand { get; }
 
 		public EvaluadoViewModel()
 		{
 			Aportes = new ObservableCollection<Aporte>();
-			LoadAportesCommand = new Command(async () => await LoadAportes());
+			LoadEnviadosCommand = new Command(async () => await LoadEnviado());
+			LoadEnEsperaCommand = new Command(async () => await LoadEnEspera());
+			LoadRespondidosCommand = new Command(async () => await LoadRespondidos());
 		}
 
-		async Task LoadAportes()
+
+		 async Task LoadEnviado()
 		{
 			Aportes.Clear();
-			ObservableCollection<Aporte> aux = new ObservableCollection<Aporte>();
 
 			var aportesPersona = await GetAportesPersona(Convert.ToInt32(Application.Current.Properties["idUsuario"]));
 
-			foreach (AportesPersona aportePersona in aportesPersona)
+			foreach (Aporte aporte in aportesPersona.OrderByDescending(x => x.FechaAporte))
 			{
-				Aporte aporte = await AporteDataStore.GetItemAsync(aportePersona.CAporte);
-				Calificacion calificacion = await CalificacionDataStore.GetItemAsync(aporte.CCalificacion);
-				CategoriaAporte categoriaAporte = await CategoriaAporteDataStore.GetItemAsync(aporte.CCategoriaAporte);
-				Estado estado = await EstadoDataStore.GetItemAsync(aporte.CEstado);
-				TipoAporte tipoAporte = await TipoAporteDataStore.GetItemAsync(aporte.CTipoAporte);
-				NegocioMiembro negocio = await NegocioMiembroDataStore.GetItemAsync(aporte.CNegocio);
-				aporte.SourceFoto = ImageSource.FromStream(() => new MemoryStream(negocio.DFoto));
-				aporte.NombreEmpresa = negocio.DNombreComercial;
-				aporte.VistaCalificacion = calificacion.DDescripcion;
-				aporte.VistaCategoriaAporte = categoriaAporte.DCategoriaAporte;
-				aporte.VistaEstado = estado.DEstado;
-				aporte.VistaTipoAporte = tipoAporte.DTipoAporte;
+				if (aporte.CEstado == 1)
+				{
+					Estado estado = await EstadoDataStore.GetItemAsync(aporte.CEstado);
+					Calificacion calificacion = await CalificacionDataStore.GetItemAsync(aporte.CCalificacion);
+					CategoriaAporte categoriaAporte = await CategoriaAporteDataStore.GetItemAsync(aporte.CCategoriaAporte);
 
-				Aportes.Add(aporte);
+					TipoAporte tipoAporte = await TipoAporteDataStore.GetItemAsync(aporte.CTipoAporte);
+					NegocioMiembro negocio = await NegocioMiembroDataStore.GetItemAsync(aporte.CNegocio);
+					aporte.SourceFoto = ImageSource.FromStream(() => new MemoryStream(negocio.DFoto));
+					aporte.NombreEmpresa = negocio.DNombreComercial;
+					aporte.VistaCalificacion = calificacion.DDescripcion;
+					aporte.VistaCategoriaAporte = categoriaAporte.DCategoriaAporte;
+					aporte.VistaEstado = estado.DEstado;
+					aporte.VistaTipoAporte = tipoAporte.DTipoAporte;
+
+					Aportes.Add(aporte);
+				}
 			}
+
+		}
+		 async Task LoadEnEspera()
+		{
+			Aportes.Clear();
+
+			var aportesPersona = await GetAportesPersona(Convert.ToInt32(Application.Current.Properties["idUsuario"]));
+
+			foreach (Aporte aporte in aportesPersona.OrderByDescending(x => x.FechaAporte))
+			{
+				if (aporte.CEstado >= 2 && aporte.CEstado <= 3)
+				{
+					Estado estado = await EstadoDataStore.GetItemAsync(aporte.CEstado);
+					Calificacion calificacion = await CalificacionDataStore.GetItemAsync(aporte.CCalificacion);
+					CategoriaAporte categoriaAporte = await CategoriaAporteDataStore.GetItemAsync(aporte.CCategoriaAporte);
+
+					TipoAporte tipoAporte = await TipoAporteDataStore.GetItemAsync(aporte.CTipoAporte);
+					NegocioMiembro negocio = await NegocioMiembroDataStore.GetItemAsync(aporte.CNegocio);
+					aporte.SourceFoto = ImageSource.FromStream(() => new MemoryStream(negocio.DFoto));
+					aporte.NombreEmpresa = negocio.DNombreComercial;
+					aporte.VistaCalificacion = calificacion.DDescripcion;
+					aporte.VistaCategoriaAporte = categoriaAporte.DCategoriaAporte;
+					aporte.VistaEstado = estado.DEstado;
+					aporte.VistaTipoAporte = tipoAporte.DTipoAporte;
+
+					Aportes.Add(aporte);
+				}
+			}
+
 		}
 
-
-		async Task<ObservableCollection<AportesPersona>> GetAportesPersona(int idPersona)
+		 async Task LoadRespondidos()
 		{
-			ObservableCollection<AportesPersona> aportesPersona = new ObservableCollection<AportesPersona>();
+			Aportes.Clear();
+
+			var aportesPersona = await GetAportesPersona(Convert.ToInt32(Application.Current.Properties["idUsuario"]));
+
+			foreach (Aporte aporte in aportesPersona.OrderByDescending(x => x.FechaAporte))
+			{
+				if (aporte.CEstado != 5 && aporte.CEstado >= 4 && aporte.CEstado <= 9)
+				{
+					Estado estado = await EstadoDataStore.GetItemAsync(aporte.CEstado);
+					Calificacion calificacion = await CalificacionDataStore.GetItemAsync(aporte.CCalificacion);
+					CategoriaAporte categoriaAporte = await CategoriaAporteDataStore.GetItemAsync(aporte.CCategoriaAporte);
+					TipoAporte tipoAporte = await TipoAporteDataStore.GetItemAsync(aporte.CTipoAporte);
+					NegocioMiembro negocio = await NegocioMiembroDataStore.GetItemAsync(aporte.CNegocio);
+					aporte.SourceFoto = ImageSource.FromStream(() => new MemoryStream(negocio.DFoto));
+					aporte.NombreEmpresa = negocio.DNombreComercial;
+					aporte.VistaCalificacion = calificacion.DDescripcion;
+					aporte.VistaCategoriaAporte = categoriaAporte.DCategoriaAporte;
+					aporte.VistaEstado = estado.DEstado;
+					aporte.VistaTipoAporte = tipoAporte.DTipoAporte;
+
+					Aportes.Add(aporte);
+				}
+			}
+
+		}
+		async Task<ObservableCollection<Aporte>> GetAportesPersona(int idPersona)
+		{
+			ObservableCollection<Aporte> aportes = new ObservableCollection<Aporte>();
 			var resultado = await AportesPersonaDataStore.GetItemsAsync();
 
 			foreach (var item in resultado)
 			{
 				if (item.CPersona == idPersona)
 				{
-					aportesPersona.Add(item);
+					Aporte aporte = await AporteDataStore.GetItemAsync(item.CAporte);
+					aportes.Add(aporte);
 				}
 			}
-
-			return aportesPersona;
-
+			return aportes;
 		}
 
 	}

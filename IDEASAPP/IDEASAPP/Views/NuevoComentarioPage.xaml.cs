@@ -18,7 +18,7 @@ namespace IDEASAPP.Views
             InitializeComponent();
 			BindingContext = _viewModel = new NuevoComentarioViewModel();
 
-
+			
 		}
 
 		void Categoria_SelectedIndexChanged(object sender, System.EventArgs e)

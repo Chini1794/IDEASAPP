@@ -16,8 +16,7 @@
                    Style="{StaticResource NuevoAporte}">
                 <StackLayout  Padding="20">
 
-                    <Label FontSize="26" Text="Nuevo Aporte" FontFamily="Outfit" FontAttributes="Bold" Margin="10" HorizontalOptions="Center"
-                   />
+                    <Label FontSize="26" Text="Nuevo Aporte" FontFamily="Outfit" FontAttributes="Bold" Margin="10" HorizontalOptions="Center" />
 
 
                     <Frame Style="{StaticResource InputLogin}" Padding = "5" IsClippedToBounds="true" >

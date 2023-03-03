@@ -38,11 +38,13 @@
 
                 </StackLayout>
             </Frame>
-            <StackLayout RadioButtonGroup.GroupName="calificacion" Orientation="Horizontal" HorizontalOptions="Center">
+            <StackLayout RadioButtonGroup.GroupName="FiltroAportes" RadioButtonGroup.SelectedValue="{Binding FiltroAportes}" 
+                         Orientation="Horizontal" HorizontalOptions="Center"
+                          >
 
-                <RadioButton Content="Enviados" IsChecked="True"  Value="1" />
-                <RadioButton Content="En Espera" Value="2" />
-                <RadioButton  Content="Respondidos" Value="3"/>
+                <RadioButton CheckedChanged="OnEnviadosCheckedChanged" x:Name="Enviados" Content="Enviados"  Value="1" />
+                <RadioButton CheckedChanged="OnEnEsperaCheckedChanged"  Content="En Espera" Value="2" />
+                <RadioButton CheckedChanged="OnRespondidosCheckedChanged"  Content="Respondidos" Value="3"/>
 
             </StackLayout>
             <CollectionView x:Name="AportesListView"

@@ -14,7 +14,7 @@
                    Style="{StaticResource Busqueda}"
                    CornerRadius="36"
                    WidthRequest="0"
-                   HeightRequest="320"
+                   HeightRequest="220"
                    BackgroundColor="#5662DE"
                    Margin="0,-30,0,0">
                 <StackLayout  Margin="0,20,0,0">
@@ -35,21 +35,18 @@
                         </StackLayout>
 
                     </Frame>
-                    <Frame Style="{StaticResource InputAbout}" 
-                           Padding = "5" 
-                           IsClippedToBounds="true"
-                         HorizontalOptions="Center">
-                        <StackLayout RadioButtonGroup.GroupName="calificacion" Orientation="Horizontal" HorizontalOptions="Center">
 
-                            <RadioButton Content="Hoy" IsChecked="True"  Value="1" />
-                            <RadioButton Content="Semana" Value="2" />
-                            <RadioButton  Content="Mes" Value="3"/>
-
-                        </StackLayout>
-                    </Frame>
                 </StackLayout>
             </Frame>
 
+                <StackLayout RadioButtonGroup.GroupName="calificacion"  Orientation="Horizontal" HorizontalOptions="Center">
+
+                <RadioButton CheckedChanged="OnHoyCheckedChanged" x:Name="Hoy" Content="Hoy"  Value="1" />
+                <RadioButton CheckedChanged="OnSemanaCheckedChanged" Content="Semana" Value="2" />
+                <RadioButton CheckedChanged="OnMesCheckedChanged" Content="Mes" Value="3"/>
+
+                </StackLayout>
+       
             <CollectionView x:Name="PromocionesListView"
                 ItemsSource="{Binding Promociones}"
                 SelectionMode="None" Margin="15">

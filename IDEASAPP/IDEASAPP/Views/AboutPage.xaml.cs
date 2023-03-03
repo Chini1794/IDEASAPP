@@ -13,12 +13,12 @@ namespace IDEASAPP.Views
         {
             InitializeComponent();
 			BindingContext = _viewModel = new AboutViewModel();
-            _viewModel.LoadEmpresasCommand.Execute(this);
 
 		}
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
+			_viewModel.LoadEmpresasCommand.Execute(this);
 			_viewModel.OnAppearing();
 		}
 
